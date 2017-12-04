@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+
+        <title>NINJA TUNE 2017</title>
+
+        <meta name="description" content="..." />
+
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/lib/stats.min.js"></script>
+        <script type="text/javascript" src="js/lib/tombola.js"></script>
+        <script type="text/javascript" src="js/lib/colorflex.js"></script>
+        <script type="text/javascript" src="js/lib/canvas-noise.js"></script>
+        <script type="text/javascript" src="js/lib/perlin-simplex.js"></script>
+        <script type="text/javascript" src="js/lib/draw-grid.js"></script>
+        <script type="text/javascript" src="js/lib/webtype.js"></script>
+
+        <script type="text/javascript" src="js/UTILS.js"></script>
+        <script type="text/javascript" src="js/IMG.js"></script>
+        <script type="text/javascript" src="js/PACKSHOT.js"></script>
+        <script type="text/javascript" src="js/GLITCH.js"></script>
+        <script type="text/javascript" src="js/MAIN.js"></script>
+        <script type="text/javascript" src="js/METRICS.js"></script>
+        <script type="text/javascript" src="js/INTERACTION.js"></script>
+        <script type="text/javascript" src="js/html.js"></script>
+        <script type="text/javascript" src="js/content.js"></script>
+
+
+        <link href="css/webtype.css" rel="stylesheet" type="text/css" />
+        <link href="css/packshot.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="css/draw-grid.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,600,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+
+        <!--<link rel="shortcut icon" href="favicon.ico"/>-->
+        <link rel="image_src" type="image/png" href="thumb.jpg">
+    </head>
+
+
+    <body onload="init()" onresize="metrics()">
+        <!--<draw-grid data-margin='40' data-gutter='20' data-columns='12' data-color='#ff0000'></draw-grid>-->
+
+
+        <div id='index' class='mid'>
+            <div id='index-close' class='panel-close c-roll-bg-vertical'>&times;</div>
+            <div id='index-inner'>
+<a>ABRA</a>
+<a>Actress</a>
+<a>A.R.E. Project</a>
+<a>Bicep</a>
+<a>Bonobo</a>
+<a>The Bug vs Earth</a>
+<a>Coldcut x On-U Sound</a>
+<a>Dauwd</a>
+<a>EERA</a>
+<a id='test-index-link' data-index='1'>Forest Swords</a>
+<a>Helena Hauff</a>
+<a>Hype Williams</a>
+<a>Iglooghost</a>
+<a>Jameszoo</a>
+<a>Jordan Rakei</a>
+<a>Kutmah</a>
+<a>Lapalux</a>
+<a>Machinedrum</a>
+<a>Machine Woman</a>
+<a>Nathan Fake</a>
+<a>ODESZA</a>
+<a>Project Pablo</a>
+<a>Romare</a>
+<a>Thundercat</a>
+<a>UMFANG</a>
+<a>Visionist</a>
+<a>WEN</a>
+<a>Young Fathers</a>
+<a>Zomby</a>
+            </div>
+            <div id='index-az'>A-Z</div>
+            <div id='index-year'>2017</div>
+            <!--<img id='index-tt' src='img/TT_black_small.png'/>-->
+        </div>
+
+        <div id='page'>
+
+
+            <!-- BG CANVAS -->
+            <div class='canvas-wrap'>
+                <canvas id='canvas'></canvas>
+            </div>
+
+
+            <!-- UI -->
+            <div id='ui-block' class='in'>
+                <div id='index-button' class='mid'>
+                    <a id='index-open' class='c-roll-line' href='#'>Index</a>
+                </div>
+
+                <div id='mute-button' class='mid'>
+                    <a class='c-roll-line' href='#'>
+                        <div class='mute-line'></div>
+                        <div class='mute-line ml2'></div>
+                        <div class='mute-line ml3'></div>
+                        <div class='mute-line ml4'></div>
+                    </a>
+                </div>
+            </div>
+
+            <div id='percent-bar-container' class='ui in'>
+                <div class='percent-inner'>
+                    <div id='percent-bar'></div>
+                    <div class='percent-marker'></div>
+                </div>
+            </div>
+
+            <img id='ninja-logo' class='ui' src='img/TT_white_small.png' alt='Ninja Tune' />
+
+
+            <!-- INTRO -->
+            <div id='intro-block' class='screen-block in'>
+                <div class='wrap'>
+                    <div id='year' class='hide'>2017</div>
+
+                    <div id='explore-group' class='col-2 large-mid'>
+                        <div class='explore-stroke'></div>
+                        <div class='explore-line'></div>
+                        <a id='explore' class='t-down-top-center' href='#'>Explore 	&rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class='intro-scroll-space'></div>
+
+
+        </div>
+
+
+        <div id='project' class='open'>
+
+            <div id='page-grad'></div>
+
+            <a id='project-artists' class='ui mid c-roll-line'>Artists</a>
+
+            <div id='close-block' class='ui col-1 right-1'>
+                <div id='project-close'>
+                    <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
+                        <path d='M5 5 L95 95 M5 95 L95 5'  fill='none' stroke='currentColor' />
+                    </svg>
+                </div>
+                <div id='project-number-line'></div>
+                <div id='project-number-wrap'>
+                    <div id='project-number'>-</div>
+                </div>
+            </div>
+
+
+            <div id='project-head' class='screen-block'>
+                <div class='wrap'>
+                    <div id='project-headlines' class='col-7 left-1 stretch'>
+                        <h1 id='project-title'>-</h1>
+                        <h1 id='project-artist'>-</h1>
+                        <h2 id='project-date'>-</h2>
+                    </div>
+
+                    <div id='project-release-wrap' class='col-1 mid stretch'>
+                        <div id='project-release'>-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id='project-packshot' class='screen-block'>
+
+                <div id='packshot-wrap' class='canvas-wrap in'>
+                    <canvas id='packshot-canvas'></canvas>
+                    <div id='packshot'></div>
+                </div>
+
+
+            </div>
+
+
+            <div class='copy-block'>
+
+                <div class='row  c-hidden'>
+                    <div class='col-2 c-reveal-child'>
+                        <h3>Intro</h3>
+                    </div>
+                </div>
+
+                <div class='row c-hidden'>
+                    <div id='project-copy'  class='col-8 stretch c-reveal-child'>
+                        <p id='copy-intro'>-</p>
+                        <p id='copy-main'>-</p>
+                    </div>
+                </div>
+
+                <div class='row c-hidden'>
+                    <div class='col-2 c-reveal-child'>
+                        <h3>Response</h3>
+                    </div>
+
+                    <div id='project-quotes' class='col-6 project-quotes stretch'>
+                        <div class='c-hidden'>
+                            <blockquote class='c-reveal-child'>-</blockquote>
+                            <div class='quote-ref mid c-reveal-child'>-</div>
+                        </div>
+
+                        <div class='c-hidden'>
+                            <blockquote class='c-reveal-child'>-</blockquote>
+                            <div class='quote-ref mid c-reveal-child'>-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='copy-block'>
+                <div class='row centered c-hidden'>
+                    <a id='project-buy-box' href='' class='mid c-reveal-child' data-label='Order'>
+                        <div id='project-buy' class='headline'>
+                            <span class='panes' data-panes='20' data-displace='40'>Buy &#x21D7;</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class='c-hidden'>
+                    <div class='row c-reveal-child'>
+                        <div class='col-2'>
+                            <h3>Social</h3>
+                        </div>
+                    </div>
+                    <div class='row c-reveal-child'>
+                        <div id='project-social' class='col-6 stretch'>-</div>
+                    </div>
+                </div>
+
+
+                <div class='row'>
+                    <div id='project-asterisk' class='col-3 stretch'>
+                        <h1>*</h1>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div id='project-footer' class='group c-hidden'>
+                <div id='project-year'>
+                    <h2>2017</h2>
+                    <a id='project-year-ninja' class='mid c-roll-line'>ninjatune.net</a>
+                    <a id='site-credit' href='' class='mid c-roll-line'>Site by wvnl</a>
+                </div>
+
+                <div id='next-project'>
+                    <div class='next-project-label'>NEXT</div>
+                    <div id='next-project-artist'>Actress</div>
+                    <div id='next-project-title'>AZD</div>
+                    <div class='next-project-arrow'>
+                        <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
+                            <path d='M25 0 L75 50 L25 100' vector-effect='non-scaling-stroke' fill='none' stroke='currentColor' stroke-width='2' />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id='shroud' class='out'>
+            <div class='shroud-bar'></div>
+            <div class='shroud-bar'></div>
+            <div class='shroud-bar'></div>
+            <div class='shroud-bar'></div>
+            <div class='shroud-bar'></div>
+        </div>
+
+
+    </body>
+</html>

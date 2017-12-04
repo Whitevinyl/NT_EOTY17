@@ -1,0 +1,105 @@
+
+/*
+------------------------------------------
+PAGE SETUP
+------------------------------------------
+*/
+
+* {
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/*
+------------------------------------------
+STRUCTURE
+------------------------------------------
+*/
+
+.screen-block {
+    clear: both;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0 30px;
+}
+
+.copy-block {
+    clear: both;
+    position: relative;
+    width: 100%;
+    padding: 0 30px;
+}
+
+.wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.col-1  { width: 8.33%;}
+.col-2  { width: 16.66%;}
+.col-3  { width: 24.99%;}
+.col-4  { width: 33.33%;}
+.col-5  { width: 41.66%;}
+.col-6  { width: 49.99%;}
+.col-7  { width: 58.33%;}
+.col-8  { width: 66.66%;}
+.col-9  { width: 74.99%;}
+.col-10 { width: 83.33%;}
+.col-11 { width: 91.66%;}
+.col-12 { width: 100%;}
+
+[class|=col] {
+    float: left;
+    padding: 0 10px;
+    /*border: 1px solid;*/
+}
+
+.left-1  { margin-left: 8.33%;}
+.left-2  { margin-left: 16.66%;}
+.left-3  { margin-left: 24.99%;}
+.left-4  { margin-left: 33.33%;}
+.left-5  { margin-left: 41.66%;}
+.left-6  { margin-left: 49.99%;}
+
+.right-1  { margin-right: 8.33%;}
+.right-2  { margin-right: 16.66%;}
+.right-3  { margin-right: 24.99%;}
+.right-4  { margin-right: 33.33%;}
+.right-5  { margin-right: 41.66%;}
+.right-6  { margin-right: 49.99%;}
+
+.right-float {
+    float: right;
+}
+
+.row {
+    clear: both;
+    width: 100%;
+}
+
+.group::after {
+  content: '';
+  display: table;
+  clear: both;
+}

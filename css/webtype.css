@@ -1,0 +1,69 @@
+/*
+---------------------------------
+STRETCH
+---------------------------------
+*/
+
+.panes {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    margin-bottom: -10%;
+    white-space: nowrap;
+}
+.panes::before {
+    content: attr(data-str);
+    color: rgba(0,0,0,0);
+    font-size: 0;
+    white-space: nowrap;
+}
+
+/*.panes-container {
+    width: 100%;
+    height: 100%;
+    display: inline;
+    position: absolute;
+    left: 0;
+}*/
+
+.panes-pane {
+    display: inline-block;
+    box-sizing: content-box;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 100%;
+
+    -webkit-transition: width 0.5s;
+    transition: width 0.5s;
+}
+.panes-pane::after {
+    content: '_';
+    color: rgba(0,0,0,0);
+    font-size: 0;
+}
+
+.panes-first {
+    padding-left: 100px;
+    margin-left: -100px;
+}
+
+.panes-last {
+    padding-right: 100px;
+    margin-right: -100px;
+}
+
+.panes-inner {
+    position: absolute;
+    padding: inherit;
+    margin-top: 0;
+    margin-left: 0;
+
+    -webkit-transition: margin 0.6s;
+    transition: margin 0.6s;
+}
+
+#project-buy-box:hover .panes-inner {
+    margin: 0 !important;
+}
