@@ -22,21 +22,31 @@ var scrollSpeed = 0;
 var pageHeight = 0;
 var viewHeight = 0;
 
+var currentScrollFocus = 0;
+var introScroll = 500;
+var txtScroll = 500;
+
 
 // INTERACTION //
 var mouseX = 0;
 var mouseY = 0;
 var mouseIsDown = false;
+var projectOpen = false;
 
-
-var images = [];
-var packshot;
-var palette = [new RGBA(247,190,2,1), new RGBA(239,235,0,1), new RGBA(18,18,232,1), new RGBA(232,17,57,1), new RGBA(255,71,34,1)];
-
-// new RGBA(5,5,5,1),
-var glitchCols = [new RGBA(255,255,255,1), new RGBA(250,240,255,1)];
 
 var glitch;
+var logo;
+var txt;
+var packshot;
+
+
+var bgCol = new RGBA(20,18,25,1);
+var foregroundCol = new RGBA(255,255,255,1);
+var palette = [new RGBA(247,190,2,1), new RGBA(239,235,0,1), new RGBA(18,18,232,1), new RGBA(232,17,57,1), new RGBA(255,71,34,1)];
+
+var glitchCols = [new RGBA(255,255,255,1)]; // new RGBA(250,240,255,1)
+
+
 
 
 var page;
@@ -46,6 +56,8 @@ var introBlock;
 var year;
 var percentBar;
 var percentBarContainer;
+var percentBarTop;
+var percentBarBottom;
 var indexClose;
 var indexOpen;
 var index;
@@ -56,6 +68,10 @@ var shroud;
 var projectClose;
 var projectArtists;
 var nextProject;
+var percentBarTop;
+var percentBarBottom;
+var percentBarTopWrap;
+var percentBarBottomWrap;
 
 
 var currentProject = 0;
@@ -94,10 +110,11 @@ function init() {
     glitch = new Glitch();
 
     formatYear();
-    resetImg();
+    resetLogo();
 
     populateIndex();
-    loadProject(0);
+    calculateScrollSpace();
+    //loadProject(0);
 
     // TEMPORARY //
     setTimeout(function() {
@@ -114,6 +131,10 @@ function getElements() {
     year = document.getElementById('year');
     percentBarContainer = document.getElementById('percent-bar-container');
     percentBar = document.getElementById('percent-bar');
+    percentBarTop = document.getElementById('percent-bar-top');
+    percentBarBottom = document.getElementById('percent-bar-bottom');
+    percentBarTopWrap = document.getElementById('percent-bar-top-wrap');
+    percentBarBottomWrap = document.getElementById('percent-bar-bottom-wrap');
     indexOpen = document.getElementById('index-open');
     indexClose = document.getElementById('index-close');
     index = document.getElementById('index');
@@ -156,12 +177,11 @@ function resetPackshot(callback) {
     packshot =  new Packshot(ctx2, width/2, height/2, size, currentProjectArtwork, callback);
 }
 
-function resetImg(callback) {
+function resetLogo() {
     var x = width/2;
     var y = height/2;
     var size = height * 0.8;
     if (device==='mobile') size = width * 0.8;
-    images = [];
     var func = function() {
         if (!animating) {
             loop();
@@ -176,7 +196,7 @@ function resetImg(callback) {
             setTimeout(function() {
                 glitch.glitchable = true;
                 glitch.chance = 200;
-                images[0].interactive = true;
+                logo.interactive = true;
             }, 4500);
 
             // EXPLORE & UI //
@@ -188,7 +208,18 @@ function resetImg(callback) {
 
         }
     }
-    images.push( new Img(ctx, x, y, size, 'img/tt.png', func));
+    logo = new Img(ctx, x, y, size, 'img/tt.png', func);
+}
+
+function resetTxt() {
+    if (currentScrollFocus > 0) {
+        var x = width/2;
+        var y = height/2;
+        var size = width * 0.065;
+        if (device==='mobile') size = width * 0.08;
+        txt = new Txt(ctx, x, y, size, data.projects[currentScrollFocus-1].artist);
+    }
+
 }
 
 
@@ -229,18 +260,15 @@ function update() {
 
     var flash = false;
 
-    /*var l = images.length;
-    for (var i=0; i<l; i++) {
-        if (flash) images[i].shift();
-        images[i].update();
-    }*/
-
-    if (packshot) packshot.update();
-    //colorLerp(bgCol,bgDest,1);
-
-    //glitch.update();
-
-    updateWebtype();
+    if (!projectOpen) {
+        if (currentScrollFocus===0) logo.update();
+        if (currentScrollFocus > 0) txt.update();
+        glitch.update();
+    }
+    else {
+        if (packshot) packshot.update();
+        updateWebtype();
+    }
 }
 
 
@@ -256,24 +284,20 @@ function draw() {
     ctx.clearRect(0,0,width,height);
 
 
-    /*ctx.globalAlpha = 1;
-    var l = images.length;
-    for (var i=0; i<l; i++) {
-        images[i].draw();
+    if (!projectOpen) {
+        if (currentScrollFocus===0) logo.draw();
+        if (currentScrollFocus > 0) txt.draw();
+        glitch.draw();
     }
-
-    glitch.draw();*/
-
-    if (packshot) drawPackshot();
-
-    //updatePackshot();
+    else {
+        if (packshot) drawPackshot();
+    }
 }
 
 
 
 function drawPackshot() {
     ctx2.clearRect(0,0,width,height);
-    color.fill(ctx2,palette[4]);
     packshot.draw();
 }
 

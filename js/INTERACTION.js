@@ -3,6 +3,10 @@ var mouseXNorm = 0;
 var mouseYNorm = 0;
 var scrolled = 0;
 var packshotFocusTimer = null;
+var scrollPerc = 0;
+var scrollFocus = 0;
+var scrollOrigin = 0;
+var scrollTimer = null;
 
 
 
@@ -13,7 +17,7 @@ var packshotFocusTimer = null;
 function setupInteraction() {
 
     // ADD INTERACTION EVENTS TO THE CANVAS //
-    canvas.addEventListener("mousedown", mousePress, false);
+    window.addEventListener("mousedown", mousePress, false);
     canvas.addEventListener("mouseup", mouseRelease, false);
     window.addEventListener("mousemove", mouseMove, false);
     //window.addEventListener('scroll', scrollEvent, false);
@@ -43,6 +47,8 @@ function setupInteraction() {
 function mousePress() {
     mouseIsDown = true;
     rolloverCheck();
+
+    if (txt && !projectOpen && currentScrollFocus > 0 && txt.roll) loadProject(currentScrollFocus-1);
 }
 
 
@@ -74,8 +80,9 @@ function mouseMove(event) {
     mouseXNorm = (mouseX - cx) / cx;
     mouseYNorm = (mouseY - cy) / cy;
 
-
-    canvas.style.transform = 'rotateY(' + (-mouseXNorm * 5) + 'deg)';
+    if (!projectOpen) {
+        canvas.style.transform = 'rotateY(' + (-mouseXNorm * 5) + 'deg)';
+    }
 
     mouseXNorm *= Math.abs(mouseXNorm);
     mouseYNorm *= Math.abs(mouseYNorm);
@@ -90,6 +97,9 @@ function mouseMove(event) {
 
     /*mouseXNorm -= 1;
     mouseYNorm -= 1;*/
+
+    if (logo && !projectOpen && currentScrollFocus === 0) logo.hitTest();
+    if (txt && !projectOpen && currentScrollFocus > 0) txt.hitTest();
 }
 
 
@@ -99,14 +109,119 @@ function rolloverCheck() {
 
 function pageScroll(){
     scrollPos = page.scrollTop;
+    scrollFocus = scrollPos - scrollOrigin;
     scrolled = 0.03 + (scrollPos / 1500);
 
-    if (percentBar) {
-        var scrollPerc = (scrollPos / (pageHeight - viewHeight)) * 100;
-        percentBar.style.width = '' + scrollPerc + '%';
+
+    updatePercentBar();
+
+
+    // TODO: count the amount past 100% and jup appropriately //
+    if (scrollPerc > 100) {
+        scrollOrigin += targetHeight;
+        updatePercentBar();
+        currentScrollFocus ++;
+        scrollLoop();
+        resetTxt();
+        glitch.chance = 70;
+        xOff(1);
+    }
+    if (scrollPerc < 0) {
+        currentScrollFocus --;
+        updatePercentBar();
+        scrollOrigin -= targetHeight;
+        resetTxt();
+        glitch.chance = 70;
+        xOff(-1);
     }
 
     introAnim();
+
+    // AT THE END OF CONTINUOUS RESIZING //
+    if (scrollTimer) clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+        resetScroll();
+    },50);
+}
+
+function resetScroll() {
+    var dest = scrollOrigin + (targetHeight / 2);
+    if (currentScrollFocus===0) {
+        dest = 0;
+    }
+    page.scroll({
+        top: dest,
+        left: 0,
+        behavior: 'smooth'
+    });
+    percentBarTopWrap.style.opacity = '0';
+    percentBarBottomWrap.style.opacity = '0';
+}
+
+function scrollLoop() {
+    if (currentScrollFocus > data.projects.length) {
+        currentScrollFocus = 1;
+        scrollOrigin = introScroll;
+        page.scrollTop = scrollOrigin;
+    }
+}
+
+function xOff(dir) {
+
+    percentBarTopWrap.classList.add('no-transition');
+    percentBarTopWrap.style.opacity = '0';
+    percentBarTopWrap.offsetHeight;
+    percentBarTopWrap.classList.remove('no-transition');
+
+    percentBarBottomWrap.classList.add('no-transition');
+    percentBarBottomWrap.style.opacity = '0';
+    percentBarBottomWrap.offsetHeight;
+    percentBarBottomWrap.classList.remove('no-transition');
+
+
+    if (currentScrollFocus===0) {
+        logo.yOff = (height * 0.1) * dir;
+        //logo.xOff = (width * 0.2) * dir;
+        page.scrollTop = 0;
+    } else {
+        txt.yOff = (height * 0.1) * dir;
+        //txt.xOff = (width * 0.2) * dir;
+    }
+}
+
+function updatePercentBar() {
+    targetHeight = txtScroll;
+    if (currentScrollFocus===0) targetHeight = introScroll;
+
+    if (percentBarTop) {
+        scrollPerc = (scrollFocus / targetHeight) * 100;
+        var scrollPercVis = scrollPerc;
+        if (scrollPercVis > 100) scrollPercVis = 100;
+        //percentBar.style.width = '' + scrollPerc + '%';
+
+        if (currentScrollFocus > 0) {
+            if (scrollPerc < 50) {
+                percentBarBottom.style.height = '0';
+                percentBarTop.style.height = '' + (100 - (scrollPercVis * 2)) + '%';
+                percentBarBottomWrap.style.opacity = '0';
+                percentBarTopWrap.style.opacity = '1';
+            }
+            else if (scrollPerc > 50) {
+                percentBarTop.style.height = '0';
+                percentBarBottom.style.height = '' + ((scrollPercVis * 2) - 100) + '%';
+                percentBarTopWrap.style.opacity = '0';
+                percentBarBottomWrap.style.opacity = '1';
+
+            }
+        }
+        else {
+            percentBarTop.style.height = '0';
+            percentBarBottom.style.height = '' + scrollPercVis + '%';
+            percentBarTopWrap.style.opacity = '0';
+            percentBarBottomWrap.style.opacity = '1';
+        }
+
+    }
 }
 
 // DEFER THIS!! //
@@ -169,6 +284,7 @@ function toggleIndex() {
 function toggleProject() {
     project.classList.toggle('open');
     page.classList.toggle('no-transition');
+    projectOpen = !projectOpen;
 }
 
 function loadFromIndex() {

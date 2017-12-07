@@ -16,9 +16,11 @@
         <script type="text/javascript" src="js/lib/perlin-simplex.js"></script>
         <script type="text/javascript" src="js/lib/draw-grid.js"></script>
         <script type="text/javascript" src="js/lib/webtype.js"></script>
+        <script type="text/javascript" src="js/lib/smoothscroll.js"></script>
 
         <script type="text/javascript" src="js/UTILS.js"></script>
         <script type="text/javascript" src="js/IMG.js"></script>
+        <script type="text/javascript" src="js/TXT.js"></script>
         <script type="text/javascript" src="js/PACKSHOT.js"></script>
         <script type="text/javascript" src="js/GLITCH.js"></script>
         <script type="text/javascript" src="js/MAIN.js"></script>
@@ -43,7 +45,7 @@
 
 
     <body onload="init()" onresize="metrics()">
-        <!--<draw-grid data-margin='40' data-gutter='20' data-columns='12' data-color='#ff0000'></draw-grid>-->
+        <!-- <draw-grid data-margin='40' data-gutter='20' data-columns='12' data-color='#ff0000'></draw-grid> -->
 
 
         <div id='index' class='mid'>
@@ -81,7 +83,6 @@
             </div>
             <div id='index-az'>A-Z</div>
             <div id='index-year'>2017</div>
-            <!--<img id='index-tt' src='img/TT_black_small.png'/>-->
         </div>
 
         <div id='page'>
@@ -109,12 +110,21 @@
                 </div>
             </div>
 
-            <div id='percent-bar-container' class='ui in'>
+            <div id='percent-bar-container' class='in'>
                 <div class='percent-inner'>
                     <div id='percent-bar'></div>
                     <div class='percent-marker'></div>
                 </div>
             </div>
+
+            
+            <div id='percent-bar-top-wrap'>
+                <div id='percent-bar-top'></div>
+            </div>
+            <div id='percent-bar-bottom-wrap'>
+                <div id='percent-bar-bottom'></div>
+            </div>
+
 
             <img id='ninja-logo' class='ui' src='img/TT_white_small.png' alt='Ninja Tune' />
 
@@ -132,13 +142,13 @@
                 </div>
             </div>
 
-            <div class='intro-scroll-space'></div>
+            <div id='intro-scroll-space'></div>
 
 
         </div>
 
 
-        <div id='project' class='open'>
+        <div id='project'>
 
             <div id='page-grad'></div>
 
@@ -155,6 +165,8 @@
                     <div id='project-number'>-</div>
                 </div>
             </div>
+
+            <div id='project-scroll' class='col-1 left-1'></div>
 
 
             <div id='project-head' class='screen-block'>
@@ -184,55 +196,53 @@
 
             <div class='copy-block'>
 
-                <div class='row  c-hidden'>
-                    <div class='col-2 c-reveal-child'>
-                        <h3>Intro</h3>
-                    </div>
-                </div>
-
-                <div class='row c-hidden'>
-                    <div id='project-copy'  class='col-8 stretch c-reveal-child'>
-                        <p id='copy-intro'>-</p>
-                        <p id='copy-main'>-</p>
-                    </div>
-                </div>
-
-                <div class='row c-hidden'>
-                    <div class='col-2 c-reveal-child'>
-                        <h3>Response</h3>
-                    </div>
-
-                    <div id='project-quotes' class='col-6 project-quotes stretch'>
-                        <div class='c-hidden'>
-                            <blockquote class='c-reveal-child'>-</blockquote>
-                            <div class='quote-ref mid c-reveal-child'>-</div>
+                <div class='row-group c-hidden'>
+                    <div class='row'>
+                        <div class='col-2 c-reveal-child'>
+                            <h3>Intro</h3>
                         </div>
+                    </div>
 
-                        <div class='c-hidden'>
-                            <blockquote class='c-reveal-child'>-</blockquote>
-                            <div class='quote-ref mid c-reveal-child'>-</div>
+                    <div class='row'>
+                        <div id='project-copy'>
+                            <p id='copy-intro'  class='col-7 left-2 stretch c-reveal-child'>-</p>
+                            <p id='copy-main'  class='col-7 left-2 stretch c-reveal-child'>-</p>
                         </div>
                     </div>
                 </div>
+
+                <div class='row-group c-hidden'>
+                    <div class='row'>
+                        <div class='col-2 c-reveal-child'>
+                            <h3>Response</h3>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div id='project-quotes' class='col-4 left-2 project-quotes stretch'>
+                            <blockquote class='c-reveal-child'>-</blockquote>
+                            <div class='quote-ref mid c-reveal-child'>-</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class='copy-block'>
                 <div class='row centered c-hidden'>
                     <a id='project-buy-box' href='' class='mid c-reveal-child' data-label='Order'>
-                        <div id='project-buy' class='headline'>
-                            <span class='panes' data-panes='20' data-displace='40'>Buy &#x21D7;</span>
-                        </div>
+                        <!--<div class='explore-stroke'></div>-->
+                        <div id='project-buy' class='headline'>Listen Now</div>
                     </a>
                 </div>
 
-                <div class='c-hidden'>
-                    <div class='row c-reveal-child'>
-                        <div class='col-2'>
+                <div class='row-group c-hidden'>
+                    <div class='row'>
+                        <div class='col-2 c-reveal-child'>
                             <h3>Social</h3>
                         </div>
                     </div>
-                    <div class='row c-reveal-child'>
-                        <div id='project-social' class='col-6 stretch'>-</div>
+                    <div class='row'>
+                        <div id='project-social' class='col-7 left-2 stretch c-reveal-child'>-</div>
                     </div>
                 </div>
 

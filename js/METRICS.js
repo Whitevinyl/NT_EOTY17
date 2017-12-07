@@ -28,12 +28,11 @@ function metrics() {
         device = 'mobile';
     }
 
-    if (images.length) {
-        if (metricTimer) clearTimeout(metricTimer);
-        metricTimer = setTimeout(function() {
-            resetImg();
-            if (packshot) resetPackshot();
-        },500);
-    }
-
+    // AT THE END OF CONTINUOUS RESIZING //
+    if (metricTimer) clearTimeout(metricTimer);
+    metricTimer = setTimeout(function() {
+        if (logo) resetLogo();
+        if (packshot) resetPackshot();
+        if (txt) resetTxt();
+    },500);
 }

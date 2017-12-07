@@ -98,6 +98,13 @@ STRUCTURE
     width: 100%;
 }
 
+.row-group {
+    position: relative;
+    clear: both;
+    width: 100%;
+}
+
+
 .group::after {
   content: '';
   display: table;

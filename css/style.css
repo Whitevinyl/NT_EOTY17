@@ -485,6 +485,7 @@ UI
     left: 0;
     width: 100%;
     height: 2px;
+    z-index: 40;
 
 }
 
@@ -503,8 +504,8 @@ UI
     height: 100%;
     display: inline-block;
     width: 0;
-    -webkit-transition: width 0.2s;
-    transition: width 0.2s;
+    -webkit-transition: width 0.01s;
+    transition: width 0.01s;
 
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
@@ -519,7 +520,87 @@ UI
     right: -2px;
 }
 
+#percent-bars {
+    position: relative;
+}
 
+#percent-bar-top-wrap, #percent-bar-bottom-wrap {
+    position: fixed;
+    z-index: 40;
+    width: 2px;
+    height: 15vh;
+    left: 50vw;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+
+    opacity: 0;
+    -webkit-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+    -webkit-transition-delay: opacity 0.3s;
+    transition-delay: opacity 0.3s;
+}
+#percent-bar-top-wrap {
+    top: 5vh;
+}
+#percent-bar-top-wrap::after {
+    content: '';
+    position: absolute;
+    width: 1.4rem;
+    height: 1.4rem;
+    top: 0;
+    left: 50%;
+
+    /*border: 2px solid;
+    border-radius: 50%;*/
+
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-right: 2px solid;
+
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+#percent-bar-bottom-wrap {
+    bottom: 5vh;
+}
+#percent-bar-bottom-wrap::after {
+    content: '';
+    position: absolute;
+    width: 1.4rem;
+    height: 1.4rem;
+    bottom: 0;
+    left: 50%;
+
+    /*border: 2px solid;
+    border-radius: 50%;*/
+
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-right: 2px solid;
+
+    -webkit-transform: translate(-50%, 50%);
+    transform: translate(-50%, 50%);
+}
+
+#percent-bar-top, #percent-bar-bottom {
+    position: absolute;
+    width: 100%;
+    height: 0;
+
+    -webkit-transition: height 0.05s;
+    transition: height 0.05s;
+
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+#percent-bar-top {
+    bottom: 0;
+}
+#percent-bar-bottom {
+    top: 0;
+}
 
 /*
 ------------------------------------------
@@ -528,7 +609,7 @@ INTRO
 */
 
 
-.intro-scroll-space {
+#intro-scroll-space {
     width: 100%;
     height: 300%;
 }
@@ -546,6 +627,8 @@ INTRO
     letter-spacing: 0.5em;
     padding-left: 0.5em;
     text-align: center;
+
+    pointer-events: none;
 
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
@@ -698,6 +781,8 @@ INTRO
     transition-timing-function: cubic-bezier(.37,.01,0,.98);
 }
 
+
+
 .hover .explore-stroke {
     /*width: 0;*/
     top: 5em;
@@ -774,6 +859,71 @@ PROJECT OVERLAY
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+}
+
+#project-scroll {
+    position: fixed;
+    bottom: 40px;
+    left: 30px;
+
+    margin-left: 8%;
+    margin-left: calc((100% - 60px) / 12);
+
+    width: 1px;
+    height: 40px;
+    border-left: 2px solid;
+
+    padding: 0;
+
+    -webkit-animation-name: scroll-bounce;
+    animation-name: scroll-bounce;
+
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+
+    -webkit-transition-timing-function: cubic-bezier(.37,.01,0,.98);
+    transition-timing-function: cubic-bezier(.37,.01,0,.98);
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes scroll-bounce {
+    0% {
+        -webkit-transform: translateY(-100%) scaleY(0);
+        transform: translateY(-100%) scaleY(0);
+    }
+    60% {
+        -webkit-transform: translateY(-50%) scaleY(1);
+        transform: translateY(-50%) scaleY(1);
+    }
+    80% {
+        -webkit-transform: translateY(0) scaleY(0);
+        transform: translateY(0) scaleY(0);
+    }
+    100% {
+        -webkit-transform: translateY(-100%) scaleY(0);
+        transform: translateY(-100%) scaleY(0);
+    }
+}
+
+@keyframes scroll-bounce {
+    0% {
+        -webkit-transform: translateY(-100%) scaleY(0);
+        transform: translateY(-100%) scaleY(0);
+    }
+    60% {
+        -webkit-transform: translateY(-50%) scaleY(1);
+        transform: translateY(-50%) scaleY(1);
+    }
+    80% {
+        -webkit-transform: translateY(0) scaleY(0);
+        transform: translateY(0) scaleY(0);
+    }
+    100% {
+        -webkit-transform: translateY(-100%) scaleY(0);
+        transform: translateY(-100%) scaleY(0);
+    }
 }
 
 #close-block {
@@ -955,7 +1105,7 @@ h2, #close-block {
 }
 
 #project-packshot {
-    height: 150vh;
+    height: 100vh;
 }
 
 #project-packshot::before {
@@ -1038,18 +1188,31 @@ h2, #close-block {
 
 #copy-intro {
     font-family: 'Butler','Eczar','Georgia',serif;
-    font-weight: 700;
-    font-size: 3.5rem;
+    font-weight: 600;
+    font-size: 3.1rem;
     line-height: 1.2em;
     margin-bottom: 1em;
 }
 
 #copy-main {
     font-family: 'Work Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
+    /*font-family: 'Butler','Eczar','Georgia',serif;*/
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 1.5em;
-    margin-bottom: 10em;
+    margin-bottom: 1em;
+
+    /*-webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+
+    -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+
+    -webkit-column-width: 250px;
+    -moz-column-width: 250px;
+    column-width: 250px;*/
 }
 
 .first-quote {
@@ -1060,6 +1223,8 @@ h2, #close-block {
 .project-quotes {
     float: left;
     padding-right: 20px;
+    font-size: 2.1rem;
+    margin-bottom: 5em;
 }
 
 blockquote {
@@ -1070,10 +1235,12 @@ blockquote {
     line-height: 1.3em;
 
     font-family: 'Work Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
+    /*font-family: 'Butler','Eczar','Georgia',serif;*/
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 1.5em;
     margin-bottom: 1em;
+    /*border-right: 2px solid;*/
     position: relative;
 }
 blockquote::before {
@@ -1094,9 +1261,6 @@ blockquote::after {
 }
 
 .quote-ref {
-    /*float: right;*/
-
-    margin-bottom: 10em;
     position: relative;
 }
 .quote-ref::before {
@@ -1106,10 +1270,14 @@ blockquote::after {
     right: 100%;
 }
 
+.quote-sub {
+
+}
+
 
 .centered {
     text-align: center;
-    margin-bottom: 10em;
+    margin-bottom: 6em;
 }
 
 #project-buy-label {
@@ -1137,32 +1305,31 @@ blockquote::after {
 }
 
 #project-buy-box {
+    position: relative;
     border: 2px solid;
-    padding: 15px 60px;
+    line-height: 100%;
+    padding: 0 60px;
     margin: 0 auto;
     display: inline-block;
 }
-#project-buy-box::after {
+/*#project-buy-box::after {
     content: attr(data-label);
     display: block;
     width: 13em;
     margin: 2em auto;
-
-    /*writing-mode: vertical-rl;
-    -webkit-writing-mode: vertical-rl;
-    -ms-writing-mode: vertical-rl;*/
-}
+}*/
 
 #project-buy {
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     position: relative;
     display: inline-block;
     /*float: left;*/
     text-indent: 0;
     /*transform: rotate(90deg);*/
     margin: 0 auto;
+    padding: 0.2em 0 0.3em;
 }
-#project-buy::after {
+/*#project-buy::after {
     content: '';
     display: block;
     position: absolute;
@@ -1170,6 +1337,46 @@ blockquote::after {
     width: 100%;
     left: 0;
     bottom: 0;
+}*/
+
+#project-buy-box .explore-stroke {
+    width: 1.3em;
+    height: 120%;
+    position: absolute;
+    top: auto;
+    bottom: 2em;
+    left: 2em;
+
+    -webkit-transform: translate(-50%, 50%) rotate(-45deg);
+    transform: translate(-50%, 50%) rotate(-45deg);
+
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    -webkit-transition-timing-function: cubic-bezier(.37,.01,0,.98);
+    transition-timing-function: cubic-bezier(.37,.01,0,.98);
+}
+
+
+#project-buy-box:hover .explore-stroke {
+    bottom: -9em;
+    left: 13em;
+    height: 0;
+
+    -webkit-transition-delay: 0.05s;
+    transition-delay: 0.05s;
+}
+
+.c-hidden #project-buy-box .explore-stroke {
+    bottom: 13em;
+    left: -9em;
+    height: 0;
+
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
 }
 
 
@@ -1203,9 +1410,9 @@ blockquote::after {
 
 #project-social {
     font-family: 'Butler','Eczar','Georgia',serif;
-    font-weight: 700;
-    font-size: 2.3rem;
-    line-height: 1.5em;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.6em;
     margin-bottom: 5em;
 }
 
@@ -1220,7 +1427,7 @@ blockquote::after {
 
 
 #project-asterisk {
-    margin-bottom: 5em;
+    margin-bottom: 4em;
 }
 
 #project-footer {
@@ -1545,7 +1752,7 @@ MISC
 
 .c-hidden .c-reveal-child {
     opacity: 0;
-    transform: translate(0, 6em);
+    transform: translate(0, 10em);
 }
 
 
@@ -1560,7 +1767,7 @@ body {
     color: #fff;
 }
 
-#percent-bar, .percent-marker, .mute-line, #next-project::before {
+#percent-bar, .percent-marker, .mute-line, #next-project::before, #percent-bar-top, #percent-bar-bottom {
     background-color: #fff;
 }
 
@@ -1577,6 +1784,10 @@ body, #project, .c-roll-bg-vertical::after, #index a::after {
 #index, #percent-bar, .explore-stroke, #next-project, #project-buy::after, .packshot-strip-img-wrap, .shroud-bar {
     background-color: #ff4722;
 }
+#percent-bar-top-wrap::after, #percent-bar-bottom-wrap::after {
+    color: #ff4722;
+}
+
 /*background-color: #f7be02;
 background-color: #efeb00;
 background-color: #1212e8;
@@ -1738,21 +1949,37 @@ background-color: #e81139;*/
 
 @font-face {
     font-family: 'butler';
+    src: url('fonts/butler_regular-webfont.woff2') format('woff2'),
+         url('fonts/butler_regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: 400;
+}
+
+@font-face {
+    font-family: 'butler';
+    src: url('fonts/butler_bold-webfont.woff2') format('woff2'),
+         url('fonts/butler_bold-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: 600;
+}
+
+@font-face {
+    font-family: 'butler';
     src: url('fonts/butler_extrabold-webfont.woff2') format('woff2'),
          url('fonts/butler_extrabold-webfont.woff') format('woff');
     font-weight: 700;
     font-style: 700;
 }
 
-@font-face {
+/*@font-face {
     font-family: 'butler';
     src: url('fonts/butler_black-webfont.woff2') format('woff2'),
          url('fonts/butler_black-webfont.woff') format('woff');
     font-weight: 800;
     font-style: 800;
-}
+}*/
 
-@font-face {
+/*@font-face {
     font-family: 'Otama';
     src: url('fonts/hinted-Otama-ep.eot');
     src: url('fonts/hinted-Otama-ep.eot?#iefix') format('embedded-opentype'),
@@ -1760,4 +1987,4 @@ background-color: #e81139;*/
         url('fonts/hinted-Otama-ep.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
+}*/

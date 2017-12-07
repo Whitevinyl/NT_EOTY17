@@ -14,12 +14,11 @@ var data = {
                 intro: "&ldquo;Compassion&rdquo; engages with an uncertain world we&rsquo;re experiencing, distilling it into a unique sound territory: Barnes' exploration of the mid-point between ecstasy and frustration, artificial and human feels timely and affecting.",
                 main: "The result is an assured, compelling body of work, tying together the ancient and future: weaving swathes of buzzing digital textures, field recordings, clattering beats and distorted jazz sax with fizzing orchestral arrangements."
             },
-            quotes: [
-                {
-                    quote: "Compassion doesn't merely reflect the weeping and gnashing of teeth of our time - it does what it can to sooth and heal. The results are both sincere and sublime",
-                    ref: 'Resident Advisor (4.5/5)'
-                }
-            ],
+            quote: {
+                quote: "Compassion doesn't merely reflect the weeping and gnashing of teeth of our time - it does what it can to sooth and heal. The results are both sincere and sublime",
+                ref: 'Resident Advisor',
+                sub: '(4.5/5)'
+            },
             buy: 'https://forestswords.lnk.to/compassionEs',
             social: [
                 {
@@ -58,12 +57,11 @@ var data = {
                 intro: "&ldquo;Drunk&rdquo;, released on Brainfeeder, is a 23-track epic journey into the often hilarious, sometimes dark mind of the Grammy-winning singer/bassist and finds a few of his friends joining him along the way including: Kendrick Lamar, Pharrell, Michael McDonald, Kenny Loggins, Wiz Khalifa, Kamasi Washington and Brainfeeder mastermind Flying Lotus.",
                 main: ""
             },
-            quotes: [
-                {
-                    quote: "Whimsical and somber, funny and meaningful, sometimes all at once...",
-                    ref: 'Pitchfork (8.5/10 - Best New Music)'
-                }
-            ],
+            quote: {
+                quote: "Whimsical and somber, funny and meaningful, sometimes all at once...",
+                ref: 'Pitchfork',
+                sub: '(8.5/10 - Best New Music)'
+            },
             buy: 'https://thundercat.lnk.to/drunkEs',
             social: [
                 {
@@ -98,12 +96,11 @@ var data = {
                 intro: "2017 saw Actress return with a new music system called &ldquo;AZD&rdquo; (pronounced &ldquo;Azid&rdquo;) on Ninja Tune. The unique creation of a unique mind, the album is a chrome aspect journey into a parallel world.",
                 main: "He is an artist who has always preferred to make music rather than to talk about it and in &ldquo;AZD&rdquo; he has achieved another remarkable landmark, one that is as resistant to interpretation as it is demanding of it."
             },
-            quotes: [
-                {
-                    quote: "A brilliantly twisted, introverted take on dance music.",
-                    ref: 'The Guardian (4/5 - Album Of The Week)'
-                }
-            ],
+            quote: {
+                quote: "A brilliantly twisted, introverted take on dance music.",
+                ref: 'The Guardian',
+                sub: '(4/5 - Album Of The Week)'
+            },
             buy: 'https://actress.lnk.to/azdEs',
             social: [
                 {
@@ -134,12 +131,10 @@ var data = {
                 intro: "Previously sharing her analogue-based rhythmic excursions via videogamemusic, 1080p, Phinery and Allergy Season, the New Yorker is a co-founder of Brooklyn&rsquo;s colossal Discwoman crew and resident at Bossa Nova Civic Club&rsquo;s Technofeminism monthly.",
                 main: "She does not like to intellectualise her art, describing her process - recording tracks in live takes - as being rooted in catharsis, release and improvisation rather than any identifiable high-art aim."
             },
-            quotes: [
-                {
-                    quote: "One moment you&rsquo;ve barely registered what she&rsquo;s doing, the next she&rsquo;s burrowed right inside your head&hellip;",
-                    ref: 'The Wire'
-                }
-            ],
+            quote: {
+                quote: "One moment you&rsquo;ve barely registered what she&rsquo;s doing, the next she&rsquo;s burrowed right inside your head&hellip;",
+                ref: 'The Wire'
+            },
             buy: 'https://umfang.lnk.to/suolEs',
             social: [
                 {
@@ -186,7 +181,7 @@ function loadProjectContent(n, callback) {
     document.getElementById('project-date').innerHTML = p.date;
 
     // LABEL //
-    document.getElementById('project-release').innerHTML = 'Released by ' + p.label + '.';
+    document.getElementById('project-release').innerHTML = 'Released on ' + p.label + '.';
 
     // PACKSHOT //
     currentProjectArtwork = p.artwork;
@@ -199,22 +194,24 @@ function loadProjectContent(n, callback) {
     // QUOTES //
     var projectQuotes = document.getElementById('project-quotes');
     projectQuotes.innerHTML = '';
-    p.quotes.forEach(function(item) {
 
-        var quoteWrapper = document.createElement('div');
-        quoteWrapper.classList = 'c-hidden';
-        projectQuotes.appendChild(quoteWrapper);
+    var quote = document.createElement('blockquote');
+    quote.innerHTML = p.quote.quote;
+    quote.classList = 'c-reveal-child';
+    projectQuotes.appendChild(quote);
 
-        var quote = document.createElement('blockquote');
-        quote.innerHTML = item.quote;
-        quote.classList = 'c-reveal-child';
-        quoteWrapper.appendChild(quote);
+    var ref = document.createElement('div');
+    ref.innerHTML = p.quote.ref;
+    ref.classList = 'quote-ref mid c-reveal-child';
+    projectQuotes.appendChild(ref);
 
-        var ref = document.createElement('div');
-        ref.innerHTML = item.ref;
-        ref.classList = 'quote-ref mid c-reveal-child';
-        quoteWrapper.appendChild(ref);
-    });
+    if (p.quote.sub) {
+        var sub = document.createElement('div');
+        sub.innerHTML = p.quote.sub;
+        sub.classList = 'quote-sub mid c-reveal-child';
+        projectQuotes.appendChild(sub);
+    }
+
 
     // BUY //
     document.getElementById('project-buy-box').href = p.buy;
@@ -263,10 +260,18 @@ function loadProjectContent(n, callback) {
     projectRevealElements.forEach(function(item){
         item.classList.add('c-hidden');
     });
+
+}
+
+function calculateScrollSpace() {
+    var scrollSpace = (data.projects.length * txtScroll) + introScroll;
+    document.getElementById('intro-scroll-space').style.height = '' + scrollSpace + 10 + 'px';
+    console.log(scrollSpace);
 }
 
 
 function loadProject(n) {
+    projectOpen = true;
     currentProject = n;
     shroud.classList.remove('out');
     setTimeout(function(){

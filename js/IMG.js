@@ -16,6 +16,8 @@ function Img(ctx, x, y, s, src, callback) {
     this.startOffDest = 0;
     this.firstUpdate = true;
     this.interactive = false;
+    this.roll = false;
+    this.rollAmp = 0;
 
 
     this.img = new Image();
@@ -98,6 +100,19 @@ Img.prototype.link = function(master) {
     this._linked = master;
 };
 
+
+//-------------------------------------------------------------------------------------------
+//  HITTEST
+//-------------------------------------------------------------------------------------------
+
+Img.prototype.hitTest = function() {
+    var width = this.width * 1.1;
+    var x = this.position.x - (width / 2) + this.xOff;
+    var y = this.top + this.yOff + this.margin;
+    this.roll = hitBox(x, y, width, this.height);
+}
+
+
 //-------------------------------------------------------------------------------------------
 //  UPDATE
 //-------------------------------------------------------------------------------------------
@@ -146,7 +161,7 @@ Img.prototype.update = function() {
 
     var i, n, ind;
 
-    var lerpSpeed = 50;
+    var lerpSpeed = 10;
 
     var indM = 0.75;
     var scaleM = 1.9;
@@ -163,6 +178,8 @@ Img.prototype.update = function() {
 
     var y = this.top + this.yOff - this.startOff;
     var mouseInd = Math.round((mouseY - y) / this.rowHeight);
+    var scrollAmp = 0.05 + ((scrollPerc / 100) * 0.95);
+    var rollNoise = this.noise.noise(this.index2, 0);
 
 
     for (i=0; i<this.rows; i++) {
@@ -181,7 +198,9 @@ Img.prototype.update = function() {
         // horizontal //
         n = this.noise.noise((ind1/2), ind1) * this.noise.noise(ind2, (ind2/2)) * this.noise.noise(10000 + (ind3/3), ind3);
         n = (this.noise.noise(ind1, ind1) + this.noise.noise(ind2, ind2)) / 2;
-        this.rowOffsetDest[i] = n * this.range * scrolled;
+        this.rowOffsetDest[i] = n * this.range * scrollAmp;
+
+        this.rollSplit(i, mouseInd, rollNoise);
 
         // intro offset //
         var startInd = (i + this.linkOff - this.startOff) / ((50 * scaleM) / rh);
@@ -189,7 +208,7 @@ Img.prototype.update = function() {
         this.rowOffsetDest[i] -= n;
 
         // glitch //
-        var glitchOff = this.noise.noise(ind1, ind2) * 200;
+        var glitchOff = this.noise.noise(ind1, ind2) * 100;
         var glitchNoise = tombola.rangeFloat(-0.2,0.2) * 0.5;
         if (glitch.glitches.length) {
             this.rowOffset[i] = (this.rowOffsetDest[i] + glitchOff);
@@ -197,24 +216,24 @@ Img.prototype.update = function() {
         }
 
         // rollover //
-        if (this.interactive) {
-            var distance = 1 + (Math.abs(mouseInd - i) / 3);
+        /*if (this.interactive && this.roll) {
+            var distance = 1 + (Math.abs(mouseInd - i) / 2);
             var strength = (150 * this.noise.noise(ind6, ind3)) / distance;
             distance -= 1;
             if (distance > 15) distance = 15;
-            strength = ((150 - (distance * 10)) * this.noise.noise(ind6, ind3));
+            strength = ((150 - (distance * 10)) * this.noise.noise(ind6, ind3)) * this.rollAmp;
             this.rowOffsetDest[i] += strength;
-        }
+        }*/
 
 
         // vertical //
         n = this.noise.noise(this.index4 + (ind/dv2), 10000);
         n = this.noise.noise(ind4, 10000);
         n = this.noise.noise(ind4, ind5);
-        this.rowOffsetYDest[i] = n * this.yRange * scrolled;
+        this.rowOffsetYDest[i] = n * this.yRange * scrollAmp;
 
         // width //
-        n = 1 + (this.noise.noise(10000 + ind3, ind2) * 0.16 * scrolled);
+        n = 1 + (this.noise.noise(10000 + ind3, ind2) * 0.16 * scrollAmp);
         this.rowWidthDest[i] = n;
 
 
@@ -247,11 +266,23 @@ Img.prototype.update = function() {
     this.yOff = lerp(this.yOff, this.yOffDest, 4);
 
     this.startOff = lerp(this.startOff, this.startOffDest, 2);
-
+    this.rollAmp = lerp(this.rollAmp, this.roll, 2);
 
     this.firstUpdate = false;
 };
 
+
+Img.prototype.rollSplit = function(i, mouseInd, n) {
+    if (this.interactive && this.roll) {
+        var strength = (mouseX - (width / 2)) / (this.width / 2);
+        var dist = strength * 0.2 * this.range;
+        if (i < mouseInd) {
+            this.rowOffsetDest[i] -= dist;
+        } else {
+            this.rowOffsetDest[i] += dist;
+        }
+    }
+};
 
 
 //-------------------------------------------------------------------------------------------
