@@ -23,8 +23,8 @@ function Txt(ctx, x, y, s, string) {
     }
 
     this.roll = false;
-    this.rollStyle = tombola.range(0, 1);
-    this.rollStyle = tombola.item([0,3,4,6]);
+    this.rollStyle = 4;
+    //this.rollStyle = tombola.item([0,3,4,6]);
     this.flipCount = tombola.range(55, 75);
     this.rollTimer = 0;
     this.rollRefresh = 0;
@@ -125,9 +125,9 @@ Txt.prototype.update = function() {
     if (this.rollStyle===2) {
         this.rollVert();
     }
-    if (this.rollStyle===4) {
+    /*if (this.rollStyle===4) {
         this.rollBlock();
-    }
+    }*/
 
 
     for (i=0; i<this.rows; i++) {
@@ -182,11 +182,11 @@ Txt.prototype.update = function() {
         this.peakOffset = constrain(this.peakOffset, -this.offsetRange, this.offsetRange);
     }*/
 
-    var dist = 50;
+    var dist = 60;
     this.xOffDest = dist * mouseXNorm;
     this.yOffDest = dist * mouseYNorm;
-    this.xOff = lerp(this.xOff, this.xOffDest, 4);
-    this.yOff = lerp(this.yOff, this.yOffDest, 4);
+    this.xOff = lerp(this.xOff, this.xOffDest, 5);
+    this.yOff = lerp(this.yOff, this.yOffDest, 5);
     /*var melt = 0;
     if (scrollPerc > 50) melt = ((scrollPerc - 50) * 2);
     this.yRangeDest = 15 + melt;*/
@@ -226,26 +226,22 @@ Txt.prototype.rollVert = function() {
 };
 
 //curl //
-Txt.prototype.rollBlock = function(i, mouseInd) {
+Txt.prototype.rollBlock = function() {
     if (this.roll) {
 
         var count = 2;
         var rows = 1;
-        /*this.rollTimer--;
-        if (this.rollTimer < 0) {
-            this.rollTimer = count;*/
-            var index = this.rollRefresh * rows;
+        var index = this.rollRefresh * rows;
 
-            var strength = (mouseX - (width / 2)) / (this.size / 2);
-            var dist = strength * 1 * this.range;
+        var strength = (mouseX - (width / 2)) / (this.size / 2);
+        var dist = strength * 1 * this.range;
 
-            for (var j=index; j<(index + rows); j++) {
-                this.rowOffset[j] = dist;
-                this.rowOffsetDest[j] = dist;
-            }
-            this.rollRefresh ++;
-            if (this.rollRefresh >= this.rows / rows) this.rollRefresh = 0;
-        //}
+        for (var j=index; j<(index + rows); j++) {
+            this.rowOffset[j] = dist;
+            this.rowOffsetDest[j] = dist;
+        }
+        this.rollRefresh ++;
+        if (this.rollRefresh >= this.rows / rows) this.rollRefresh = 0;
     }
 };
 

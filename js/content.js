@@ -1,57 +1,14 @@
 var data = {
     projects: [
         {
-            artist: 'Forest Swords',
-            release: 'Compassion',
-            date: 'May 05',
-            label: 'Ninja Tune',
-            artwork: 'img/packshots/compassion800.jpg',
-            track: {
-                title: 'title',
-                src: 'tracks/track.mp3'
-            },
-            copy: {
-                intro: "&ldquo;Compassion&rdquo; engages with an uncertain world we&rsquo;re experiencing, distilling it into a unique sound territory: Barnes' exploration of the mid-point between ecstasy and frustration, artificial and human feels timely and affecting.",
-                main: "The result is an assured, compelling body of work, tying together the ancient and future: weaving swathes of buzzing digital textures, field recordings, clattering beats and distorted jazz sax with fizzing orchestral arrangements."
-            },
-            quote: {
-                quote: "Compassion doesn't merely reflect the weeping and gnashing of teeth of our time - it does what it can to sooth and heal. The results are both sincere and sublime",
-                ref: 'Resident Advisor',
-                sub: '(4.5/5)'
-            },
-            buy: 'https://forestswords.lnk.to/compassionEs',
-            social: [
-                {
-                    name: 'Twitter',
-                    href: 'http://www.found.ee/forest-tw'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://www.found.ee/forest-ig'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://www.found.ee/forest-fb'
-                },
-                {
-                    name: 'Spotify',
-                    href: 'http://www.found.ee/forest-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://www.found.ee/forest-am'
-                }
-            ]
-        },
-        {
             artist: 'Thundercat',
             release: 'Drunk',
             date: 'February 24',
             label: 'Brainfeeder',
             artwork: 'img/packshots/drunk800.jpg',
             track: {
-                title: 'title',
-                src: 'tracks/track.mp3'
+                title: 'Show You the Way',
+                src: 'tracks/09_Thundercat_Show_You_The_Way__feat__Michael_McDonald___Kenny_Loggins_.mp3'
             },
             copy: {
                 intro: "&ldquo;Drunk&rdquo;, released on Brainfeeder, is a 23-track epic journey into the often hilarious, sometimes dark mind of the Grammy-winning singer/bassist and finds a few of his friends joining him along the way including: Kendrick Lamar, Pharrell, Michael McDonald, Kenny Loggins, Wiz Khalifa, Kamasi Washington and Brainfeeder mastermind Flying Lotus.",
@@ -65,10 +22,6 @@ var data = {
             buy: 'https://thundercat.lnk.to/drunkEs',
             social: [
                 {
-                    name: 'Twitter',
-                    href: 'http://found.ee/thundercat-tw'
-                },
-                {
                     name: 'Spotify',
                     href: 'http://found.ee/thundercat-sp'
                 },
@@ -77,9 +30,61 @@ var data = {
                     href: 'http://found.ee/thundercat-fb'
                 },
                 {
+                    name: 'Twitter',
+                    href: 'http://found.ee/thundercat-tw'
+                },
+                {
                     name: 'Brainfeeder',
                     href: 'http://brainfeeder.net/thundercat'
                 }
+            ]
+        },
+        {
+            artist: 'Bonobo',
+            release: 'Migration',
+            date: 'January 13',
+            label: 'Ninja Tune',
+            artwork: 'img/packshots/migration800.jpg',
+            track: {
+                title: 'Kerala',
+                src: 'tracks/01_Bonobo_Kerala.mp3'
+            },
+            copy: {
+                intro: "Simon Green has come from humble beginnings as an eclectic DJ in Brighton, on the English south coast, to being one of the world's biggest electronic acts. On the Grammy nominated &ldquo;Migration&rdquo; he flies the flag for modernist music that can be both widely accessible and exploratory, that can reach arena-sized audiences yet still touch individuals deeply and specifically on emotional and intellectual levels.",
+                main: "Amid the turmoil, he has provided a timely reminder that artistry, introspection and a gentle, personal touch still have value and power in a difficult world."
+            },
+            quote: {
+                quote: "A music-making masterclass.",
+                ref: 'Mixmag',
+                sub: '(9/10 - Cover Feature)'
+            },
+            buy: 'https://bonobo.lnk.to/migrationEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'https://bonobo.lnk.to/profile/spotify'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'https://bonobo.lnk.to/profile/applemusic'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'https://bonobo.lnk.to/profile/facebook'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'https://bonobo.lnk.to/profile/instagram'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'https://bonobo.lnk.to/profile/twitter'
+                },
+                {
+                    name: 'bonobomusic.com',
+                    href: 'http://bonobomusic.com/'
+                }
+
             ]
         },
         {
@@ -89,8 +94,8 @@ var data = {
             label: 'Ninja Tune',
             artwork: 'img/packshots/azd800.jpg',
             track: {
-                title: 'title',
-                src: 'tracks/track.mp3'
+                title: 'X22RME',
+                src: 'tracks/06-Actress-X22RME-GBCFB1605606.mp3'
             },
             copy: {
                 intro: "2017 saw Actress return with a new music system called &ldquo;AZD&rdquo; (pronounced &ldquo;Azid&rdquo;) on Ninja Tune. The unique creation of a unique mind, the album is a chrome aspect journey into a parallel world.",
@@ -104,17 +109,62 @@ var data = {
             buy: 'https://actress.lnk.to/azdEs',
             social: [
                 {
-                    name: 'Twitter',
-                    href: 'http://found.ee/actress-tw'
+                    name: 'Spotify',
+                    href: 'http://found.ee/actress-sp'
                 },
                 {
                     name: 'Facebook',
                     href: 'http://found.ee/actress-fb'
                 },
                 {
-                    name: 'Spotify',
-                    href: 'http://found.ee/actress-sp'
+                    name: 'Twitter',
+                    href: 'http://found.ee/actress-tw'
                 }
+
+            ]
+        },
+        {
+            artist: 'Forest Swords',
+            release: 'Compassion',
+            date: 'May 05',
+            label: 'Ninja Tune',
+            artwork: 'img/packshots/compassion800.jpg',
+            track: {
+                title: 'The Highest Flood',
+                src: 'tracks/02_Forest_Swords_The_Highest_Flood.mp3'
+            },
+            copy: {
+                intro: "&ldquo;Compassion&rdquo; engages with an uncertain world we&rsquo;re experiencing, distilling it into a unique sound territory: Barnes' exploration of the mid-point between ecstasy and frustration, artificial and human feels timely and affecting.",
+                main: "The result is an assured, compelling body of work, tying together the ancient and future: weaving swathes of buzzing digital textures, field recordings, clattering beats and distorted jazz sax with fizzing orchestral arrangements."
+            },
+            quote: {
+                quote: "Compassion doesn't merely reflect the weeping and gnashing of teeth of our time - it does what it can to sooth and heal. The results are both sincere and sublime",
+                ref: 'Resident Advisor',
+                sub: '(4.5/5)'
+            },
+            buy: 'https://forestswords.lnk.to/compassionEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://www.found.ee/forest-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://www.found.ee/forest-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://www.found.ee/forest-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://www.found.ee/forest-ig'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://www.found.ee/forest-tw'
+                }
+
             ]
         },
         {
@@ -124,8 +174,8 @@ var data = {
             label: 'Technicolour',
             artwork: 'img/packshots/symbolic800.jpg',
             track: {
-                title: 'title',
-                src: 'tracks/track.mp3'
+                title: 'Path',
+                src: 'tracks/05_Umfang_Path.mp3'
             },
             copy: {
                 intro: "Previously sharing her analogue-based rhythmic excursions via videogamemusic, 1080p, Phinery and Allergy Season, the New Yorker is a co-founder of Brooklyn&rsquo;s colossal Discwoman crew and resident at Bossa Nova Civic Club&rsquo;s Technofeminism monthly.",
@@ -138,21 +188,111 @@ var data = {
             buy: 'https://umfang.lnk.to/suolEs',
             social: [
                 {
-                    name: 'Twitter',
-                    href: 'http://found.ee/umfang-tw'
+                    name: 'Spotify',
+                    href: 'http://found.ee/umfang-sp'
                 },
                 {
                     name: 'Facebook',
                     href: 'http://found.ee/umfang-fb'
                 },
                 {
-                    name: 'SoundCloud',
-                    href: 'http://found.ee/umfang-sc'
-                },
+                    name: 'Twitter',
+                    href: 'http://found.ee/umfang-tw'
+                }
+            ]
+        },
+        {
+            artist: 'Bicep',
+            release: 'Bicep',
+            date: 'September 01',
+            label: 'Ninja Tune',
+            artwork: 'img/packshots/bicep800.jpg',
+            track: {
+                title: 'Glue',
+                src: 'tracks/02_Bicep_Glue.mp3'
+            },
+            copy: {
+                intro: "The Belfast-born, London-based duo of Matt McBriar and Andy Ferguson aka Bicep released their self-titled debut album on Ninja Tune - a record that truly encapsulates their history and the distillation of their passion for music and club culture since their first release in 2010.",
+                main: "The duo have pulled off the rarest of feats, to make a singularly unique electronic record founded on the blueprint of classic house, techno, electro and Italo disco, but flipped and morphed into a fresh design bearing the unique Bicep sonic signature. "
+            },
+            quote: {
+                quote: "Known for exquisite live sets that revive forgotten strains of house, garage, ambient and disco without an ounce of predictability, they're leading a new wave of eclectic electronic music that prizes curatorial taste above all else.",
+                ref: 'NPR'
+            },
+            buy: 'https://bicep.lnk.to/bicepEs',
+            social: [
                 {
                     name: 'Spotify',
-                    href: 'http://found.ee/umfang-sp'
+                    href: 'http://found.ee/bicep-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/bicep-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/bicep-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/bicep-ig'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/bicep-tw'
+                },
+                {
+                    name: 'feelmybicep.com',
+                    href: 'http://feelmybicep.com/'
                 }
+
+            ]
+        },
+        {
+            artist: 'Young Fathers',
+            release: 'TAPE ONE / TAPE TWO',
+            date: 'June 16',
+            label: 'Big Dada',
+            artwork: 'img/packshots/tapes800.jpg',
+            track: {
+                title: 'Only God Knows',
+                src: 'tracks/01_Young_Fathers_Only_God_Knows.mp3'
+            },
+            copy: {
+                intro: "The re-release of Young Father&rsquo;s debut &lsquo;mixtapes&rsquo; &quot;TAPE ONE&quot; and the sequel &quot;TAPE TWO&quot; gave us a chance to reappraise two albums that sat firmly outside the mainstream in 2011/12 and still seem prescient today.",
+                main: "With a new album on the way in 2018, Young Fathers also released new single &lsquo;Lord&rsquo; at the end of October 2017."
+            },
+            quote: {
+                quote: "A confrontational brand of hip-hop as indebted to punk ideals as it is to rap&hellip; The first of these two releases taught Young Fathers who they were as a group and laid the foundations for what would come.",
+                ref: 'FADER'
+            },
+            buy: 'https://YoungFathers.lnk.to/CompleteEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/youngfathers-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/youngfathers-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/youngfathers-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/youngfathers-ig'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/youngfathers-tw'
+                },
+                {
+                    name: 'youngfathers.com',
+                    href: 'http://www.young-fathers.com/'
+                }
+
             ]
         }
     ]
@@ -174,7 +314,6 @@ function loadProjectContent(n, callback) {
     projectNumber.innerHTML = num;
     projectNumber.setAttribute('data-total', '/ ' + total);
 
-
     // HEADLINES //
     document.getElementById('project-title').innerHTML = p.release;
     document.getElementById('project-artist').innerHTML = p.artist;
@@ -186,6 +325,9 @@ function loadProjectContent(n, callback) {
     // PACKSHOT //
     currentProjectArtwork = p.artwork;
     resetPackshot(callback);
+
+    // AUDIO //
+    loadAudio(p.track.src);
 
     // COPY //
     document.getElementById('copy-intro').innerHTML = p.copy.intro;
@@ -225,18 +367,27 @@ function loadProjectContent(n, callback) {
         var link = document.createElement('a');
         link.href = item.href;
         link.innerHTML = item.name;
-        projectSocial.appendChild(link);
+
 
         if (i < (l-2)) {
-            var grammar = document.createTextNode(', ');
-            projectSocial.appendChild(grammar);
+            var wrap = document.createElement('span');
+            var grammar = document.createTextNode(',');
+            projectSocial.appendChild(wrap);
+            wrap.appendChild(link);
+            wrap.appendChild(grammar);
+            var space = document.createTextNode(' ');
+            projectSocial.appendChild(space);
         }
         else if (i === (l-2)) {
             var grammar = document.createTextNode(' and ');
+            projectSocial.appendChild(link);
             projectSocial.appendChild(grammar);
         } else {
+            var wrap = document.createElement('span');
             var grammar = document.createTextNode('.');
-            projectSocial.appendChild(grammar);
+            projectSocial.appendChild(wrap);
+            wrap.appendChild(link);
+            wrap.appendChild(grammar);
         }
     });
 
@@ -274,21 +425,46 @@ function loadProject(n) {
     projectOpen = true;
     currentProject = n;
     shroud.classList.remove('out');
+    ninja.classList.add('in');
     setTimeout(function(){
         loadProjectContent(n, function() {
             shroud.classList.add('out');
         });
-    },600);
+    },1000);
 }
 
 function populateIndex() {
+
+    var artistList = [];
+    data.projects.forEach(function(item, i) {
+        artistList.push({artist: item.artist, index: (0 + i)});
+    });
+    // sort //
+    artistList.sort(function(a, b) {
+        var x = a.artist.toLowerCase();
+        var y = b.artist.toLowerCase();
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+
     var container = document.getElementById('index-inner');
     container.innerHTML = '';
-    data.projects.forEach(function(item, i) {
+    artistList.forEach(function(item) {
         var link = document.createElement('a');
-        link.setAttribute('data-index',i);
+        link.setAttribute('data-index',item.index);
         link.innerHTML = item.artist;
         $(link).click(loadFromIndex);
         container.appendChild(link);
     });
+
+    var total = data.projects.length;
+    if (total < 10) total = '0' + total;
+    titleNumberWrap.setAttribute('data-total', '/ ' + total);
+}
+
+function loadAudio(src) {
+    if (audioIsPlaying) {
+        toggleAudio();
+    }
+    audioObject = new Audio(src);
+    audioObject.addEventListener('ended', toggleAudio);
 }

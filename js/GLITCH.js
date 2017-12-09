@@ -60,13 +60,13 @@ Glitch.prototype.draw = function() {
 function GlitchRect(parentArray, x, y, strong) {
     this.parentArray = parentArray;
     this.col = tombola.item(glitchCols);
-    this.col.A = tombola.rangeFloat(0.3,1);
+    this.col.A = tombola.rangeFloat(0.4,1);
     this.strong = false;
 
 
     this.x = x;
     this.y = y;
-    this.w = tombola.range(5, 1200);
+    this.w = tombola.range(15, 1200);
     this.h = tombola.range(1, 65);
     this.direction = tombola.item([-1, 1]);
     this.decay = this.w / tombola.range(4, 20);

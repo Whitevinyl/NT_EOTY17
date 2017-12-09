@@ -20,6 +20,7 @@ function Img(ctx, x, y, s, src, callback) {
     this.rollAmp = 0;
 
 
+
     this.img = new Image();
     var me = this;
     this.img.onload = function() {
@@ -32,6 +33,8 @@ function Img(ctx, x, y, s, src, callback) {
     this._linked = false;
 
     this.margin = 60;
+    this.rollRefresh = this.margin;
+
 
 
     this.index1 = 100;
@@ -182,6 +185,9 @@ Img.prototype.update = function() {
     var rollNoise = this.noise.noise(this.index2, 0);
 
 
+    //this.rollBlock();
+
+
     for (i=0; i<this.rows; i++) {
         ind = i + this.linkOff;
         var id = ind/dv;
@@ -200,7 +206,7 @@ Img.prototype.update = function() {
         n = (this.noise.noise(ind1, ind1) + this.noise.noise(ind2, ind2)) / 2;
         this.rowOffsetDest[i] = n * this.range * scrollAmp;
 
-        this.rollSplit(i, mouseInd, rollNoise);
+        //this.rollSplit(i, mouseInd, rollNoise);
 
         // intro offset //
         var startInd = (i + this.linkOff - this.startOff) / ((50 * scaleM) / rh);
@@ -208,12 +214,12 @@ Img.prototype.update = function() {
         this.rowOffsetDest[i] -= n;
 
         // glitch //
-        var glitchOff = this.noise.noise(ind1, ind2) * 100;
+        /*var glitchOff = this.noise.noise(ind1, ind2) * 100;
         var glitchNoise = tombola.rangeFloat(-0.2,0.2) * 0.5;
         if (glitch.glitches.length) {
             this.rowOffset[i] = (this.rowOffsetDest[i] + glitchOff);
             if (glitchOff > 0) this.rowOffsetDest[i] += (glitchNoise * glitchOff);
-        }
+        }*/
 
         // rollover //
         /*if (this.interactive && this.roll) {
@@ -259,11 +265,11 @@ Img.prototype.update = function() {
         this.peakOffset = constrain(this.peakOffset, -this.offsetRange, this.offsetRange);
     }
 
-    var dist = 50;
+    var dist = 60;
     this.xOffDest = dist * mouseXNorm;
     this.yOffDest = dist * mouseYNorm;
-    this.xOff = lerp(this.xOff, this.xOffDest, 4);
-    this.yOff = lerp(this.yOff, this.yOffDest, 4);
+    this.xOff = lerp(this.xOff, this.xOffDest, 5);
+    this.yOff = lerp(this.yOff, this.yOffDest, 5);
 
     this.startOff = lerp(this.startOff, this.startOffDest, 2);
     this.rollAmp = lerp(this.rollAmp, this.roll, 2);
@@ -275,12 +281,32 @@ Img.prototype.update = function() {
 Img.prototype.rollSplit = function(i, mouseInd, n) {
     if (this.interactive && this.roll) {
         var strength = (mouseX - (width / 2)) / (this.width / 2);
-        var dist = strength * 0.2 * this.range;
+        var dist = strength * 0.13 * this.range;
         if (i < mouseInd) {
             this.rowOffsetDest[i] -= dist;
         } else {
             this.rowOffsetDest[i] += dist;
         }
+    }
+};
+
+Img.prototype.rollBlock = function() {
+    if (this.interactive && this.roll) {
+
+        var count = 2;
+        var rows = 1;
+        var index = this.rollRefresh * rows;
+
+        var strength = (mouseX - (width / 2)) / (this.width / 2);
+        var dist = strength * 1 * this.range;
+
+        for (var j=index; j<(index + rows); j++) {
+            this.rowOffset[j] = dist;
+            this.rowOffsetDest[j] = dist;
+        }
+        this.rollRefresh ++;
+        if (this.rollRefresh >= (this.rows - this.margin) / rows) this.rollRefresh = this.margin;
+
     }
 };
 

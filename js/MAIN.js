@@ -23,8 +23,8 @@ var pageHeight = 0;
 var viewHeight = 0;
 
 var currentScrollFocus = 0;
-var introScroll = 500;
-var txtScroll = 500;
+var introScroll = 550;
+var txtScroll = 550;
 
 
 // INTERACTION //
@@ -46,7 +46,8 @@ var palette = [new RGBA(247,190,2,1), new RGBA(239,235,0,1), new RGBA(18,18,232,
 
 var glitchCols = [new RGBA(255,255,255,1)]; // new RGBA(250,240,255,1)
 
-
+var audioObject;
+var audioIsPlaying = false;
 
 
 var page;
@@ -54,17 +55,17 @@ var project;
 var uiBlock;
 var introBlock;
 var year;
-var percentBar;
-var percentBarContainer;
-var percentBarTop;
-var percentBarBottom;
+var titleNumber;
+var titleNumberWrap;
 var indexClose;
 var indexOpen;
 var index;
+var cursor;
 var closeBlock;
 var packshotwrap;
 var projectCopy;
 var shroud;
+var black;
 var projectClose;
 var projectArtists;
 var nextProject;
@@ -72,6 +73,9 @@ var percentBarTop;
 var percentBarBottom;
 var percentBarTopWrap;
 var percentBarBottomWrap;
+var titleUnderline;
+var ninja;
+var projectAudio;
 
 
 var currentProject = 0;
@@ -126,11 +130,12 @@ function init() {
 function getElements() {
     page = document.getElementById('page');
     project = document.getElementById('project');
+    ninja = document.getElementById('ninja-logo');
     uiBlock = document.getElementById('ui-block');
     introBlock = document.getElementById('intro-block');
     year = document.getElementById('year');
-    percentBarContainer = document.getElementById('percent-bar-container');
-    percentBar = document.getElementById('percent-bar');
+    titleNumber = document.getElementById('title-number-index');
+    titleNumberWrap = document.getElementById('title-number-index-wrap');
     percentBarTop = document.getElementById('percent-bar-top');
     percentBarBottom = document.getElementById('percent-bar-bottom');
     percentBarTopWrap = document.getElementById('percent-bar-top-wrap');
@@ -142,9 +147,12 @@ function getElements() {
     projectClose = document.getElementById('project-close');
     projectArtists = document.getElementById('project-artists');
     packshotWrap = document.getElementById('packshot-wrap');
+    projectAudio = document.getElementById('project-audio');
     projectCopy = document.getElementById('project-copy');
     nextProject = document.getElementById('next-project');
     shroud = document.getElementById('shroud');
+    black = document.getElementById('black');
+    titleUnderline = document.getElementById('title-underline-wrap');
 }
 
 
@@ -297,7 +305,6 @@ function draw() {
 
 
 function drawPackshot() {
-    ctx2.clearRect(0,0,width,height);
     packshot.draw();
 }
 

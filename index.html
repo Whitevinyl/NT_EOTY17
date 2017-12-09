@@ -94,14 +94,13 @@
             </div>
 
 
-            <!-- UI -->
             <div id='ui-block' class='in'>
                 <div id='index-button' class='mid'>
-                    <a id='index-open' class='c-roll-line' href='#'>Index</a>
+                    <a id='index-open' class='c-roll-line'>Index</a>
                 </div>
 
                 <div id='mute-button' class='mid'>
-                    <a class='c-roll-line' href='#'>
+                    <a class='c-roll-line'>
                         <div class='mute-line'></div>
                         <div class='mute-line ml2'></div>
                         <div class='mute-line ml3'></div>
@@ -110,19 +109,15 @@
                 </div>
             </div>
 
-            <div id='percent-bar-container' class='in'>
-                <div class='percent-inner'>
-                    <div id='percent-bar'></div>
-                    <div class='percent-marker'></div>
-                </div>
-            </div>
-
-            
-            <div id='percent-bar-top-wrap'>
+            <div id='percent-bar-top-wrap' class='mid'>
                 <div id='percent-bar-top'></div>
             </div>
-            <div id='percent-bar-bottom-wrap'>
+            <div id='percent-bar-bottom-wrap' class='mid'>
                 <div id='percent-bar-bottom'></div>
+            </div>
+
+            <div id='title-underline-wrap' class='mid'>
+                View Project +
             </div>
 
 
@@ -137,7 +132,13 @@
                     <div id='explore-group' class='col-2 large-mid'>
                         <div class='explore-stroke'></div>
                         <div class='explore-line'></div>
-                        <a id='explore' class='t-down-top-center' href='#'>Explore 	&rarr;</a>
+                        <a id='explore' class='t-down-top-center'>Explore 	&rarr;</a>
+                    </div>
+                </div>
+                <div id='intro-scroll' class='col-1 left-1'></div>
+                <div id='title-number' class='col-8 left-1'>
+                    <div id='title-number-index-wrap'>
+                        <div id='title-number-index'>01</div>
                     </div>
                 </div>
             </div>
@@ -172,8 +173,8 @@
             <div id='project-head' class='screen-block'>
                 <div class='wrap'>
                     <div id='project-headlines' class='col-7 left-1 stretch'>
-                        <h1 id='project-title'>-</h1>
                         <h1 id='project-artist'>-</h1>
+                        <h1 id='project-title'>-</h1>
                         <h2 id='project-date'>-</h2>
                     </div>
 
@@ -190,7 +191,18 @@
                     <div id='packshot'></div>
                 </div>
 
-
+                <div id='project-audio-wrap' class='c-hidden'>
+                    <div id='project-audio-label' class='mid c-reveal-child'>Listen</div>
+                    <div id='project-audio' class='c-reveal-child'>
+                        <svg id='project-audio-pause' viewBox='0 0 100 100' preserveAspectRatio='none'>
+                            <path d='M33 33 L42 33 L42 66 L33 66 z'  fill='currentColor' stroke='none' />
+                            <path d='M66 33 L58 33 L58 66 L66 66 z'  fill='currentColor' stroke='none' />
+                        </svg>
+                        <svg id='project-audio-play' viewBox='0 0 100 100' preserveAspectRatio='none'>
+                            <path d='M37 33 L72 50 L37 66 z'  fill='currentColor' stroke='none' />
+                        </svg>
+                    </div>
+                </div>
             </div>
 
 
@@ -205,8 +217,8 @@
 
                     <div class='row'>
                         <div id='project-copy'>
-                            <p id='copy-intro'  class='col-7 left-2 stretch c-reveal-child'>-</p>
-                            <p id='copy-main'  class='col-7 left-2 stretch c-reveal-child'>-</p>
+                            <p id='copy-intro'  class='col-7 left-2 flush stretch c-reveal-child'>-</p>
+                            <p id='copy-main'  class='col-6 left-2 flush stretch c-reveal-child'>-</p>
                         </div>
                     </div>
                 </div>
@@ -218,7 +230,7 @@
                         </div>
                     </div>
                     <div class='row'>
-                        <div id='project-quotes' class='col-4 left-2 project-quotes stretch'>
+                        <div id='project-quotes' class='col-6 left-2 flush project-quotes stretch'>
                             <blockquote class='c-reveal-child'>-</blockquote>
                             <div class='quote-ref mid c-reveal-child'>-</div>
                         </div>
@@ -231,7 +243,7 @@
                 <div class='row centered c-hidden'>
                     <a id='project-buy-box' href='' class='mid c-reveal-child' data-label='Order'>
                         <!--<div class='explore-stroke'></div>-->
-                        <div id='project-buy' class='headline'>Listen Now</div>
+                        <div id='project-buy' class='headline'>Listen</div>
                     </a>
                 </div>
 
@@ -242,7 +254,7 @@
                         </div>
                     </div>
                     <div class='row'>
-                        <div id='project-social' class='col-7 left-2 stretch c-reveal-child'>-</div>
+                        <div id='project-social' class='col-7 left-2 flush stretch c-reveal-child'>-</div>
                     </div>
                 </div>
 
@@ -256,19 +268,17 @@
             </div>
 
 
-
-
             <div id='project-footer' class='group c-hidden'>
                 <div id='project-year'>
                     <h2>2017</h2>
-                    <a id='project-year-ninja' class='mid c-roll-line'>ninjatune.net</a>
-                    <a id='site-credit' href='' class='mid c-roll-line'>Site by wvnl</a>
+                    <a id='project-year-ninja' href='http://ninjatune.net' target='_blank' class='mid c-roll-line'>ninjatune.net</a>
+                    <a id='site-credit' href='http://whitevinyldesign.com' target='_blank' class='mid c-roll-line'>Site by wvnl</a>
                 </div>
 
                 <div id='next-project'>
                     <div class='next-project-label'>NEXT</div>
-                    <div id='next-project-artist'>Actress</div>
-                    <div id='next-project-title'>AZD</div>
+                    <div id='next-project-artist'>-</div>
+                    <div id='next-project-title'>-</div>
                     <div class='next-project-arrow'>
                         <svg viewBox='0 0 100 100' preserveAspectRatio='none'>
                             <path d='M25 0 L75 50 L25 100' vector-effect='non-scaling-stroke' fill='none' stroke='currentColor' stroke-width='2' />
@@ -277,6 +287,8 @@
                 </div>
             </div>
         </div>
+
+        <div id='black' class='out'></div>
 
         <div id='shroud' class='out'>
             <div class='shroud-bar'></div>

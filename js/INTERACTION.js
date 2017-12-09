@@ -1,12 +1,14 @@
 
 var mouseXNorm = 0;
 var mouseYNorm = 0;
-var scrolled = 0;
 var packshotFocusTimer = null;
 var scrollPerc = 0;
 var scrollFocus = 0;
 var scrollOrigin = 0;
 var scrollTimer = null;
+var scrollbarsVisible = true;
+var scrollAdvance = true;
+var lastScrollFocus = 0;
 
 
 
@@ -30,6 +32,7 @@ function setupInteraction() {
     $(projectClose).click(toggleProject);
     $(projectArtists).click(toggleProject);
     $(nextProject).click(gotoNextProject);
+    $(projectAudio).click(toggleAudio);
 
 
     $(document.getElementById('test-index-link')).click(loadFromIndex);
@@ -49,6 +52,7 @@ function mousePress() {
     rolloverCheck();
 
     if (txt && !projectOpen && currentScrollFocus > 0 && txt.roll) loadProject(currentScrollFocus-1);
+    titleUnderline.classList.remove('roll');
 }
 
 
@@ -74,78 +78,172 @@ function mouseMove(event) {
     var xDist = mouseX - cx;
     var xStrength = g / (xDist);
     var yDist = mouseY - cy;
-    var yStrength = g / (yDist);
+    var yStrength = g / (yDist); // used?
 
 
     mouseXNorm = (mouseX - cx) / cx;
     mouseYNorm = (mouseY - cy) / cy;
 
     if (!projectOpen) {
-        canvas.style.transform = 'rotateY(' + (-mouseXNorm * 5) + 'deg)';
+        canvas.style.transform = 'rotateY(' + (-mouseXNorm * 6) + 'deg)';
+    }
+    if (projectOpen) {
+        /*if (!packshotWrap.classList.contains('in') && !packshotWrap.classList.contains('out')) {
+            canvas2.style.transform = 'rotateY(' + (-mouseXNorm * 5) + 'deg)';
+        }*/
     }
 
     mouseXNorm *= Math.abs(mouseXNorm);
     mouseYNorm *= Math.abs(mouseYNorm);
 
-    //scrolled = window.pageYOffset / 2000;
-
-    /*mouseXNorm = logPosition(-1,1,1,3, mouseXNorm + 2);
-    mouseYNorm = logPosition(-1,1,1,3, mouseYNorm + 2);
-
-    mouseXNorm = xStrength;
-    mouseYNorm = yStrength;*/
-
-    /*mouseXNorm -= 1;
-    mouseYNorm -= 1;*/
-
     if (logo && !projectOpen && currentScrollFocus === 0) logo.hitTest();
-    if (txt && !projectOpen && currentScrollFocus > 0) txt.hitTest();
+    if (txt && !projectOpen && currentScrollFocus > 0) {
+        txt.hitTest();
+    }
+    titleRollover();
 }
 
+function titleRollover() {
+    if (txt && currentScrollFocus > 0 && txt.roll) {
+        page.style.cursor = 'pointer';
+        titleUnderline.classList.add('roll');
+    } else {
+        page.style.cursor = 'default';
+        titleUnderline.classList.remove('roll');
+    }
+}
 
 function rolloverCheck() {
     var test = hitBox(0, 0, width, height);
 }
 
+
+
+
 function pageScroll(){
     scrollPos = page.scrollTop;
     scrollFocus = scrollPos - scrollOrigin;
-    scrolled = 0.03 + (scrollPos / 1500);
 
 
     updatePercentBar();
+    if (currentScrollFocus < 1 && scrollPerc > 50) {
+        glitch.chance = scrollPerc;
+    }
 
-
-    // TODO: count the amount past 100% and jup appropriately //
-    if (scrollPerc > 100) {
-        scrollOrigin += targetHeight;
-        updatePercentBar();
-        currentScrollFocus ++;
-        scrollLoop();
-        resetTxt();
-        glitch.chance = 70;
-        xOff(1);
+    // TODO: count the amount past 100% and jump appropriately //
+    /*if (scrollPerc > 100) {
+        nextScrollFocus();
     }
     if (scrollPerc < 0) {
-        currentScrollFocus --;
-        updatePercentBar();
-        scrollOrigin -= targetHeight;
-        resetTxt();
-        glitch.chance = 70;
-        xOff(-1);
-    }
+        prevScrollFocus();
+    }*/
+
+    scrollScene();
+
+    if (glitch && glitch.chance > 220) glitch.chance = 220;
 
     introAnim();
 
     // AT THE END OF CONTINUOUS RESIZING //
-    if (scrollTimer) clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(function() {
-        resetScroll();
-    },50);
+    if (scrollAdvance) {
+        if (scrollTimer) clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function() {
+            resetScroll();
+        },60);
+    }
+}
+
+
+function scrollScene() {
+    if (logo) {
+        var projectNo = data.projects.length;
+        var space = txtScroll;
+        var backMult = -1;
+
+
+        // get current //
+        currentScrollFocus = Math.floor(page.scrollTop / space);
+
+        // loop //
+        if (currentScrollFocus > projectNo) {
+            page.scrollTop = space;
+            currentScrollFocus = 1;
+            backMult = 1;
+        }
+
+        scrollOrigin = currentScrollFocus * space;
+
+        // advance //
+        if (currentScrollFocus > lastScrollFocus) {
+            resetTxt();
+            xOff(1);
+        }
+        // back //
+        if (currentScrollFocus < lastScrollFocus) {
+            resetTxt();
+            xOff(backMult);
+        }
+
+
+        lastScrollFocus = currentScrollFocus;
+    }
+
+}
+
+
+function nextScrollFocus() {
+    if (scrollAdvance) {
+        //if (currentScrollFocus > 0) {
+            scrollOrigin += targetHeight;
+            updatePercentBar();
+            currentScrollFocus ++;
+            scrollLoop();
+            centerScroll();
+            resetTxt();
+            glitch.chance += 60;
+            xOff(1);
+        /*}
+
+        else {
+            //black.classList.remove('out');
+            scrollAdvance = false;
+            setTimeout(function() {
+                //black.classList.add('out');
+                scrollOrigin = introScroll;
+                updatePercentBar();
+                currentScrollFocus = 1;
+                resetTxt();
+                glitch.chance += 60;
+                xOff(1);
+                scrollAdvance = true;
+                if (scrollTimer) clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(function() {
+                    resetScroll();
+                },60);
+            },900);
+        }*/
+    }
+}
+
+function prevScrollFocus() {
+    if (scrollAdvance) {
+        currentScrollFocus --;
+        updatePercentBar();
+        scrollOrigin -= targetHeight;
+        resetTxt();
+        glitch.chance += 60;
+        xOff(-1);
+    }
+}
+
+
+function centerScroll() {
+    page.scrollTop = scrollOrigin + (targetHeight * 0.05);
 }
 
 function resetScroll() {
     var dest = scrollOrigin + (targetHeight / 2);
+    dest = (txtScroll * currentScrollFocus) + (txtScroll / 2);
     if (currentScrollFocus===0) {
         dest = 0;
     }
@@ -154,8 +252,12 @@ function resetScroll() {
         left: 0,
         behavior: 'smooth'
     });
+
+    percentBarTopWrap.style.transitionDelay =  '0s';
+    percentBarBottomWrap.style.transitionDelay =  '0s';
     percentBarTopWrap.style.opacity = '0';
     percentBarBottomWrap.style.opacity = '0';
+    scrollbarsVisible = true;
 }
 
 function scrollLoop() {
@@ -167,7 +269,8 @@ function scrollLoop() {
 }
 
 function xOff(dir) {
-
+    titleRollover();
+    scrollbarsVisible = false;
     percentBarTopWrap.classList.add('no-transition');
     percentBarTopWrap.style.opacity = '0';
     percentBarTopWrap.offsetHeight;
@@ -179,47 +282,67 @@ function xOff(dir) {
     percentBarBottomWrap.classList.remove('no-transition');
 
 
+
     if (currentScrollFocus===0) {
         logo.yOff = (height * 0.1) * dir;
-        //logo.xOff = (width * 0.2) * dir;
         page.scrollTop = 0;
     } else {
         txt.yOff = (height * 0.1) * dir;
-        //txt.xOff = (width * 0.2) * dir;
+        setTitleNumber();
     }
 }
 
+
+function setTitleNumber() {
+    var num = currentScrollFocus;
+    if (num < 10) num = '0' + num;
+    titleNumber.innerHTML = '' + num;
+
+    $(titleNumber).removeClass('in').width(); // reading width() forces reflow
+    $(titleNumber).addClass('in');
+}
+
+
 function updatePercentBar() {
+    if (currentScrollFocus < 0) currentScrollFocus = 0;
     targetHeight = txtScroll;
     if (currentScrollFocus===0) targetHeight = introScroll;
 
     if (percentBarTop) {
-        scrollPerc = (scrollFocus / targetHeight) * 100;
+        scrollPerc = Math.round((scrollFocus / targetHeight) * 100);
         var scrollPercVis = scrollPerc;
         if (scrollPercVis > 100) scrollPercVis = 100;
-        //percentBar.style.width = '' + scrollPerc + '%';
 
-        if (currentScrollFocus > 0) {
-            if (scrollPerc < 50) {
-                percentBarBottom.style.height = '0';
-                percentBarTop.style.height = '' + (100 - (scrollPercVis * 2)) + '%';
-                percentBarBottomWrap.style.opacity = '0';
-                percentBarTopWrap.style.opacity = '1';
+        if (scrollbarsVisible) {
+            if (currentScrollFocus > 0) {
+                if (scrollPerc < 50) {
+                    percentBarBottom.style.height = '0';
+                    percentBarTop.style.height = '' + (100 - (scrollPercVis * 2)) + '%';
+                    percentBarBottomWrap.style.transitionDelay =  '0s';
+                    percentBarTopWrap.style.transitionDelay =  '0s';
+                    percentBarBottomWrap.style.opacity = '0';
+                    percentBarTopWrap.style.opacity = '1';
+                }
+                else if (scrollPerc > 50) {
+                    percentBarTop.style.height = '0';
+                    percentBarBottom.style.height = '' + ((scrollPercVis * 2) - 100) + '%';
+                    percentBarTopWrap.style.transitionDelay =  '0s';
+                    percentBarBottomWrap.style.transitionDelay =  '0s';
+                    percentBarTopWrap.style.opacity = '0';
+                    percentBarBottomWrap.style.opacity = '1';
+
+                }
             }
-            else if (scrollPerc > 50) {
+            else {
                 percentBarTop.style.height = '0';
-                percentBarBottom.style.height = '' + ((scrollPercVis * 2) - 100) + '%';
+                percentBarBottom.style.height = '' + scrollPercVis + '%';
+                percentBarTopWrap.style.transitionDelay =  '0s';
+                percentBarBottomWrap.style.transitionDelay =  '0s';
                 percentBarTopWrap.style.opacity = '0';
                 percentBarBottomWrap.style.opacity = '1';
-
             }
         }
-        else {
-            percentBarTop.style.height = '0';
-            percentBarBottom.style.height = '' + scrollPercVis + '%';
-            percentBarTopWrap.style.opacity = '0';
-            percentBarBottomWrap.style.opacity = '1';
-        }
+
 
     }
 }
@@ -228,10 +351,15 @@ function updatePercentBar() {
 function introAnim() {
     if (scrollPos > 20) {
         introBlock.classList.add('out');
-        percentBarContainer.classList.remove('in');
     } else {
         introBlock.classList.remove('out');
-        percentBarContainer.classList.add('in');
+    }
+    if (scrollPos > introScroll) {
+        introBlock.classList.add('titles');
+        ninja.classList.add('in');
+    } else {
+        introBlock.classList.remove('titles');
+        ninja.classList.remove('in');
     }
 }
 
@@ -262,6 +390,7 @@ function projectAnim(pos) {
 
     if (pastHeader && !pastIntro) {
         if (packshot) packshot.activate();
+        //canvas2.setAttribute('style','');
     } else {
         if (packshot) packshot.deactivate();
     }
@@ -285,6 +414,11 @@ function toggleProject() {
     project.classList.toggle('open');
     page.classList.toggle('no-transition');
     projectOpen = !projectOpen;
+    if (audioIsPlaying) {
+        toggleAudio();
+    }
+
+    if (!projectOpen && currentScrollFocus < 1) ninja.classList.remove('in');
 }
 
 function loadFromIndex() {
@@ -297,4 +431,19 @@ function gotoNextProject() {
     if (currentProject >= data.projects.length) currentProject = 0;
 
     loadProject(currentProject);
+}
+
+
+function toggleAudio() {
+    if (audioIsPlaying) {
+        audioObject.pause();
+        audioObject.currentTime = 0;
+        projectAudio.classList.remove('audio-playing');
+        audioIsPlaying = false;
+    }
+    else {
+        audioObject.play();
+        projectAudio.classList.add('audio-playing');
+        audioIsPlaying = true;
+    }
 }
