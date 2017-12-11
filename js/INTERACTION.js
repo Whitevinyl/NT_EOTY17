@@ -208,7 +208,9 @@ function calculateScene() {
                 hideScrollBars();
                 setTimeout(function(){
                     introBlock.classList.add('titles');
-                    muteButton.classList.add('titles');
+                    if (AUTOPLAY) {
+                        muteButton.classList.add('titles');
+                    }
                     page.scrollTop = space;
                     black.classList.add('out');
                     landingScreen = false;
@@ -363,9 +365,7 @@ function introAnim() {
     }
     if (scrollPos < introScroll) {
         introBlock.classList.remove('titles');
-        if (AUTOPLAY) {
-            muteButton.classList.remove('titles');
-        }
+        muteButton.classList.remove('titles');
         ninja.classList.remove('in');
     }
 }

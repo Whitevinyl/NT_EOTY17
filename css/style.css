@@ -393,14 +393,16 @@ UI
 #mute-button {
     display: inline-block;
     opacity: 0;
+    visibility: hidden;
     float: left;
 
-    -webkit-transition: opacity 1s;
-    transition: opacity 1s;
+    -webkit-transition: opacity 1s, visibility 1s;
+    transition: opacity 1s, visibility 1s;
 }
 
 #mute-button.titles {
     opacity: 1;
+    visibility: visible;
 }
 
 /*#mute-button.muted::after {
