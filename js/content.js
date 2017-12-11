@@ -231,7 +231,7 @@ var data = {
                 main: "The result is an assured, compelling body of work, tying together the ancient and future: weaving swathes of buzzing digital textures, field recordings, clattering beats and distorted jazz sax with fizzing orchestral arrangements."
             },
             quote: {
-                quote: "Compassion doesn't merely reflect the weeping and gnashing of teeth of our time - it does what it can to sooth and heal. The results are both sincere and sublime",
+                quote: "Compassion doesn't merely reflect the weeping and gnashing of teeth of our time - it does what it can to soothe and heal. The results are both sincere and sublime",
                 ref: 'Resident Advisor',
                 sub: '4.5/5'
             },
@@ -378,53 +378,6 @@ var data = {
                     name: 'Twitter',
                     href: 'http://found.ee/umfang-tw'
                 }
-            ]
-        },
-        {
-            artist: 'Young Fathers',
-            release: 'TAPE ONE / TAPE TWO',
-            date: 'June 16',
-            label: 'Big Dada',
-            artwork: 'img/packshots/tapes.jpg',
-            track: {
-                title: 'Only God Knows',
-                src: 'tracks/01_Young_Fathers_Only_God_Knows.mp3'
-            },
-            copy: {
-                intro: "The re-release of Young Fathers&rsquo; debut &lsquo;mixtapes&rsquo; &quot;TAPE ONE&quot; and the sequel &quot;TAPE TWO&quot; gave us a chance to reappraise two albums that sat firmly outside the mainstream in 2011/12 and still seem prescient today.",
-                main: "With a new album on the way in 2018, Young Fathers also released new single &lsquo;Lord&rsquo; at the end of October 2017."
-            },
-            quote: {
-                quote: "A confrontational brand of hip-hop as indebted to punk ideals as it is to rap&hellip; The first of these two releases taught Young Fathers who they were as a group and laid the foundations for what would come.",
-                ref: 'FADER'
-            },
-            buy: 'https://YoungFathers.lnk.to/CompleteEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/youngfathers-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/youngfathers-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/youngfathers-fb'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://found.ee/youngfathers-ig'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/youngfathers-tw'
-                },
-                {
-                    name: 'youngfathers.com',
-                    href: 'http://www.young-fathers.com/'
-                }
-
             ]
         },
         {
@@ -1075,8 +1028,8 @@ var data = {
                 main: ""
             },
             quote: {
-                quote: "The Hamburg DJ applies the energy of her spine-tingling DJ sets to a suggestively lo-fi set of acid-soaked electro-techno jams.",
-                ref: 'Pitchfork'
+                quote: "Throbbing, three-dimensional electro that hums and buzzes with dark and decadent energy&hellip; an intense and impressive debut album",
+                ref: 'Crack Magazine'
             },
             buy: 'https://helenahauff.lnk.to/haveEs',
             social: [
@@ -1087,6 +1040,54 @@ var data = {
                 {
                     name: 'Apple Music',
                     href: '	http://found.ee/helena-am'
+                }
+
+            ]
+        },
+        {
+            artist: 'Young Fathers',
+            release: 'Lord',
+            date: 'October 31',
+            label: 'Big Dada',
+            artwork: 'img/packshots/lord.jpg',
+            track: {
+                title: 'Lord',
+                src: 'tracks/05_Lord_4424.mp3'
+            },
+            copy: {
+                intro: "Taken from their forthcoming 2018 album, Young Fathers shared new single &ldquo;Lord&rdquo; this October. Earlier this year Young Fathers released a re-issue of debut &lsquo;mixtapes&rsquo; &quot;TAPE ONE&quot; and sequel &quot;TAPE TWO&quot; giving us a chance to reappraise two albums that sat firmly outside the mainstream in 2011/12.",
+                main: "They also shared single &lsquo;Only God knows&rsquo; in Jan which featured the Leith Congregational Choir which had a total of 6 tracks featured in the official T2 Trainspotting Soundtrack."
+            },
+            quote: {
+                quote: "It&rsquo;s a gorgeous R&amp;B/gospel number set to tender piano and features lyrics about love and struggle.",
+                ref: 'Consequence of Sound',
+                sub: 'On &lsquo;Lord&rsquo;'
+            },
+            buy: 'https://YoungFathers.lnk.to/CompleteEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/youngfathers-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/youngfathers-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/youngfathers-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/youngfathers-ig'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/youngfathers-tw'
+                },
+                {
+                    name: 'youngfathers.com',
+                    href: 'http://www.young-fathers.com/'
                 }
 
             ]
@@ -1367,6 +1368,7 @@ function loadProjectContent(n, callback) {
     p.social.forEach(function(item, i) {
         var link = document.createElement('a');
         link.href = item.href;
+        link.target = '_blank';
         link.innerHTML = item.name;
 
 

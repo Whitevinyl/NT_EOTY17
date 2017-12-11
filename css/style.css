@@ -952,6 +952,7 @@ INTRO
 }
 
 #explore {
+    cursor: pointer;
     display: inline-block;
     line-height: 3em;
     white-space: nowrap;
