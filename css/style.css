@@ -663,7 +663,9 @@ UI
 #title-underline-wrap {
     position: fixed;
     width: 7em;
-    pointer-events: none;
+    visibility: hidden;
+    cursor: pointer;
+
 
     left: 50%;
     top: 70%;
@@ -673,8 +675,8 @@ UI
     -webkit-transform: translateY(1em);
     transform: translateY(1em);
 
-    -webkit-transition: opacity 0.9s, transform 0.9s;
-    transition: opacity 0.9s, transform 0.9s;
+    -webkit-transition: opacity 0.7s, transform 0.7s, visibility 0.7s;
+    transition: opacity 0.7s, transform 0.7s, visibility 0.7s;
 
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
@@ -702,7 +704,8 @@ UI
     transition-delay: 0.5s;
 }
 
-#title-underline-wrap.roll {
+#title-underline-wrap.roll, #title-underline-wrap:hover {
+    visibility: visible;
     opacity: 1;
     -webkit-transform: translateY(0);
     transform: translateY(0);
@@ -1084,6 +1087,7 @@ PROJECT OVERLAY
 }
 
 #ninja-logo {
+    cursor: pointer;
     height: 1rem;
     width: auto;
     position: fixed;

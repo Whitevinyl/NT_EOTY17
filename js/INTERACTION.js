@@ -60,6 +60,8 @@ function setupInteraction() {
     $(nextProject).click(gotoNextProject);
     $(projectAudio).click(toggleAudio);
     $(muteButton).click(toggleMute);
+    $(titleUnderline).click(viewProject);
+    $(ninja).click(backToLaunch);
 
     $('#explore').hover(function() {
         $(this).parent().addClass('hover');
@@ -410,6 +412,22 @@ function projectAnim(pos) {
     }
 }
 
+function backToLaunch() {
+    if (!landingScreen) {
+        if (projectOpen) {
+            page.scrollTop = 0;
+            pageScroll();
+            toggleProject();
+        } else {
+            page.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+
+    }
+}
 
 function toggleIndex() {
     /*canvas.classList.toggle('no-transition');*/
@@ -429,6 +447,10 @@ function toggleProject() {
     }
 
     if (!projectOpen && landingScreen) ninja.classList.remove('in');
+}
+
+function viewProject() {
+    loadProject(currentScene-1);
 }
 
 function loadFromIndex() {
