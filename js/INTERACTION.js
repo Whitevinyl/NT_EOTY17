@@ -123,6 +123,12 @@ function mouseMove(event) {
     mouseXNorm = (mouseX - cx) / cx;
     mouseYNorm = (mouseY - cy) / cy;
 
+    // hacky mobile fix, do this properly //
+    if (!AUTOPLAY) {
+        mouseXNorm = 0;
+        mouseYNorm = 0;
+    }
+
     if (!projectOpen) {
         canvas.style.transform = 'rotateY(' + (-mouseXNorm * 6) + 'deg)';
     }
