@@ -1,49 +1,6 @@
 var data = {
     projects: [
         {
-            artist: 'Thundercat',
-            release: 'Drunk',
-            date: 'February 24',
-            label: 'Brainfeeder',
-            artwork: 'img/packshots/drunk.jpg',
-            track: {
-                title: 'Show You the Way',
-                src: 'tracks/09_Thundercat_Show_You_The_Way__feat__Michael_McDonald___Kenny_Loggins_.mp3'
-            },
-            copy: {
-                intro: "&ldquo;Drunk&rdquo;, released on Brainfeeder, is a 23-track epic journey into the often hilarious, sometimes dark mind of the Grammy-winning singer/bassist and finds a few of his friends joining him along the way including: Kendrick Lamar, Pharrell, Michael McDonald, Kenny Loggins, Wiz Khalifa, Kamasi Washington and Brainfeeder mastermind Flying Lotus.",
-                main: ""
-            },
-            quote: {
-                quote: "Whimsical and somber, funny and meaningful, sometimes all at once...",
-                ref: 'Pitchfork',
-                sub: '8.5/10 - Best New Music'
-            },
-            buy: 'https://thundercat.lnk.to/drunkEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/thundercat-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/thundercat-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/thundercat-fb'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/thundercat-tw'
-                },
-                {
-                    name: 'brainfeeder.net/thundercat',
-                    href: 'http://brainfeeder.net/thundercat'
-                }
-            ]
-        },
-        {
             artist: 'Bonobo',
             release: 'Migration',
             date: 'January 13',
@@ -90,6 +47,134 @@ var data = {
                 }
 
             ]
+        },
+        {
+            artist: 'Thundercat',
+            release: 'Drunk',
+            date: 'February 24',
+            label: 'Brainfeeder',
+            artwork: 'img/packshots/drunk.jpg',
+            track: {
+                title: 'Show You the Way',
+                src: 'tracks/09_Thundercat_Show_You_The_Way__feat__Michael_McDonald___Kenny_Loggins_.mp3'
+            },
+            copy: {
+                intro: "&ldquo;Drunk&rdquo;, released on Brainfeeder, is a 23-track epic journey into the often hilarious, sometimes dark mind of the Grammy-winning singer/bassist and finds a few of his friends joining him along the way including: Kendrick Lamar, Pharrell, Michael McDonald, Kenny Loggins, Wiz Khalifa, Kamasi Washington and Brainfeeder mastermind Flying Lotus.",
+                main: ""
+            },
+            quote: {
+                quote: "Whimsical and somber, funny and meaningful, sometimes all at once...",
+                ref: 'Pitchfork',
+                sub: '8.5/10 - Best New Music'
+            },
+            buy: 'https://thundercat.lnk.to/drunkEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/thundercat-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/thundercat-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/thundercat-fb'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/thundercat-tw'
+                },
+                {
+                    name: 'brainfeeder.net/thundercat',
+                    href: 'http://brainfeeder.net/thundercat'
+                }
+            ]
+        },
+        {
+            artist: 'Nathan Fake',
+            release: 'Providence',
+            date: 'March 10',
+            label: 'Ninja Tune',
+            artwork: 'img/packshots/providence.jpg',
+            buy: 'https://nathanfake.lnk.to/providenceEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/nfake-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/nfake-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/nfake-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/nfake-ig'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/nfake-tw'
+                },
+                {
+                    name: 'nathanfake.com',
+                    href: 'http://nathanfake.com/'
+                }
+            ],
+            track: {
+                title: 'Degreelessness',
+                src: 'tracks/04_Nathan_Fake_DEGREELESSNESS_feat__Prurient.mp3'
+            },
+            copy: {
+                intro: "Crafted in the wake of a crippling two year spell of writer&rsquo;s block during which he was unable to compose any music at all, &ldquo;Providence&rdquo; sees the high respected British producer collaborate with vocalists for the first time, joining forces with Prurient (aka Vatican Shadow / founder of Hospital Productions) who contributed the heavily distorted vocal to &rsquo;DEGREELESSNESS&rsquo; and Raphaelle Standell-Preston from Braids, who lends her voice to &lsquo;RVK&rsquo;.",
+                main: ""
+            },
+            quote: {
+                quote: "Easily one of the best electronic albums you&rsquo;ll hear in 2017&hellip;Career defining.",
+                ref: 'FACT'
+            }
+        },
+        {
+            artist: 'The Bug vs Earth',
+            release: 'Concrete Desert',
+            date: 'March 24',
+            label: 'Ninja Tune',
+            artwork: 'img/packshots/concrete.jpg',
+            buy: 'https://BugvsEarth.lnk.to/cdEs',
+            socialLead: 'The Bug',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/bug-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/bug-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/bug-fb'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/bug-tw'
+                }
+            ],
+            track: {
+                title: 'Snakes vs Rats',
+                src: 'tracks/01_Bug_vs_Earth_Snakes_vs_Rats-1.mp3'
+            },
+            copy: {
+                intro: "A collaboration between Kevin Martin (The Bug) and Dylan Carson of Earth - this is music that grips you entirely, and catches you in its lava-flow - an astonishing, primal album of vast depth.",
+                main: "In making it, Martin decided to break from The Bug&rsquo;s obsessive study of groove, tone and texture, and think more cinematically."
+            },
+            quote: {
+                quote: "Two of the heaviest c*nts on the planet pit their wits on Concrete Desert, with Kevin Martin a.k.a. The Bug framing Dylan Carlson of Earth&rsquo;s deathly axe chops in a deeply strung out and apocalypse baiting clash of the titans. You can simply take it on trust that the whole thing is as heavy as your life.",
+                ref: 'Boomkat'
+            }
         },
         {
             artist: 'Actress',
@@ -180,6 +265,88 @@ var data = {
             ]
         },
         {
+            artist: 'Coldcut x On-U Sound',
+            release: 'Outside The Echo Chamber',
+            date: 'May 19',
+            label: 'Ahead Of Our Time',
+            artwork: 'img/packshots/outside.jpg',
+            buy: 'https://CCxOnU.lnk.to/otecEs',
+            socialLead: 'Coldcut',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/coldcut-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/coldcut-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/coldcut-fb'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/coldcut-tw'
+                },
+                {
+                    name: 'coldcut.net',
+                    href: 'http://coldcut.net/'
+                }
+            ],
+            track: {
+                title: 'Robbery',
+                src: 'tracks/09_Coldcut_x_On_U_Sound_Robbery_feat__Rholin_X.mp3'
+            },
+            copy: {
+                intro: "It&rsquo;s tempting to ask why no one thought of it sooner. Coldcut (Matt Black &amp; Jon More) and Adrian Sherwood &ndash; kingpin of the legendary On-U Sound label &ndash; are the perfect sonic match; two pioneers of British music united by a maverick spirit.",
+                main: "These artists have a deeper intertwined history- On-U Sound is printed in Coldcut&rsquo;s genes in the music they grew up with. This is something much more special than the average collaboration, and it shows in the result: a thrilling sonic adventure, and an album of freshly-minted, electronic dub-pop."
+            },
+            quote: {
+                quote: "Masterly explorations across Brit urban music continuum.",
+                ref: 'MOJO',
+                sub: '4/5'
+            }
+        },
+        {
+            artist: 'Dauwd',
+            release: 'Theory Of Colours',
+            date: 'June 02',
+            label: 'Technicolour',
+            artwork: 'img/packshots/theory.jpg',
+            buy: 'https://dauwd.lnk.to/tocEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/dauwd-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/dauwd-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/dauwd-fb'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/dauwd-tw'
+                }
+            ],
+            track: {
+                title: 'Leitmotiv',
+                src: 'tracks/01_Dauwd_Leitmotiv.mp3'
+            },
+            copy: {
+                intro: "An integral member of the Berlin collective, club night and radio show, African Acid Is The Future, Dauwd Al Hilali has spent the last few years out of the limelight and in his Berlin studio, pulling inspiration from electronic music legends like Terry Riley, Raymond Scott, and the seminal Radiophonic Workshop period in the late 50&rsquo;s and 60&rsquo;s to create his triumphant debut album &ldquo;Theory of Colours&rdquo;.",
+                main: ""
+            },
+            quote: {
+                quote: "Theory Of Colours&rsquo; is all about detailed, expertly produced and seriously understated grooves, with layers of electronica, ambient and jazz-flecked house peeling off after each track",
+                ref: 'DJ MAG'
+            }
+        },
+        {
             artist: 'UMFANG',
             release: 'Symbolic Use Of Light',
             date: 'June 16',
@@ -211,53 +378,6 @@ var data = {
                     name: 'Twitter',
                     href: 'http://found.ee/umfang-tw'
                 }
-            ]
-        },
-        {
-            artist: 'Bicep',
-            release: 'Bicep',
-            date: 'September 01',
-            label: 'Ninja Tune',
-            artwork: 'img/packshots/bicep.jpg',
-            track: {
-                title: 'Glue',
-                src: 'tracks/02_Bicep_Glue.mp3'
-            },
-            copy: {
-                intro: "The Belfast-born, London-based duo of Matt McBriar and Andy Ferguson aka Bicep released their self-titled debut album on Ninja Tune - a record that truly encapsulates their history and the distillation of their passion for music and club culture since their first release in 2010.",
-                main: "The duo have pulled off the rarest of feats, to make a singularly unique electronic record founded on the blueprint of classic house, techno, electro and Italo disco, but flipped and morphed into a fresh design bearing the unique Bicep sonic signature. "
-            },
-            quote: {
-                quote: "Known for exquisite live sets that revive forgotten strains of house, garage, ambient and disco without an ounce of predictability, they're leading a new wave of eclectic electronic music that prizes curatorial taste above all else.",
-                ref: 'NPR'
-            },
-            buy: 'https://bicep.lnk.to/bicepEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/bicep-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/bicep-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/bicep-fb'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://found.ee/bicep-ig'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/bicep-tw'
-                },
-                {
-                    name: 'feelmybicep.com',
-                    href: 'http://feelmybicep.com/'
-                }
-
             ]
         },
         {
@@ -308,304 +428,6 @@ var data = {
             ]
         },
         {
-            artist: 'Helena Hauff',
-            release: 'Have You Been There, Have You Seen It',
-            date: 'October 27',
-            label: 'Ninja Tune',
-            artwork: 'img/packshots/haveyou.jpg',
-            track: {
-                title: 'Gift',
-                src: 'tracks/04_Helena_Hauff_Gift.mp3'
-            },
-            copy: {
-                intro: "&ldquo;Have You Been There, Have You Seen It&rdquo; - on Ninja Tune - finds Helena in breathtaking form, lining up four lithe, muscular and overtly shadowy analogue excursions improvised and recorded in her studio in Hamburg.",
-                main: ""
-            },
-            quote: {
-                quote: "The Hamburg DJ applies the energy of her spine-tingling DJ sets to a suggestively lo-fi set of acid-soaked electro-techno jams.",
-                ref: 'Pitchfork'
-            },
-            buy: 'https://helenahauff.lnk.to/haveEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/helena-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: '	http://found.ee/helena-am'
-                }
-
-            ]
-        },
-        {
-            artist: 'Jordan Rakei',
-            release: 'Wallflower',
-            date: 'September 22',
-            label: 'Ninja Tune',
-            artwork: 'img/packshots/wallflower.jpg',
-            track: {
-                title: 'Hiding Place',
-                src: 'tracks/10_Jordan_Rakei_Hiding_Place-2.mp3'
-            },
-            copy: {
-                intro: "&ldquo;Wallflower&rdquo; sees Jordan edging beyond the peripheries of the genial, often sun-flecked sound his fans have come to know him for.",
-                main: "On &ldquo;Wallflower&rdquo; the tools and the process have evolved - the focus is on live instrumentation - but the groove and the cadence are unmistakable, framing soul and jazz in a truly vibrant oeuvre that simultaneously recalls his predecessors The Roots and peers The Internet, Nick Hakim and Hiatus Kaiyote."
-            },
-            quote: {
-                quote: "A genre mashing mix of electronic wizardry and jazzy time signatures lent weight by Rakei&rsquo;s reflective lyrics and enigmatic croon.",
-                ref: 'Evening Standard',
-                sub: '4/5'
-            },
-            buy: 'https://JordanRakei.lnk.to/wallflowerEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/jordan-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/jordan-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/jordan-fb'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://found.ee/jordan-ig'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/jordan-tw'
-                },
-                {
-                    name: 'jordanrakei.com',
-                    href: 'https://www.jordanrakei.com/'
-                }
-
-            ]
-        },
-        {
-            artist: 'ABRA',
-            release: 'Rose',
-            date: 'October 06',
-            label: 'Ninja Tune',
-            artwork: 'img/packshots/rose.jpg',
-            track: {
-                title: 'Roses',
-                src: 'tracks/02_ABRA_Roses.mp3'
-            },
-            copy: {
-                intro: "Initially released digitally via Awful Records in June 2015, Ninja Tune saw fit to release a limited edition vinyl LP of &ldquo;Rose&rdquo; - the devastating and infectious alt R&amp;B album by Atlanta based singer, songwriter and producer ABRA - in October 2017.",
-                main: ""
-            },
-            quote: {
-                quote: "ABRA draws on the cynicism of darkwave and its brooding hues, while making room for brighter beats, quicker tempos and lyrical vulnerability.",
-                ref: 'Pitchfork'
-            },
-            buy: 'https://abra.lnk.to/rose-lpEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/abra-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/abra-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/abra-fb'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/abra-tw'
-                }
-            ]
-        },
-        {
-            artist: 'ODESZA',
-            release: 'A Moment Apart',
-            date: 'September 08',
-            label: 'Counter Records',
-            artwork: 'img/packshots/moment.jpg',
-            buy: 'https://odesza.lnk.to/amaEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://odesza.co/spotify'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://odesza.co/apple-music'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://odesza.co/facebook'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://odesza.co/instagram'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://odesza.co/twitter'
-                },
-                {
-                    name: 'Snapchat',
-                    href: 'https://www.snapchat.com/add/odesza '
-                },
-                {
-                    name: 'odesza.com',
-                    href: 'http://odesza.co/official'
-                }
-            ],
-            track: {
-                title: 'Thin Floors and Tall Ceilings',
-                src: 'tracks/12_ODESZA_Thin_Floors_And_Tall_Ceilings.mp3'
-            },
-            copy: {
-                intro: "ODESZA (Harrison Mills &amp; Clayton Knight) are one of the most celebrated groups in electronic music, winning over fans online and at their consistently sold-out live shows.",
-                main: "The Grammy nominated &quot;A Moment Apart&quot; represents ODESZA&rsquo;s growth, delivering a more mature sound through weighted atmospheres, shimmering synth lines and familiar feelings of nostalgia, optimism and hope. The album's featured guests include Leon Bridges, Regina Spektor, and RY X, creating an eclectic mix that showcases ODESZA's dynamic range."
-            },
-            quote: {
-                quote: "An emotional journey of epic proportions exploring humanity's intimate moments expressed through glorious chords and layers of textured beats.",
-                ref: 'Billboard'
-            }
-        },
-        {
-            artist: 'Visionist',
-            release: 'Value',
-            date: 'October 10',
-            label: 'Big Dada',
-            artwork: 'img/packshots/value.jpg',
-            buy: 'https://visionist.lnk.to/valueEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/visionist-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/visionist-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/visionist-fb'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://found.ee/visionist-ig'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/visionist-tw'
-                },
-                {
-                    name: 'visionist.live',
-                    href: 'http://www.visionist.live/'
-                }
-            ],
-            track: {
-                title: 'Your Approval',
-                src: 'tracks/05_Visionist_Your_Approval_ft__Rolynne.mp3'
-            },
-            copy: {
-                intro: "Visionist&rsquo;s debut album &ldquo;Safe&rdquo; detailed visceral soundscapes to encapsulate the experiential onslaught of an anxiety attack, and the artist&rsquo;s desire to simultaneously construct and defeat notions of safety.",
-                main: "&ldquo;Value&rdquo; follows this trajectory of strength and vulnerability by examining broader themes of machismo and effeminacy, self-deprecation and self-love, and self-preservation and validation."
-            },
-            quote: {
-                quote: "Heart-pounding chaos to a different type of palette&hellip; mutating noise sounds like it's holding space in a room, synths and vocal noises create synthetic tapestries.",
-                ref: 'Rolling Stone'
-            }
-        },
-        {
-            artist: 'The Bug vs Earth',
-            release: 'Concrete Desert',
-            date: 'March 24',
-            label: 'Ninja Tune',
-            artwork: 'img/packshots/concrete.jpg',
-            buy: 'https://BugvsEarth.lnk.to/cdEs',
-            socialLead: 'The Bug',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/bug-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/bug-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/bug-fb'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/bug-tw'
-                }
-            ],
-            track: {
-                title: 'Snakes vs Rats',
-                src: 'tracks/01_Bug_vs_Earth_Snakes_vs_Rats-1.mp3'
-            },
-            copy: {
-                intro: "A collaboration between Kevin Martin (The Bug) and Dylan Carson of Earth - this is music that grips you entirely, and catches you in its lava-flow - an astonishing, primal album of vast depth.",
-                main: "In making it, Martin decided to break from The Bug&rsquo;s obsessive study of groove, tone and texture, and think more cinematically."
-            },
-            quote: {
-                quote: "Two of the heaviest c*nts on the planet pit their wits on Concrete Desert, with Kevin Martin a.k.a. The Bug framing Dylan Carlson of Earth&rsquo;s deathly axe chops in a deeply strung out and apocalypse baiting clash of the titans. You can simply take it on trust that the whole thing is as heavy as your life.",
-                ref: 'Boomkat'
-            }
-        },
-        {
-            artist: 'Nathan Fake',
-            release: 'Providence',
-            date: 'March 10',
-            label: 'Ninja Tune',
-            artwork: 'img/packshots/providence.jpg',
-            buy: 'https://nathanfake.lnk.to/providenceEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/nfake-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/nfake-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/nfake-fb'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://found.ee/nfake-ig'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/nfake-tw'
-                },
-                {
-                    name: 'nathanfake.com',
-                    href: 'http://nathanfake.com/'
-                }
-            ],
-            track: {
-                title: 'Degreelessness',
-                src: 'tracks/04_Nathan_Fake_DEGREELESSNESS_feat__Prurient.mp3'
-            },
-            copy: {
-                intro: "Crafted in the wake of a crippling two year spell of writer&rsquo;s block during which he was unable to compose any music at all, &ldquo;Providence&rdquo; sees the high respected British producer collaborate with vocalists for the first time, joining forces with Prurient (aka Vatican Shadow / founder of Hospital Productions) who contributed the heavily distorted vocal to &rsquo;DEGREELESSNESS&rsquo; and Raphaelle Standell-Preston from Braids, who lends her voice to &lsquo;RVK&rsquo;.",
-                main: ""
-            },
-            quote: {
-                quote: "Easily one of the best electronic albums you&rsquo;ll hear in 2017&hellip;Career defining.",
-                ref: 'FACT'
-            }
-        },
-        {
             artist: 'Lapalux',
             release: 'Ruinism',
             date: 'June 30',
@@ -653,47 +475,126 @@ var data = {
             }
         },
         {
-            artist: 'Coldcut x On-U Sound',
-            release: 'Outside The Echo Chamber',
-            date: 'May 19',
-            label: 'Ahead Of Our Time',
-            artwork: 'img/packshots/outside.jpg',
-            buy: 'https://CCxOnU.lnk.to/otecEs',
-            socialLead: 'Coldcut',
+            artist: 'Jameszoo',
+            release: 'Flake',
+            date: 'July 07',
+            label: 'Brainfeeder',
+            artwork: 'img/packshots/flake.jpg',
+            buy: 'https://jameszoo.lnk.to/flakeEs',
             social: [
                 {
                     name: 'Spotify',
-                    href: 'http://found.ee/coldcut-sp'
+                    href: 'http://found.ee/jameszoo-sp'
                 },
                 {
                     name: 'Apple Music',
-                    href: 'http://found.ee/coldcut-am'
+                    href: 'http://found.ee/jameszoo-am'
                 },
                 {
                     name: 'Facebook',
-                    href: 'http://found.ee/coldcut-fb'
+                    href: 'http://found.ee/jameszoo-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/jameszoo-ig'
                 },
                 {
                     name: 'Twitter',
-                    href: 'http://found.ee/coldcut-tw'
+                    href: 'http://found.ee/jameszoo-tw'
                 },
                 {
-                    name: 'coldcut.net',
-                    href: 'http://coldcut.net/'
+                    name: 'jameszoo.com',
+                    href: 'http://www.jameszoo.com/'
                 }
             ],
             track: {
-                title: 'Robbery',
-                src: 'tracks/09_Coldcut_x_On_U_Sound_Robbery_feat__Rholin_X.mp3'
+                title: 'Flake',
+                src: 'tracks/01_Jameszoo_Flake.mp3'
             },
             copy: {
-                intro: "It&rsquo;s tempting to ask why no one thought of it sooner. Coldcut (Matt Black &amp; Jon More) and Adrian Sherwood &ndash; kingpin of the legendary On-U Sound label &ndash; are the perfect sonic match; two pioneers of British music united by a maverick spirit.",
-                main: "These artists have a deeper intertwined history- On-U Sound is printed in Coldcut&rsquo;s genes in the music they grew up with. This is something much more special than the average collaboration, and it shows in the result: a thrilling sonic adventure, and an album of freshly-minted, electronic dub-pop."
+                intro: "As his debut album for Brainfeeder - &ldquo;Fool&rdquo; - reached fruition, Mitchel van Dinther and his friend Niels Broos set up a little studio crammed with dirty dishes in the Dutch town Sint-Michielsgestel to finish &ldquo;Fool&rdquo; material.",
+                main: "They also found time to goof around - planting the seeds for the &ldquo;Flake EP&rdquo;. &ldquo;I&rsquo;m not sure if Comedy Funk will ever become a &lsquo;thing&rsquo;,&rdquo; laughs Mitchel. &ldquo;But anyhow here is new material and two remixes by Jameszoo Quartet members Niels Broos and Frans Petter.&rdquo;"
             },
             quote: {
-                quote: "Masterly explorations across Brit urban music continuum.",
-                ref: 'MOJO',
-                sub: '4/5'
+                quote: "Meshing together those synthetic free-jazz associations with big swaggerous drums ensures that the lad still sounds like no one else going",
+                ref: 'DJ Mag',
+                sub: '9/10'
+            }
+        },
+        {
+            artist: 'WEN',
+            release: 'CARVE + GAZE',
+            date: 'July 28',
+            label: 'Big Dada',
+            artwork: 'img/packshots/carve.jpg',
+            buy: 'https://wen.lnk.to/carveEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/wen-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/wen-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/wen-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/wen-ig'
+                }
+            ],
+            track: {
+                title: 'Blips',
+                src: 'tracks/03_WEN_BLIPS.mp3'
+            },
+            copy: {
+                intro: "WEN (Tectonic, Keysound, Soundman Chronicles) made his debut on Big Dada with his EP &quot;CARVE + GAZE&quot;, a seamless, detailed masterwork that listens like an allegory, each track a symbol and component hinting at something larger, albeit hidden, for listeners to uncover on their own.",
+                main: ""
+            },
+            quote: {
+                quote: "It's a deft detour that reflects Wen's movement away from established genres into his own field.",
+                ref: 'Resident Advisor'
+            }
+        },
+        {
+            artist: 'A.R.E. Project',
+            release: 'A.R.E. Project',
+            date: 'August 04',
+            label: 'Technicolor',
+            artwork: 'img/packshots/are.jpg',
+            buy: 'https://areproject.lnk.to/epEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/hbeing-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/hbeing-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/hbeing-fb'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/hbeing-tw'
+                }
+            ],
+            track: {
+                title: 'Ashrams',
+                src: 'tracks/04_Hieroglyphic_Being__Sarathy_Korwar___Shabaka_Hutchings_Ashrams.mp3'
+            },
+            copy: {
+                intro: "Last year, Hieroglyphic Being (producer of astral electronic explorations touching house, techno, industrial, avant-jazz and noise); percussionist and producer Sarathy Korwar (who fused traditional folk music of the Sidi community in India with jazz and electronics on his debut album &ldquo;Day To Day&rdquo;); and Shabaka Hutchings (the highly respected British saxophonist and co-founder of Sons Of Kemet, The Comet Is Coming and Shabaka &amp; The Ancestors) - recorded a 100% live improvised session at the iconic Lightship95 studio moored at Trinity Buoy Wharf, London.",
+                main: "The EP, titled &quot;A.R.E. Project&rdquo; (abbreviated from &quot;Association For Research &amp; Enlightenment Project&rdquo;) comprises 4 edits from the session. "
+            },
+            quote: {
+                quote: "The three musicians integrate elements of spiritual jazz, indian classical and acid into a blissed out cosmic flow.",
+                ref: 'The Quietus'
             }
         },
         {
@@ -770,42 +671,225 @@ var data = {
             }
         },
         {
-            artist: 'Dauwd',
-            release: 'Theory Of Colours',
-            date: 'June 02',
-            label: 'Technicolour',
-            artwork: 'img/packshots/theory.jpg',
-            buy: 'https://dauwd.lnk.to/tocEs',
+            artist: 'Machine Woman',
+            release: 'When Lobster Comes Home',
+            date: 'August 25',
+            label: 'Technicolor',
+            artwork: 'img/packshots/lobster.jpg',
+            buy: 'https://machinewoman.lnk.to/wlchEs',
             social: [
                 {
                     name: 'Spotify',
-                    href: 'http://found.ee/dauwd-sp'
+                    href: 'http://found.ee/mwom-sp'
                 },
                 {
                     name: 'Apple Music',
-                    href: 'http://found.ee/dauwd-am'
+                    href: 'http://found.ee/mwom-am'
                 },
                 {
                     name: 'Facebook',
-                    href: 'http://found.ee/dauwd-fb'
+                    href: 'http://found.ee/mwom-fb'
                 },
                 {
                     name: 'Twitter',
-                    href: 'http://found.ee/dauwd-tw'
+                    href: 'http://found.ee/mwom-tw'
                 }
             ],
             track: {
-                title: 'Leitmotiv',
-                src: 'tracks/01_Dauwd_Leitmotiv.mp3'
+                title: 'Camile From OHM Makes Me Feel Loved',
+                src: 'tracks/01_Machine_Woman_Camile_From_OHM_Makes_Me_Feel_Loved.mp3'
             },
             copy: {
-                intro: "An integral member of the Berlin collective, club night and radio show, African Acid Is The Future, Dauwd Al Hilali has spent the last few years out of the limelight and in his Berlin studio, pulling inspiration from electronic music legends like Terry Riley, Raymond Scott, and the seminal Radiophonic Workshop period in the late 50&rsquo;s and 60&rsquo;s to create his triumphant debut album &ldquo;Theory of Colours&rdquo;.",
-                main: ""
+                intro: "Russian born Anastasia Vtorova is based in Berlin and makes music under the name Machine Woman. Prior to joining the Technicolour ranks, she has released two 12&rdquo;s - via the self-titled imprint of Swedish producer Peder Mannerfelt (2015) and UK label Where To Now? (2016) - and a handful of very limited cassettes via Sacred Tapes (2015), Tesla Tapes and Ono (2014).",
+                main: "Championed by Ben UFO, the lead track &rsquo;Camile From OHM Makes Me Feel Loved&rsquo; is an homage to Camile: &ldquo;the best club bouncer in the world&rdquo;. &ldquo;Everyone always talks about Sven from Berghain,&rdquo; says Anna. &ldquo;But everyone should talk about Camile from OHM.&rdquo;"
             },
             quote: {
-                quote: "Theory Of Colours&rsquo; is all about detailed, expertly produced and seriously understated grooves, with layers of electronica, ambient and jazz-flecked house peeling off after each track",
-                ref: 'DJ MAG'
+                quote: "You can feel the sense of release as freeform synths billow out over a crunchy beatdown rhythm rich with detail.",
+                ref: 'Resident Advisor'
             }
+        },
+        {
+            artist: 'Bicep',
+            release: 'Bicep',
+            date: 'September 01',
+            label: 'Ninja Tune',
+            artwork: 'img/packshots/bicep.jpg',
+            track: {
+                title: 'Glue',
+                src: 'tracks/02_Bicep_Glue.mp3'
+            },
+            copy: {
+                intro: "The Belfast-born, London-based duo of Matt McBriar and Andy Ferguson aka Bicep released their self-titled debut album on Ninja Tune - a record that truly encapsulates their history and the distillation of their passion for music and club culture since their first release in 2010.",
+                main: "The duo have pulled off the rarest of feats, to make a singularly unique electronic record founded on the blueprint of classic house, techno, electro and Italo disco, but flipped and morphed into a fresh design bearing the unique Bicep sonic signature. "
+            },
+            quote: {
+                quote: "Known for exquisite live sets that revive forgotten strains of house, garage, ambient and disco without an ounce of predictability, they're leading a new wave of eclectic electronic music that prizes curatorial taste above all else.",
+                ref: 'NPR'
+            },
+            buy: 'https://bicep.lnk.to/bicepEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/bicep-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/bicep-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/bicep-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/bicep-ig'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/bicep-tw'
+                },
+                {
+                    name: 'feelmybicep.com',
+                    href: 'http://feelmybicep.com/'
+                }
+
+            ]
+        },
+        {
+            artist: 'ODESZA',
+            release: 'A Moment Apart',
+            date: 'September 08',
+            label: 'Counter Records',
+            artwork: 'img/packshots/moment.jpg',
+            buy: 'https://odesza.lnk.to/amaEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://odesza.co/spotify'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://odesza.co/apple-music'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://odesza.co/facebook'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://odesza.co/instagram'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://odesza.co/twitter'
+                },
+                {
+                    name: 'Snapchat',
+                    href: 'https://www.snapchat.com/add/odesza '
+                },
+                {
+                    name: 'odesza.com',
+                    href: 'http://odesza.co/official'
+                }
+            ],
+            track: {
+                title: 'Thin Floors and Tall Ceilings',
+                src: 'tracks/12_ODESZA_Thin_Floors_And_Tall_Ceilings.mp3'
+            },
+            copy: {
+                intro: "ODESZA (Harrison Mills &amp; Clayton Knight) are one of the most celebrated groups in electronic music, winning over fans online and at their consistently sold-out live shows.",
+                main: "The Grammy nominated &quot;A Moment Apart&quot; represents ODESZA&rsquo;s growth, delivering a more mature sound through weighted atmospheres, shimmering synth lines and familiar feelings of nostalgia, optimism and hope. The album's featured guests include Leon Bridges, Regina Spektor, and RY X, creating an eclectic mix that showcases ODESZA's dynamic range."
+            },
+            quote: {
+                quote: "An emotional journey of epic proportions exploring humanity's intimate moments expressed through glorious chords and layers of textured beats.",
+                ref: 'Billboard'
+            }
+        },
+        {
+            artist: 'Zomby',
+            release: 'GASP!',
+            date: 'September 08',
+            label: 'Big Dada',
+            artwork: 'img/packshots/gasp.jpg',
+            buy: 'https://zomby.lnk.to/gaspEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/zomby-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/zomby-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/zomby-fb'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/zomby-tw'
+                }
+            ],
+            track: {
+                title: 'Gasp',
+                src: 'tracks/01_Zomby_GASP_.mp3'
+            },
+            copy: {
+                intro: "ZOMBY&rsquo;s ability to effortlessly shift aesthetics across his career has firmly stationed him as a producer that can&rsquo;t be boxed, and &ldquo;GASP!&quot; sees him altering his often jungle-driven sound yet again, furthering him as a sonic chameleon among an ever-increasing landscape of musical similitude.",
+                main: "The compact, 3-track EP is a relentless, hardware-driven behemoth of beats and breaks that fit somewhere between a chugging steel factory and a darkened dancefloor."
+            },
+            quote: {
+                quote: "This return is gripping, a 4/4 industrial rave jam with the eighth beat knocked perfectly off course",
+                ref: 'The Guardian'
+            }
+        },
+        {
+            artist: 'Jordan Rakei',
+            release: 'Wallflower',
+            date: 'September 22',
+            label: 'Ninja Tune',
+            artwork: 'img/packshots/wallflower.jpg',
+            track: {
+                title: 'Hiding Place',
+                src: 'tracks/10_Jordan_Rakei_Hiding_Place-2.mp3'
+            },
+            copy: {
+                intro: "&ldquo;Wallflower&rdquo; sees Jordan edging beyond the peripheries of the genial, often sun-flecked sound his fans have come to know him for.",
+                main: "On &ldquo;Wallflower&rdquo; the tools and the process have evolved - the focus is on live instrumentation - but the groove and the cadence are unmistakable, framing soul and jazz in a truly vibrant oeuvre that simultaneously recalls his predecessors The Roots and peers The Internet, Nick Hakim and Hiatus Kaiyote."
+            },
+            quote: {
+                quote: "A genre mashing mix of electronic wizardry and jazzy time signatures lent weight by Rakei&rsquo;s reflective lyrics and enigmatic croon.",
+                ref: 'Evening Standard',
+                sub: '4/5'
+            },
+            buy: 'https://JordanRakei.lnk.to/wallflowerEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/jordan-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/jordan-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/jordan-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/jordan-ig'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/jordan-tw'
+                },
+                {
+                    name: 'jordanrakei.com',
+                    href: 'https://www.jordanrakei.com/'
+                }
+
+            ]
         },
         {
             artist: 'Iglooghost',
@@ -850,46 +934,87 @@ var data = {
             }
         },
         {
-            artist: 'Romare',
-            release: 'Live Sessions 1',
-            date: 'November 10',
+            artist: 'ABRA',
+            release: 'Rose',
+            date: 'October 06',
             label: 'Ninja Tune',
-            artwork: 'img/packshots/live.jpg',
-            buy: 'https://romare.lnk.to/lsp1Es',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/romare-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/romare-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/romare-fb'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/romare-tw'
-                },
-                {
-                    name: 'romaremusic.com',
-                    href: 'http://www.romaremusic.com/'
-                }
-            ],
+            artwork: 'img/packshots/rose.jpg',
             track: {
-                title: 'Come Close to Me',
-                src: 'tracks/04_Romare_Come_Close_To_Me__Live_Session_2_.mp3'
+                title: 'Roses',
+                src: 'tracks/02_ABRA_Roses.mp3'
             },
             copy: {
-                intro: "Stripping back and re-imagining tracks from his album &ldquo;Love Songs: Part 2&quot;, Romare showcases a suite of brand new versions mixed live and recorded in one take using only instruments from his live set-up, samples from the original recordings and occasionally with live bass guitar from his brother.",
+                intro: "Initially released digitally via Awful Records in June 2015, Ninja Tune saw fit to release a limited edition vinyl LP of &ldquo;Rose&rdquo; - the devastating and infectious alt R&amp;B album by Atlanta based singer, songwriter and producer ABRA - in October 2017.",
                 main: ""
             },
             quote: {
-                quote: "This slo-mo cosmic disco jam shows why he is being name-checked in the same circles a Four Tet and Floating Points",
-                ref: 'DJ Mag',
-                sub: "9/10 - On All Night"
+                quote: "ABRA draws on the cynicism of darkwave and its brooding hues, while making room for brighter beats, quicker tempos and lyrical vulnerability.",
+                ref: 'Pitchfork'
+            },
+            buy: 'https://abra.lnk.to/rose-lpEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/abra-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/abra-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/abra-fb'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/abra-tw'
+                }
+            ]
+        },
+        {
+            artist: 'Visionist',
+            release: 'Value',
+            date: 'October 10',
+            label: 'Big Dada',
+            artwork: 'img/packshots/value.jpg',
+            buy: 'https://visionist.lnk.to/valueEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/visionist-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/visionist-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/visionist-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/visionist-ig'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/visionist-tw'
+                },
+                {
+                    name: 'visionist.live',
+                    href: 'http://www.visionist.live/'
+                }
+            ],
+            track: {
+                title: 'Your Approval',
+                src: 'tracks/05_Visionist_Your_Approval_ft__Rolynne.mp3'
+            },
+            copy: {
+                intro: "Visionist&rsquo;s debut album &ldquo;Safe&rdquo; detailed visceral soundscapes to encapsulate the experiential onslaught of an anxiety attack, and the artist&rsquo;s desire to simultaneously construct and defeat notions of safety.",
+                main: "&ldquo;Value&rdquo; follows this trajectory of strength and vulnerability by examining broader themes of machismo and effeminacy, self-deprecation and self-love, and self-preservation and validation."
+            },
+            quote: {
+                quote: "Heart-pounding chaos to a different type of palette&hellip; mutating noise sounds like it's holding space in a room, synths and vocal noises create synthetic tapestries.",
+                ref: 'Rolling Stone'
             }
         },
         {
@@ -936,246 +1061,35 @@ var data = {
             }
         },
         {
-            artist: 'Zomby',
-            release: 'GASP!',
-            date: 'September 08',
-            label: 'Big Dada',
-            artwork: 'img/packshots/gasp.jpg',
-            buy: 'https://zomby.lnk.to/gaspEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/zomby-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/zomby-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/zomby-fb'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/zomby-tw'
-                }
-            ],
-            track: {
-                title: 'Gasp',
-                src: 'tracks/01_Zomby_GASP_.mp3'
-            },
-            copy: {
-                intro: "ZOMBY&rsquo;s ability to effortlessly shift aesthetics across his career has firmly stationed him as a producer that can&rsquo;t be boxed, and &ldquo;GASP!&quot; sees him altering his often jungle-driven sound yet again, furthering him as a sonic chameleon among an ever-increasing landscape of musical similitude.",
-                main: "The compact, 3-track EP is a relentless, hardware-driven behemoth of beats and breaks that fit somewhere between a chugging steel factory and a darkened dancefloor."
-            },
-            quote: {
-                quote: "This return is gripping, a 4/4 industrial rave jam with the eighth beat knocked perfectly off course",
-                ref: 'The Guardian'
-            }
-        },
-        {
-            artist: 'Jameszoo',
-            release: 'Flake',
-            date: 'July 07',
-            label: 'Brainfeeder',
-            artwork: 'img/packshots/flake.jpg',
-            buy: 'https://jameszoo.lnk.to/flakeEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/jameszoo-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/jameszoo-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/jameszoo-fb'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://found.ee/jameszoo-ig'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/jameszoo-tw'
-                },
-                {
-                    name: 'jameszoo.com',
-                    href: 'http://www.jameszoo.com/'
-                }
-            ],
-            track: {
-                title: 'Flake',
-                src: 'tracks/01_Jameszoo_Flake.mp3'
-            },
-            copy: {
-                intro: "As his debut album for Brainfeeder - &ldquo;Fool&rdquo; - reached fruition, Mitchel van Dinther and his friend Niels Broos set up a little studio crammed with dirty dishes in the Dutch town Sint-Michielsgestel to finish &ldquo;Fool&rdquo; material.",
-                main: "They also found time to goof around - planting the seeds for the &ldquo;Flake EP&rdquo;. &ldquo;I&rsquo;m not sure if Comedy Funk will ever become a &lsquo;thing&rsquo;,&rdquo; laughs Mitchel. &ldquo;But anyhow here is new material and two remixes by Jameszoo Quartet members Niels Broos and Frans Petter.&rdquo;"
-            },
-            quote: {
-                quote: "Meshing together those synthetic free-jazz associations with big swaggerous drums ensures that the lad still sounds like no one else going",
-                ref: 'DJ Mag',
-                sub: '9/10'
-            }
-        },
-        {
-            artist: 'Machine Woman',
-            release: 'When Lobster Comes Home',
-            date: 'August 25',
-            label: 'Technicolor',
-            artwork: 'img/packshots/lobster.jpg',
-            buy: 'https://machinewoman.lnk.to/wlchEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/mwom-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/mwom-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/mwom-fb'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/mwom-tw'
-                }
-            ],
-            track: {
-                title: 'Camile From OHM Makes Me Feel Loved',
-                src: 'tracks/01_Machine_Woman_Camile_From_OHM_Makes_Me_Feel_Loved.mp3'
-            },
-            copy: {
-                intro: "Russian born Anastasia Vtorova is based in Berlin and makes music under the name Machine Woman. Prior to joining the Technicolour ranks, she has released two 12&rdquo;s - via the self-titled imprint of Swedish producer Peder Mannerfelt (2015) and UK label Where To Now? (2016) - and a handful of very limited cassettes via Sacred Tapes (2015), Tesla Tapes and Ono (2014).",
-                main: "Championed by Ben UFO, the lead track &rsquo;Camile From OHM Makes Me Feel Loved&rsquo; is an homage to Camile: &ldquo;the best club bouncer in the world&rdquo;. &ldquo;Everyone always talks about Sven from Berghain,&rdquo; says Anna. &ldquo;But everyone should talk about Camile from OHM.&rdquo;"
-            },
-            quote: {
-                quote: "You can feel the sense of release as freeform synths billow out over a crunchy beatdown rhythm rich with detail.",
-                ref: 'Resident Advisor'
-            }
-        },
-        {
-            artist: 'Machinedrum',
-            release: 'Singles',
-            date: '2017',
+            artist: 'Helena Hauff',
+            release: 'Have You Been There, Have You Seen It',
+            date: 'October 27',
             label: 'Ninja Tune',
-            artwork: 'img/packshots/singles.jpg',
-            buy: 'https://machinedrum.lnk.to/SpDscgEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/machinedrum-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/machinedrum-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/machinedrum-fb'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://found.ee/machinedrum-ig'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/machinedrum-tw'
-                }
-            ],
+            artwork: 'img/packshots/haveyou.jpg',
             track: {
-                title: 'U Betta',
-                src: 'tracks/01_Machinedrum_U_Betta.mp3'
+                title: 'Gift',
+                src: 'tracks/04_Helena_Hauff_Gift.mp3'
             },
             copy: {
-                intro: "In the wake of his landmark album &ldquo;Human Energy&rdquo; (2016), Travis Stewart aka Machinedrum hasn&rsquo;t let up the pace in 2017, releasing a string of singles featuring Rosie Lowe on 'What Is This' and Roses Gabor on '1 2 B Needed'.",
+                intro: "&ldquo;Have You Been There, Have You Seen It&rdquo; - on Ninja Tune - finds Helena in breathtaking form, lining up four lithe, muscular and overtly shadowy analogue excursions improvised and recorded in her studio in Hamburg.",
                 main: ""
             },
             quote: {
-                quote: "Continuing his reign as the underground&rsquo;s most consistent and chameleonic music maker.",
-                ref: 'XLR8R',
-                sub: "On 'What Is This'"
-            }
-        },
-        {
-            artist: 'A.R.E. Project',
-            release: 'A.R.E. Project',
-            date: 'August 04',
-            label: 'Technicolor',
-            artwork: 'img/packshots/are.jpg',
-            buy: 'https://areproject.lnk.to/epEs',
+                quote: "The Hamburg DJ applies the energy of her spine-tingling DJ sets to a suggestively lo-fi set of acid-soaked electro-techno jams.",
+                ref: 'Pitchfork'
+            },
+            buy: 'https://helenahauff.lnk.to/haveEs',
             social: [
                 {
                     name: 'Spotify',
-                    href: 'http://found.ee/hbeing-sp'
+                    href: 'http://found.ee/helena-sp'
                 },
                 {
                     name: 'Apple Music',
-                    href: 'http://found.ee/hbeing-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/hbeing-fb'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/hbeing-tw'
+                    href: '	http://found.ee/helena-am'
                 }
-            ],
-            track: {
-                title: 'Ashrams',
-                src: 'tracks/04_Hieroglyphic_Being__Sarathy_Korwar___Shabaka_Hutchings_Ashrams.mp3'
-            },
-            copy: {
-                intro: "Last year, Hieroglyphic Being (producer of astral electronic explorations touching house, techno, industrial, avant-jazz and noise); percussionist and producer Sarathy Korwar (who fused traditional folk music of the Sidi community in India with jazz and electronics on his debut album &ldquo;Day To Day&rdquo;); and Shabaka Hutchings (the highly respected British saxophonist and co-founder of Sons Of Kemet, The Comet Is Coming and Shabaka &amp; The Ancestors) - recorded a 100% live improvised session at the iconic Lightship95 studio moored at Trinity Buoy Wharf, London.",
-                main: "The EP, titled &quot;A.R.E. Project&rdquo; (abbreviated from &quot;Association For Research &amp; Enlightenment Project&rdquo;) comprises 4 edits from the session. "
-            },
-            quote: {
-                quote: "The three musicians integrate elements of spiritual jazz, indian classical and acid into a blissed out cosmic flow.",
-                ref: 'The Quietus'
-            }
-        },
-        {
-            artist: 'WEN',
-            release: 'CARVE + GAZE',
-            date: 'July 28',
-            label: 'Big Dada',
-            artwork: 'img/packshots/carve.jpg',
-            buy: 'https://wen.lnk.to/carveEs',
-            social: [
-                {
-                    name: 'Spotify',
-                    href: 'http://found.ee/wen-sp'
-                },
-                {
-                    name: 'Apple Music',
-                    href: 'http://found.ee/wen-am'
-                },
-                {
-                    name: 'Facebook',
-                    href: 'http://found.ee/wen-fb'
-                },
-                {
-                    name: 'Instagram',
-                    href: 'http://found.ee/wen-ig'
-                }
-            ],
-            track: {
-                title: 'Blips',
-                src: 'tracks/03_WEN_BLIPS.mp3'
-            },
-            copy: {
-                intro: "WEN (Tectonic, Keysound, Soundman Chronicles) made his debut on Big Dada with his EP &quot;CARVE + GAZE&quot;, a seamless, detailed masterwork that listens like an allegory, each track a symbol and component hinting at something larger, albeit hidden, for listeners to uncover on their own.",
-                main: ""
-            },
-            quote: {
-                quote: "It's a deft detour that reflects Wen's movement away from established genres into his own field.",
-                ref: 'Resident Advisor'
-            }
+
+            ]
         },
         {
             artist: 'EERA',
@@ -1224,6 +1138,49 @@ var data = {
             }
         },
         {
+            artist: 'Romare',
+            release: 'Live Sessions 1',
+            date: 'November 10',
+            label: 'Ninja Tune',
+            artwork: 'img/packshots/live.jpg',
+            buy: 'https://romare.lnk.to/lsp1Es',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/romare-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/romare-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/romare-fb'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/romare-tw'
+                },
+                {
+                    name: 'romaremusic.com',
+                    href: 'http://www.romaremusic.com/'
+                }
+            ],
+            track: {
+                title: 'Come Close to Me',
+                src: 'tracks/04_Romare_Come_Close_To_Me__Live_Session_2_.mp3'
+            },
+            copy: {
+                intro: "Stripping back and re-imagining tracks from his album &ldquo;Love Songs: Part 2&quot;, Romare showcases a suite of brand new versions mixed live and recorded in one take using only instruments from his live set-up, samples from the original recordings and occasionally with live bass guitar from his brother.",
+                main: ""
+            },
+            quote: {
+                quote: "This slo-mo cosmic disco jam shows why he is being name-checked in the same circles a Four Tet and Floating Points",
+                ref: 'DJ Mag',
+                sub: "9/10 - On All Night"
+            }
+        },
+        {
             artist: 'Nabihah Iqbal',
             release: 'Weighing of the Heart',
             date: 'December 01',
@@ -1268,6 +1225,49 @@ var data = {
                 quote: "An honest record, one that puts Iqbal&rsquo;s own deftly balanced sound and influences to the forefront, while also having some piercing yet thoughtful insights into contemporary society. As a first step under her own name, it&rsquo;s a hugely confident stride forward.",
                 ref: 'Drowned in Sound'
             }
+        },
+        {
+            artist: 'Machinedrum',
+            release: 'Singles',
+            date: '2017',
+            label: 'Ninja Tune',
+            artwork: 'img/packshots/singles.jpg',
+            buy: 'https://machinedrum.lnk.to/SpDscgEs',
+            social: [
+                {
+                    name: 'Spotify',
+                    href: 'http://found.ee/machinedrum-sp'
+                },
+                {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/machinedrum-am'
+                },
+                {
+                    name: 'Facebook',
+                    href: 'http://found.ee/machinedrum-fb'
+                },
+                {
+                    name: 'Instagram',
+                    href: 'http://found.ee/machinedrum-ig'
+                },
+                {
+                    name: 'Twitter',
+                    href: 'http://found.ee/machinedrum-tw'
+                }
+            ],
+            track: {
+                title: 'U Betta',
+                src: 'tracks/01_Machinedrum_U_Betta.mp3'
+            },
+            copy: {
+                intro: "In the wake of his landmark album &ldquo;Human Energy&rdquo; (2016), Travis Stewart aka Machinedrum hasn&rsquo;t let up the pace in 2017, releasing a string of singles featuring Rosie Lowe on 'What Is This' and Roses Gabor on '1 2 B Needed'.",
+                main: ""
+            },
+            quote: {
+                quote: "Continuing his reign as the underground&rsquo;s most consistent and chameleonic music maker.",
+                ref: 'XLR8R',
+                sub: "On 'What Is This'"
+            }
         }
     ]
 }
@@ -1297,7 +1297,7 @@ function loadProjectContent(n, callback) {
     ti = splitTitle(document.getElementById('project-title'), p.release, ti);
     ti = splitTitle(document.getElementById('project-date'), p.date, ti, true);
     document.getElementById('project-headlines').classList.remove('line-up');
-    if ((p.artist.length + p.release.length) > 30) {
+    if ((p.artist.length + p.release.length) > 34) {
         document.getElementById('project-headlines').classList.add('line-up');
     }
 
