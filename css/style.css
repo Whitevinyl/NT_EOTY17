@@ -2525,6 +2525,9 @@ background-color: #e81139;*/
     .centered {
         padding: 35px 0;
     }
+    #project-audio-wrap {
+        top: 5%;
+    }
 }
 
 /*------------------------------------*\
