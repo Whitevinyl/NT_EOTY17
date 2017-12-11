@@ -18,8 +18,13 @@ function Txt(ctx, x, y, s, string) {
     this.ctx.font = this.fontStyle;
     this.size = this.ctx.measureText(this.string).width;
 
-    if (this.size > width) {
-        //TODO: make fit //
+    // within size //
+    while (this.size > (width * 0.95)) {
+        s -= 10;
+        this.fontSize = s * ratio;
+        this.fontStyle = '' + weight + ' ' + this.fontSize + 'px ' + font;
+        this.ctx.font = this.fontStyle;
+        this.size = this.ctx.measureText(this.string).width;
     }
 
     this.roll = false;

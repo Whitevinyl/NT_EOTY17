@@ -4,7 +4,7 @@
 //  METRICS
 //-------------------------------------------------------------------------------------------
 
-function metrics() {
+function metrics(first) {
 
     // GET DISPLAY DIMENSIONS //
     pageHeight = page.scrollHeight;
@@ -29,10 +29,32 @@ function metrics() {
     }
 
     // AT THE END OF CONTINUOUS RESIZING //
-    if (metricTimer) clearTimeout(metricTimer);
-    metricTimer = setTimeout(function() {
-        if (logo) resetLogo();
-        if (packshot) resetPackshot();
-        if (txt) resetTxt();
-    },500);
+    if (!first) {
+        if (metricTimer) clearTimeout(metricTimer);
+        metricTimer = setTimeout(function() {
+            if (logo) resetLogo();
+            if (packshot) resetPackshot();
+            if (txt) resetTxt();
+            resizeScroll();
+        },500);
+    }
+    else {
+        resizeScroll();
+    }
+}
+
+function resizeScroll() {
+    if (device==='mobile') {
+        if (txtScroll !== 200) {
+            introScroll = txtScroll = 200;
+            calculateScrollSpace();
+            pageScroll();
+        }
+    } else {
+        if (txtScroll !== 600) {
+            introScroll = txtScroll = 600;
+            calculateScrollSpace();
+            pageScroll();
+        }
+    }
 }

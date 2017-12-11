@@ -15,7 +15,6 @@
         <script type="text/javascript" src="js/lib/canvas-noise.js"></script>
         <script type="text/javascript" src="js/lib/perlin-simplex.js"></script>
         <script type="text/javascript" src="js/lib/draw-grid.js"></script>
-        <script type="text/javascript" src="js/lib/webtype.js"></script>
         <script type="text/javascript" src="js/lib/smoothscroll.js"></script>
 
         <script type="text/javascript" src="js/UTILS.js"></script>
@@ -37,6 +36,7 @@
         <link href="css/draw-grid.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,600,700,800" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i" rel="stylesheet">
 
 
         <!--<link rel="shortcut icon" href="favicon.ico"/>-->
@@ -50,37 +50,7 @@
 
         <div id='index' class='mid'>
             <div id='index-close' class='panel-close c-roll-bg-vertical'>&times;</div>
-            <div id='index-inner'>
-<a>ABRA</a>
-<a>Actress</a>
-<a>A.R.E. Project</a>
-<a>Bicep</a>
-<a>Bonobo</a>
-<a>The Bug vs Earth</a>
-<a>Coldcut x On-U Sound</a>
-<a>Dauwd</a>
-<a>EERA</a>
-<a id='test-index-link' data-index='1'>Forest Swords</a>
-<a>Helena Hauff</a>
-<a>Hype Williams</a>
-<a>Iglooghost</a>
-<a>Jameszoo</a>
-<a>Jordan Rakei</a>
-<a>Kutmah</a>
-<a>Lapalux</a>
-<a>Machinedrum</a>
-<a>Machine Woman</a>
-<a>Nathan Fake</a>
-<a>ODESZA</a>
-<a>Project Pablo</a>
-<a>Romare</a>
-<a>Thundercat</a>
-<a>UMFANG</a>
-<a>Visionist</a>
-<a>WEN</a>
-<a>Young Fathers</a>
-<a>Zomby</a>
-            </div>
+            <div id='index-inner'>-</div>
             <div id='index-az'>A-Z</div>
             <div id='index-year'>2017</div>
         </div>
@@ -136,11 +106,12 @@
                     </div>
                 </div>
                 <div id='intro-scroll' class='col-1 left-1'></div>
-                <div id='title-number' class='col-8 left-1'>
+                <div id='title-number' class='col-8 left-1' style="pointer-events: none;">
                     <div id='title-number-index-wrap'>
                         <div id='title-number-index'>01</div>
                     </div>
                 </div>
+                <div id='title-hitbox'></div>
             </div>
 
             <div id='intro-scroll-space'></div>
@@ -188,11 +159,11 @@
 
                 <div id='packshot-wrap' class='canvas-wrap in'>
                     <canvas id='packshot-canvas'></canvas>
-                    <div id='packshot'></div>
                 </div>
 
                 <div id='project-audio-wrap' class='c-hidden'>
                     <div id='project-audio-label' class='mid c-reveal-child'>Listen</div>
+                    <div id='project-audio-visual' class='c-reveal-child'></div>
                     <div id='project-audio' class='c-reveal-child'>
                         <svg id='project-audio-pause' viewBox='0 0 100 100' preserveAspectRatio='none'>
                             <path d='M33 33 L42 33 L42 66 L33 66 z'  fill='currentColor' stroke='none' />
@@ -209,13 +180,13 @@
             <div class='copy-block'>
 
                 <div class='row-group c-hidden'>
-                    <div class='row'>
+                    <div class='row group'>
                         <div class='col-2 c-reveal-child'>
                             <h3>Intro</h3>
                         </div>
                     </div>
 
-                    <div class='row'>
+                    <div class='row group'>
                         <div id='project-copy'>
                             <p id='copy-intro'  class='col-7 left-2 flush stretch c-reveal-child'>-</p>
                             <p id='copy-main'  class='col-6 left-2 flush stretch c-reveal-child'>-</p>
@@ -224,12 +195,12 @@
                 </div>
 
                 <div class='row-group c-hidden'>
-                    <div class='row'>
+                    <div class='row group'>
                         <div class='col-2 c-reveal-child'>
                             <h3>Response</h3>
                         </div>
                     </div>
-                    <div class='row'>
+                    <div class='row group'>
                         <div id='project-quotes' class='col-6 left-2 flush project-quotes stretch'>
                             <blockquote class='c-reveal-child'>-</blockquote>
                             <div class='quote-ref mid c-reveal-child'>-</div>
@@ -253,17 +224,17 @@
                             <h3>Social</h3>
                         </div>
                     </div>
-                    <div class='row'>
+                    <div class='row group'>
                         <div id='project-social' class='col-7 left-2 flush stretch c-reveal-child'>-</div>
                     </div>
                 </div>
 
 
-                <div class='row'>
+                <!--<div class='row'>
                     <div id='project-asterisk' class='col-3 stretch'>
                         <h1>*</h1>
                     </div>
-                </div>
+                </div>-->
 
             </div>
 
@@ -272,7 +243,7 @@
                 <div id='project-year'>
                     <h2>2017</h2>
                     <a id='project-year-ninja' href='http://ninjatune.net' target='_blank' class='mid c-roll-line'>ninjatune.net</a>
-                    <a id='site-credit' href='http://whitevinyldesign.com' target='_blank' class='mid c-roll-line'>Site by wvnl</a>
+                    <a id='site-credit' href='http://whitevinyldesign.com' target='_blank' class='mid c-roll-line'>Site&#8212;wvnl</a>
                 </div>
 
                 <div id='next-project'>

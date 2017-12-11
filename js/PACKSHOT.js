@@ -3,6 +3,8 @@
 //  INITIALISE
 //-------------------------------------------------------------------------------------------
 
+var packshotCanvas;
+
 function Packshot(ctx, x, y, s, src, callback) {
 
     s = Math.floor(s);
@@ -43,6 +45,8 @@ Packshot.prototype._begin = function(s) {
     this.imgHeight = this.img.height;
     this.imgWidth = this.img.width;
 
+    this._scaledImage();
+
     this.rows = this.height / this.quality;
     this.imgRowHeight = Math.floor(this.imgHeight / this.rows);
     this.rowHeight = Math.floor(this.height / this.rows);
@@ -50,13 +54,24 @@ Packshot.prototype._begin = function(s) {
 
     // initial offset //
     for (var i=0; i<this.rows; i++) {
-        this.rowObjects.push( new RowObject(i));
+        this.rowObjects.push( new RowObject(i,this.active));
     }
+
+    color.fill(this.ctx,bgCol);
+    this.ctx.fillRect(0, 0, width, height);
 
     if (this.callback) this.callback();
 };
 
+Packshot.prototype._scaledImage = function() {
+    if (!packshotCanvas) packshotCanvas = document.createElement('canvas');
 
+    packshotCanvas.width = this.width;
+    packshotCanvas.height = this.height;
+    packshotCanvas.getContext('2d').drawImage(this.img, 0, 0, this.width, this.height);
+
+    this.img = packshotCanvas;
+}
 
 
 //-------------------------------------------------------------------------------------------
@@ -122,40 +137,46 @@ Packshot.prototype.update = function() {
 Packshot.prototype.draw = function() {
     if (this.width) {
 
-        color.fill(this.ctx,bgCol);
-        this.ctx.fillRect(0, 0, width, height);
-
         var i, l;
 
         var x = this.position.x + this.xOff;
         var y = this.top + this.yOff;
         var w = Math.round(this.width);
 
-
         var rx = Math.round(x - (w/2));
         var ry = Math.round(y);
-        var rh = Math.round(this.rowHeight);
+        var rh = w / this.rows;
 
         var lrInd = this.rowObjects.length - 1;
         var firstRow = this.rowObjects[0];
         var lastRow = this.rowObjects[lrInd];
 
-        /*var b = 20;
-        this.ctx.clearRect(rx - b, ry - b, w + (b * 2), w + (b * 2));*/
+        // clear //
+        var b = 20;
+        color.fill(this.ctx,bgCol);
+        this.ctx.fillRect(rx - b, ry - b, w + (b * 2), w + (b * 2));
 
 
-        // not in transit, draw full image //
+        // image //
         if ( firstRow.revealOffset > 0.001 || lastRow.revealOffset > 0.001) {
-            this.ctx.drawImage(this.img, rx, ry, w, rh * this.rows);
+            this.ctx.drawImage(this.img, rx, ry);
         }
 
+
+        // color //
         color.fill(this.ctx,palette[4]);
-        for (i=0; i<this.rows; i++) {
-            var row = this.rowObjects[i];
-            var by = ry + (rh * i);
-            if (row.revealOffset < 0.999) {
-                this.ctx.fillRect(rx, by, w * (1-row.revealOffset), rh);
+        if ( firstRow.revealOffset < 0.999 || lastRow.revealOffset < 0.999) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(rx, ry);
+            for (i=0; i<this.rows; i++) {
+                var row = this.rowObjects[i];
+                var by = ry + (rh * i);
+                this.ctx.lineTo(rx + (w * (1-row.revealOffset)), by);
+                this.ctx.lineTo(rx + (w * (1-row.revealOffset)), by + rh);
             }
+            this.ctx.lineTo(rx, ry + w);
+            this.ctx.closePath();
+            this.ctx.fill();
         }
     }
 };
@@ -165,8 +186,8 @@ Packshot.prototype.draw = function() {
 //-------------------------------------------------------------------------------------------
 
 
-function RowObject(mi) {
-    this.active = false;
+function RowObject(mi,active) {
+    this.active = active;
     this.revealOffset = 0;
     this.delay = Math.round(Math.random() * 500);
     this.delay = mi * 50;

@@ -10,6 +10,11 @@ var scrollbarsVisible = true;
 var scrollAdvance = true;
 var lastScrollFocus = 0;
 
+var currentScene = 0;
+var lastScene = 0;
+var sceneTop = 0;
+var sceneTransition = true;
+
 
 
 //-------------------------------------------------------------------------------------------
@@ -20,13 +25,31 @@ function setupInteraction() {
 
     // ADD INTERACTION EVENTS TO THE CANVAS //
     window.addEventListener("mousedown", mousePress, false);
-    canvas.addEventListener("mouseup", mouseRelease, false);
+    window.addEventListener("mouseup", mouseRelease, false);
     window.addEventListener("mousemove", mouseMove, false);
-    //window.addEventListener('scroll', scrollEvent, false);
+
+    // TOUCH //
+    document.getElementById('intro-scroll-space').addEventListener('touchstart', function(event) {
+        var touch = event.changedTouches[0];
+        console.log('touch');
+        var x = touch.clientX * ratio;
+        var y = touch.clientY * ratio;
+        if (
+            !landingScreen &&
+            x > (width * 0.1) &&
+            x < (width * 0.9) &&
+            y > (height * 0.3) &&
+            y < (height * 0.6)
+        ) {
+            loadProject(currentScene-1);
+        }
+    }, false);
+
     window.onbeforeunload = function() {window.scrollTo(0,0);}
 
     $(page).scroll(pageScroll);
     $(project).scroll(projectScroll);
+    $(explore).click(exploreScroll);
     $(indexOpen).click(toggleIndex);
     $(indexClose).click(toggleIndex);
     $(projectClose).click(toggleProject);
@@ -34,8 +57,6 @@ function setupInteraction() {
     $(nextProject).click(gotoNextProject);
     $(projectAudio).click(toggleAudio);
 
-
-    $(document.getElementById('test-index-link')).click(loadFromIndex);
 
     pageScroll();
 }
@@ -47,11 +68,14 @@ function setupInteraction() {
 
 
 // PRESS //
-function mousePress() {
+function mousePress(event) {
     mouseIsDown = true;
-    rolloverCheck();
+    this.mouseMove(event);
 
-    if (txt && !projectOpen && currentScrollFocus > 0 && txt.roll) loadProject(currentScrollFocus-1);
+    if (txt && !projectOpen && !landingScreen) {
+        txt.hitTest();
+        if (txt.roll) loadProject(currentScene-1);
+    }
     titleUnderline.classList.remove('roll');
 }
 
@@ -64,11 +88,8 @@ function mouseRelease() {
 
 // MOVE //
 function mouseMove(event) {
-    /*mouseX = event.pageX * ratio;
-    mouseY = event.pageY * ratio;*/
     mouseX = event.clientX * ratio;
     mouseY = event.clientY * ratio;
-    rolloverCheck();
 
     var cx = (width / 2);
     var cy = (height / 2);
@@ -87,24 +108,16 @@ function mouseMove(event) {
     if (!projectOpen) {
         canvas.style.transform = 'rotateY(' + (-mouseXNorm * 6) + 'deg)';
     }
-    if (projectOpen) {
-        /*if (!packshotWrap.classList.contains('in') && !packshotWrap.classList.contains('out')) {
-            canvas2.style.transform = 'rotateY(' + (-mouseXNorm * 5) + 'deg)';
-        }*/
-    }
 
     mouseXNorm *= Math.abs(mouseXNorm);
     mouseYNorm *= Math.abs(mouseYNorm);
 
-    if (logo && !projectOpen && currentScrollFocus === 0) logo.hitTest();
-    if (txt && !projectOpen && currentScrollFocus > 0) {
-        txt.hitTest();
-    }
+    if (txt && !projectOpen && !landingScreen) txt.hitTest();
     titleRollover();
 }
 
 function titleRollover() {
-    if (txt && currentScrollFocus > 0 && txt.roll) {
+    if (txt && !landingScreen && txt.roll) {
         page.style.cursor = 'pointer';
         titleUnderline.classList.add('roll');
     } else {
@@ -122,30 +135,19 @@ function rolloverCheck() {
 
 function pageScroll(){
     scrollPos = page.scrollTop;
-    scrollFocus = scrollPos - scrollOrigin;
+    scrollFocus = scrollPos - sceneTop;
 
-
+    // PERCENT BAR INDICATOR //
     updatePercentBar();
-    if (currentScrollFocus < 1 && scrollPerc > 50) {
-        glitch.chance = scrollPerc;
-    }
 
-    // TODO: count the amount past 100% and jump appropriately //
-    /*if (scrollPerc > 100) {
-        nextScrollFocus();
-    }
-    if (scrollPerc < 0) {
-        prevScrollFocus();
-    }*/
+    // CURRENT SCENE //
+    calculateScene();
 
-    scrollScene();
-
-    if (glitch && glitch.chance > 220) glitch.chance = 220;
-
+    // LANDING TRANSITIONS //
     introAnim();
 
     // AT THE END OF CONTINUOUS RESIZING //
-    if (scrollAdvance) {
+    if (sceneTransition) {
         if (scrollTimer) clearTimeout(scrollTimer);
         scrollTimer = setTimeout(function() {
             resetScroll();
@@ -154,122 +156,104 @@ function pageScroll(){
 }
 
 
-function scrollScene() {
-    if (logo) {
+function calculateScene() {
+    if (sceneTransition) {
         var projectNo = data.projects.length;
         var space = txtScroll;
         var backMult = -1;
 
 
         // get current //
-        currentScrollFocus = Math.floor(page.scrollTop / space);
+        currentScene = Math.floor(page.scrollTop / space);
+        if (currentScene < 0) currentScene = 0;
 
         // loop //
-        if (currentScrollFocus > projectNo) {
+        if (currentScene > projectNo) {
             page.scrollTop = space;
-            currentScrollFocus = 1;
+            currentScene = 1;
             backMult = 1;
         }
 
-        scrollOrigin = currentScrollFocus * space;
+        // position of current scene //
+        sceneTop = currentScene * space;
 
         // advance //
-        if (currentScrollFocus > lastScrollFocus) {
-            resetTxt();
-            xOff(1);
+        if (currentScene > lastScene) {
+            if (lastScene > 0) {
+                resetTxt();
+                hideScrollBars();
+                xOff(1);
+                addGlitch();
+            }
+            else {
+                // FADE TO BLACK TRANSITION //
+                sceneTransition = false;
+                black.classList.remove('out');
+                hideScrollBars();
+                setTimeout(function(){
+                    introBlock.classList.add('titles');
+                    page.scrollTop = space;
+                    black.classList.add('out');
+                    landingScreen = false;
+                    resetTxt();
+                    xOff(1,true);
+                    glitch.chance += 220;
+                    sceneTransition = true;
+
+                    if (scrollTimer) clearTimeout(scrollTimer);
+                    scrollTimer = setTimeout(function() {
+                        resetScroll();
+                    },60);
+                },900);
+            }
+
         }
         // back //
-        if (currentScrollFocus < lastScrollFocus) {
+        if (currentScene < lastScene) {
+            if (currentScene === 0) landingScreen = true;
             resetTxt();
+            hideScrollBars();
             xOff(backMult);
+            addGlitch();
         }
 
-
-        lastScrollFocus = currentScrollFocus;
+        lastScene = currentScene;
     }
 
 }
 
-
-function nextScrollFocus() {
-    if (scrollAdvance) {
-        //if (currentScrollFocus > 0) {
-            scrollOrigin += targetHeight;
-            updatePercentBar();
-            currentScrollFocus ++;
-            scrollLoop();
-            centerScroll();
-            resetTxt();
-            glitch.chance += 60;
-            xOff(1);
-        /*}
-
-        else {
-            //black.classList.remove('out');
-            scrollAdvance = false;
-            setTimeout(function() {
-                //black.classList.add('out');
-                scrollOrigin = introScroll;
-                updatePercentBar();
-                currentScrollFocus = 1;
-                resetTxt();
-                glitch.chance += 60;
-                xOff(1);
-                scrollAdvance = true;
-                if (scrollTimer) clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(function() {
-                    resetScroll();
-                },60);
-            },900);
-        }*/
+function addGlitch() {
+    if (glitch.chance < 30) {
+        glitch.chance += 80;
     }
-}
-
-function prevScrollFocus() {
-    if (scrollAdvance) {
-        currentScrollFocus --;
-        updatePercentBar();
-        scrollOrigin -= targetHeight;
-        resetTxt();
-        glitch.chance += 60;
-        xOff(-1);
+    else {
+        glitch.chance += 30;
     }
+    if (glitch.chance > 220) glitch.chance = 220;
 }
 
-
-function centerScroll() {
-    page.scrollTop = scrollOrigin + (targetHeight * 0.05);
-}
 
 function resetScroll() {
-    var dest = scrollOrigin + (targetHeight / 2);
-    dest = (txtScroll * currentScrollFocus) + (txtScroll / 2);
-    if (currentScrollFocus===0) {
-        dest = 0;
-    }
-    page.scroll({
-        top: dest,
-        left: 0,
-        behavior: 'smooth'
-    });
+    if (sceneTransition) {
+        var dest = (txtScroll * currentScene) + (txtScroll / 2);
+        if (currentScene < 1) dest = 0;
 
-    percentBarTopWrap.style.transitionDelay =  '0s';
-    percentBarBottomWrap.style.transitionDelay =  '0s';
-    percentBarTopWrap.style.opacity = '0';
-    percentBarBottomWrap.style.opacity = '0';
-    scrollbarsVisible = true;
-}
+        page.scroll({
+            top: dest,
+            left: 0,
+            behavior: 'smooth'
+        });
 
-function scrollLoop() {
-    if (currentScrollFocus > data.projects.length) {
-        currentScrollFocus = 1;
-        scrollOrigin = introScroll;
-        page.scrollTop = scrollOrigin;
+        percentBarTopWrap.style.transitionDelay =  '0s';
+        percentBarBottomWrap.style.transitionDelay =  '0s';
+        percentBarTopWrap.style.opacity = '0';
+        percentBarBottomWrap.style.opacity = '0';
+        scrollbarsVisible = true;
     }
 }
 
-function xOff(dir) {
-    titleRollover();
+
+function hideScrollBars() {
     scrollbarsVisible = false;
     percentBarTopWrap.classList.add('no-transition');
     percentBarTopWrap.style.opacity = '0';
@@ -280,21 +264,24 @@ function xOff(dir) {
     percentBarBottomWrap.style.opacity = '0';
     percentBarBottomWrap.offsetHeight;
     percentBarBottomWrap.classList.remove('no-transition');
+}
 
-
-
-    if (currentScrollFocus===0) {
-        logo.yOff = (height * 0.1) * dir;
+function xOff(dir, hard) {
+    titleRollover();
+    var amp = 0.1;
+    if (hard) amp = 0.35;
+    if (landingScreen) {
+        logo.yOff = (height * amp) * dir;
         page.scrollTop = 0;
     } else {
-        txt.yOff = (height * 0.1) * dir;
+        txt.yOff = (height * amp) * dir;
         setTitleNumber();
     }
 }
 
 
 function setTitleNumber() {
-    var num = currentScrollFocus;
+    var num = currentScene;
     if (num < 10) num = '0' + num;
     titleNumber.innerHTML = '' + num;
 
@@ -304,9 +291,8 @@ function setTitleNumber() {
 
 
 function updatePercentBar() {
-    if (currentScrollFocus < 0) currentScrollFocus = 0;
     targetHeight = txtScroll;
-    if (currentScrollFocus===0) targetHeight = introScroll;
+    if (landingScreen) targetHeight = introScroll;
 
     if (percentBarTop) {
         scrollPerc = Math.round((scrollFocus / targetHeight) * 100);
@@ -314,7 +300,7 @@ function updatePercentBar() {
         if (scrollPercVis > 100) scrollPercVis = 100;
 
         if (scrollbarsVisible) {
-            if (currentScrollFocus > 0) {
+            if (!landingScreen) {
                 if (scrollPerc < 50) {
                     percentBarBottom.style.height = '0';
                     percentBarTop.style.height = '' + (100 - (scrollPercVis * 2)) + '%';
@@ -355,9 +341,10 @@ function introAnim() {
         introBlock.classList.remove('out');
     }
     if (scrollPos > introScroll) {
-        introBlock.classList.add('titles');
+        //introBlock.classList.add('titles');
         ninja.classList.add('in');
-    } else {
+    }
+    if (scrollPos < introScroll) {
         introBlock.classList.remove('titles');
         ninja.classList.remove('in');
     }
@@ -397,7 +384,7 @@ function projectAnim(pos) {
 
     var l = reveal.length;
     for (var i=(l-1); i>=0; i--) {
-        if(reveal[i].getBoundingClientRect().top <= (window.innerHeight * 0.75)){
+        if(reveal[i].getBoundingClientRect().top <= (window.innerHeight * 0.8)){
             reveal[i].classList.remove('c-hidden');
         }
     }
@@ -418,7 +405,7 @@ function toggleProject() {
         toggleAudio();
     }
 
-    if (!projectOpen && currentScrollFocus < 1) ninja.classList.remove('in');
+    if (!projectOpen && landingScreen) ninja.classList.remove('in');
 }
 
 function loadFromIndex() {
@@ -433,6 +420,17 @@ function gotoNextProject() {
     loadProject(currentProject);
 }
 
+function exploreScroll() {
+    if (sceneTransition) {
+        var dest = txtScroll *1.5;
+
+        page.scroll({
+            top: dest,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+}
 
 function toggleAudio() {
     if (audioIsPlaying) {
@@ -443,7 +441,36 @@ function toggleAudio() {
     }
     else {
         audioObject.play();
+        audioObject.volume = 1;
         projectAudio.classList.add('audio-playing');
         audioIsPlaying = true;
+        setTimeout(function() {
+            fadeOutAudio(audioObject);
+        },200);
+
     }
+}
+
+function fadeOutAudio(obj) {
+
+    // Set the point in playback that fadeout begins. This is for a 2 second fade out.
+    var sound = obj;
+    var fadePoint = sound.duration - 2;
+
+    var fadeAudio = setInterval(function () {
+
+
+        // Only fade if past the fade out point or not at zero already
+        if ((sound.currentTime >= fadePoint) && (sound.volume != 0.0)) {
+            sound.volume -= 0.1;
+        }
+        // When volume at zero stop all the intervalling
+        if (sound.volume <= 0.0 || sound.currentTime === 0) {
+            clearInterval(fadeAudio);
+        }
+    }, 200);
+}
+
+function toggleMute() {
+    
 }

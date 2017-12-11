@@ -22,9 +22,7 @@ var scrollSpeed = 0;
 var pageHeight = 0;
 var viewHeight = 0;
 
-var currentScrollFocus = 0;
-var introScroll = 550;
-var txtScroll = 550;
+var introScroll = txtScroll = 600;
 
 
 // INTERACTION //
@@ -32,6 +30,8 @@ var mouseX = 0;
 var mouseY = 0;
 var mouseIsDown = false;
 var projectOpen = false;
+var landingScreen = true;
+var touchTakeover = false;
 
 
 var glitch;
@@ -55,6 +55,7 @@ var project;
 var uiBlock;
 var introBlock;
 var year;
+var explore;
 var titleNumber;
 var titleNumberWrap;
 var indexClose;
@@ -68,6 +69,7 @@ var shroud;
 var black;
 var projectClose;
 var projectArtists;
+var projectHeadlines;
 var nextProject;
 var percentBarTop;
 var percentBarBottom;
@@ -76,6 +78,8 @@ var percentBarBottomWrap;
 var titleUnderline;
 var ninja;
 var projectAudio;
+var projectAudioLabel;
+var titleHitbox;
 
 
 var currentProject = 0;
@@ -99,7 +103,7 @@ function init() {
 
 
     // SET CANVAS & DRAWING POSITIONS //
-    metrics();
+    metrics(true);
 
     // INTERACTION //
     setupInteraction();
@@ -118,13 +122,6 @@ function init() {
 
     populateIndex();
     calculateScrollSpace();
-    //loadProject(0);
-
-    // TEMPORARY //
-    setTimeout(function() {
-        setupType();
-    }, 2000);
-
 }
 
 function getElements() {
@@ -134,6 +131,7 @@ function getElements() {
     uiBlock = document.getElementById('ui-block');
     introBlock = document.getElementById('intro-block');
     year = document.getElementById('year');
+    explore = document.getElementById('explore');
     titleNumber = document.getElementById('title-number-index');
     titleNumberWrap = document.getElementById('title-number-index-wrap');
     percentBarTop = document.getElementById('percent-bar-top');
@@ -146,13 +144,16 @@ function getElements() {
     closeBlock = document.getElementById('close-block');
     projectClose = document.getElementById('project-close');
     projectArtists = document.getElementById('project-artists');
+    projectHeadlines = document.getElementById('project-headlines');
     packshotWrap = document.getElementById('packshot-wrap');
     projectAudio = document.getElementById('project-audio');
+    projectAudioLabel = document.getElementById('project-audio-label');
     projectCopy = document.getElementById('project-copy');
     nextProject = document.getElementById('next-project');
     shroud = document.getElementById('shroud');
     black = document.getElementById('black');
     titleUnderline = document.getElementById('title-underline-wrap');
+    titleHitbox = document.getElementById('title-hitbox');
 }
 
 
@@ -182,7 +183,10 @@ function formatYear() {
 function resetPackshot(callback) {
     size = height * 0.75;
     if (device==='mobile') size = width * 0.75;
+    var active = false;
+    if (packshot && packshot.active) active = true;
     packshot =  new Packshot(ctx2, width/2, height/2, size, currentProjectArtwork, callback);
+    if (active) packshot.active = true;
 }
 
 function resetLogo() {
@@ -204,7 +208,6 @@ function resetLogo() {
             setTimeout(function() {
                 glitch.glitchable = true;
                 glitch.chance = 200;
-                logo.interactive = true;
             }, 4500);
 
             // EXPLORE & UI //
@@ -216,18 +219,17 @@ function resetLogo() {
 
         }
     }
-    logo = new Img(ctx, x, y, size, 'img/tt.png', func);
+    logo = new Img(ctx, x, y, size, 'img/tt2000.png', func);
 }
 
 function resetTxt() {
-    if (currentScrollFocus > 0) {
+    if (!landingScreen) {
         var x = width/2;
         var y = height/2;
         var size = width * 0.065;
         if (device==='mobile') size = width * 0.08;
-        txt = new Txt(ctx, x, y, size, data.projects[currentScrollFocus-1].artist);
+        txt = new Txt(ctx, x, y, size, data.projects[currentScene-1].artist);
     }
-
 }
 
 
@@ -266,20 +268,15 @@ function loop() {
 
 function update() {
 
-    var flash = false;
-
     if (!projectOpen) {
-        if (currentScrollFocus===0) logo.update();
-        if (currentScrollFocus > 0) txt.update();
+        if (landingScreen) logo.update();
+        if (!landingScreen) txt.update();
         glitch.update();
     }
     else {
         if (packshot) packshot.update();
-        updateWebtype();
     }
 }
-
-
 
 
 //-------------------------------------------------------------------------------------------
@@ -293,64 +290,11 @@ function draw() {
 
 
     if (!projectOpen) {
-        if (currentScrollFocus===0) logo.draw();
-        if (currentScrollFocus > 0) txt.draw();
+        if (landingScreen) logo.draw();
+        if (!landingScreen) txt.draw();
         glitch.draw();
     }
     else {
-        if (packshot) drawPackshot();
+        if (packshot) packshot.draw();
     }
-}
-
-
-
-function drawPackshot() {
-    packshot.draw();
-}
-
-
-
-function formatPackshot(src) {
-    var parent = document.getElementById('packshot');
-    parent.innerHTML = '';
-
-
-    var container = document.createElement('div');
-    container.classList = 'packshot-container';
-    parent.appendChild(container);
-    var parentHeight = container.offsetHeight;
-    console.log(parentHeight);
-
-    var n = 20;
-
-    var perc = (100 / n);
-    var roundHeight = Math.round(parentHeight / n);
-
-    for (var i=0; i<n; i++) {
-
-        var strip = document.createElement('div');
-        strip.classList = 'packshot-strip';
-        strip.style.height = '' + roundHeight + 'px';
-        container.appendChild(strip);
-
-        /*var stripBG = document.createElement('div');
-        stripBG.classList = 'packshot-strip-bg';
-        strip.appendChild(stripBG);*/
-
-        var stripImgWrap = document.createElement('div');
-        stripImgWrap.classList = 'packshot-strip-img-wrap';
-        strip.appendChild(stripImgWrap);
-
-        var stripImg = document.createElement('img');
-        stripImg.classList = 'packshot-strip-img';
-        stripImg.src = src;
-        stripImg.style.top = '' + (-(100 * i)) + '%';
-        stripImg.style.transitionDelay = '' + (0.5 + (Math.random() / 2)) + 's';
-        stripImgWrap.appendChild(stripImg);
-
-
-
-
-    }
-
 }
