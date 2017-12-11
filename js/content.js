@@ -929,7 +929,7 @@ var data = {
                 sub: 'EP of the month'
             }
         },
-        /*{
+        {
             artist: 'Zomby',
             release: 'GASP!',
             date: 'September 08',
@@ -955,8 +955,8 @@ var data = {
                 }
             ],
             track: {
-                title: '',
-                src: ''
+                title: 'Gasp',
+                src: 'tracks/01_Zomby_GASP_.mp3'
             },
             copy: {
                 intro: "ZOMBY&rsquo;s ability to effortlessly shift aesthetics across his career has firmly stationed him as a producer that can&rsquo;t be boxed, and &ldquo;GASP!&quot; sees him altering his often jungle-driven sound yet again, furthering him as a sonic chameleon among an ever-increasing landscape of musical similitude.",
@@ -966,7 +966,7 @@ var data = {
                 quote: "This return is gripping, a 4/4 industrial rave jam with the eighth beat knocked perfectly off course",
                 ref: 'The Guardian'
             }
-        },*/
+        },
         {
             artist: 'Jameszoo',
             release: 'Flake',
