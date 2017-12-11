@@ -1487,14 +1487,14 @@ h2, #close-block, #cursor {
 
     border-radius: 50%;
     border: 2px solid;
-
-    -webkit-transition: transform 0.3s;
-    transition: transform 0.3s;
 }
 
 #project-audio:hover {
     -webkit-transform: scale(1.1, 1.1);
     transform: scale(1.1, 1.1);
+
+    -webkit-transition: transform 0.3s, opacity 0.5s;
+    transition: transform 0.3s, opacity 0.5s;
 }
 
 #project-audio-visual {
@@ -1729,14 +1729,14 @@ blockquote::after {
     padding: 0 60px;
     margin: 0 auto;
     display: inline-block;
-
-    -webkit-transition: transform 0.3s;
-    transition: transform 0.3s;
 }
 
 #project-buy-box:hover {
--webkit-transform: scale(1.025, 1.025);
-transform: scale(1.025, 1.025);
+    -webkit-transform: scale(1.025, 1.025);
+    transform: scale(1.025, 1.025);
+
+    -webkit-transition: transform 0.3s, opacity 0.5s;
+    transition: transform 0.3s, opacity 0.5s;
 }
 
 #project-buy {
@@ -1800,6 +1800,9 @@ transform: scale(1.025, 1.025);
     line-height: 1.5em;
     padding: 0;
     margin: 0;
+
+    /*-webkit-transition: color 0.3s;
+    transition: color 0.3s;*/
 }
 #project-social a::after {
     width: 100%;
@@ -2279,9 +2282,9 @@ body, #project, .c-roll-bg-vertical::after, #index a::after, #black {
 #index, #percent-bar, .explore-stroke, #next-project, #project-buy::after, .packshot-strip-img-wrap, .shroud-bar, #mute-button.muted::after, #project-social a::before {
     background-color: #ff4722;
 }
-#cursor {
+/*#cursor, #project-social a:hover {
     color: #ff4722;
-}
+}*/
 
 /*background-color: #f7be02;
 background-color: #efeb00;

@@ -15,6 +15,9 @@ var lastScene = 0;
 var sceneTop = 0;
 var sceneTransition = true;
 
+var reveal = [];
+var projectRevealElements = [];
+
 
 
 //-------------------------------------------------------------------------------------------
@@ -57,6 +60,19 @@ function setupInteraction() {
     $(nextProject).click(gotoNextProject);
     $(projectAudio).click(toggleAudio);
     $(muteButton).click(toggleMute);
+
+    $('#explore').hover(function() {
+        $(this).parent().addClass('hover');
+    }, function() {
+        $(this).parent().removeClass('hover');
+    });
+
+    // REVEAL ON SCROLL //
+    reveal = document.getElementsByClassName('c-hidden');
+    var projectReveal = document.getElementById('project').getElementsByClassName('c-hidden');
+    for (var i=0; i<projectReveal.length; i++) {
+        projectRevealElements.push(projectReveal[i]);
+    }
 
     pageScroll();
 }
@@ -347,7 +363,9 @@ function introAnim() {
     }
     if (scrollPos < introScroll) {
         introBlock.classList.remove('titles');
-        muteButton.classList.remove('titles');
+        if (AUTOPLAY) {
+            muteButton.classList.remove('titles');
+        }
         ninja.classList.remove('in');
     }
 }
@@ -490,7 +508,7 @@ function fadeOutAudio(obj, immediate) {
 
     // Set the point in playback that fadeout begins. This is for a 2 second fade out.
     var sound = obj;
-    var fadePoint = sound.duration - 2;
+    var fadePoint = sound.duration - 2.5;
     var timer = 200;
     if (immediate) {
         fadePoint = sound.currentTime - 1;

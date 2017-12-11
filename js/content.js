@@ -26,6 +26,10 @@ var data = {
                     href: 'http://found.ee/thundercat-sp'
                 },
                 {
+                    name: 'Apple Music',
+                    href: 'http://found.ee/thundercat-am'
+                },
+                {
                     name: 'Facebook',
                     href: 'http://found.ee/thundercat-fb'
                 },
@@ -34,7 +38,7 @@ var data = {
                     href: 'http://found.ee/thundercat-tw'
                 },
                 {
-                    name: 'brainfeeder.net',
+                    name: 'brainfeeder.net/thundercat',
                     href: 'http://brainfeeder.net/thundercat'
                 }
             ]
@@ -267,7 +271,7 @@ var data = {
                 src: 'tracks/01_Young_Fathers_Only_God_Knows.mp3'
             },
             copy: {
-                intro: "The re-release of Young Father&rsquo;s debut &lsquo;mixtapes&rsquo; &quot;TAPE ONE&quot; and the sequel &quot;TAPE TWO&quot; gave us a chance to reappraise two albums that sat firmly outside the mainstream in 2011/12 and still seem prescient today.",
+                intro: "The re-release of Young Fathers&rsquo; debut &lsquo;mixtapes&rsquo; &quot;TAPE ONE&quot; and the sequel &quot;TAPE TWO&quot; gave us a chance to reappraise two albums that sat firmly outside the mainstream in 2011/12 and still seem prescient today.",
                 main: "With a new album on the way in 2018, Young Fathers also released new single &lsquo;Lord&rsquo; at the end of October 2017."
             },
             quote: {
@@ -449,8 +453,8 @@ var data = {
                     href: 'http://odesza.co/twitter'
                 },
                 {
-                    name: 'SnapChat',
-                    href: 'http://odesza.co/snapchat'
+                    name: 'Snapchat',
+                    href: 'https://www.snapchat.com/add/odesza '
                 },
                 {
                     name: 'odesza.com',
@@ -523,6 +527,7 @@ var data = {
             label: 'Ninja Tune',
             artwork: 'img/packshots/concrete.jpg',
             buy: 'https://BugvsEarth.lnk.to/cdEs',
+            socialLead: 'The Bug',
             social: [
                 {
                     name: 'Spotify',
@@ -654,6 +659,7 @@ var data = {
             label: 'Ahead Of Our Time',
             artwork: 'img/packshots/outside.jpg',
             buy: 'https://CCxOnU.lnk.to/otecEs',
+            socialLead: 'Coldcut',
             social: [
                 {
                     name: 'Spotify',
@@ -1156,10 +1162,6 @@ var data = {
                 {
                     name: 'Instagram',
                     href: 'http://found.ee/wen-ig'
-                },
-                {
-                    name: 'Twitter',
-                    href: 'http://found.ee/wen-tw'
                 }
             ],
             track: {
@@ -1197,7 +1199,7 @@ var data = {
                 },
                 {
                     name: 'Instagram',
-                    href: 'http://found.ee/eera-ig'
+                    href: 'http://found.ee/eera-ig-1'
                 },
                 {
                     name: 'Twitter',
@@ -1358,7 +1360,9 @@ function loadProjectContent(n, callback) {
 
     // SOCIAL //
     projectSocial = document.getElementById('project-social');
-    projectSocial.innerHTML = 'Follow ' + p.artist + ' on ';
+    var lead = p.artist;
+    if (p.socialLead) lead = p.socialLead;
+    projectSocial.innerHTML = 'Follow ' + lead + ' on ';
     var l = p.social.length;
     p.social.forEach(function(item, i) {
         var link = document.createElement('a');
