@@ -56,7 +56,7 @@ function setupInteraction() {
     $(projectArtists).click(toggleProject);
     $(nextProject).click(gotoNextProject);
     $(projectAudio).click(toggleAudio);
-
+    $(muteButton).click(toggleMute);
 
     pageScroll();
 }
@@ -192,6 +192,7 @@ function calculateScene() {
                 hideScrollBars();
                 setTimeout(function(){
                     introBlock.classList.add('titles');
+                    muteButton.classList.add('titles');
                     page.scrollTop = space;
                     black.classList.add('out');
                     landingScreen = false;
@@ -346,6 +347,7 @@ function introAnim() {
     }
     if (scrollPos < introScroll) {
         introBlock.classList.remove('titles');
+        muteButton.classList.remove('titles');
         ninja.classList.remove('in');
     }
 }
@@ -402,7 +404,10 @@ function toggleProject() {
     page.classList.toggle('no-transition');
     projectOpen = !projectOpen;
     if (audioIsPlaying) {
-        toggleAudio();
+        fadeOutAudio(audioObject, true);
+        setTimeout(function() {
+            toggleAudio();
+        },1000);
     }
 
     if (!projectOpen && landingScreen) ninja.classList.remove('in');
@@ -418,6 +423,7 @@ function gotoNextProject() {
     if (currentProject >= data.projects.length) currentProject = 0;
 
     loadProject(currentProject);
+    fadeOutAudio(audioObject, true);
 }
 
 function exploreScroll() {
@@ -440,22 +446,56 @@ function toggleAudio() {
         audioIsPlaying = false;
     }
     else {
-        audioObject.play();
-        audioObject.volume = 1;
-        projectAudio.classList.add('audio-playing');
-        audioIsPlaying = true;
-        setTimeout(function() {
-            fadeOutAudio(audioObject);
-        },200);
+        if (AUTOPLAY) {
+            audioObject.play();
+            audioObject.volume = masterVolume;
+            projectAudio.classList.add('audio-playing');
+            audioIsPlaying = true;
+            setTimeout(function() {
+                fadeOutAudio(audioObject);
+            },200);
+        }
 
+        else {
+            audioObject = new Audio(audioSrc);
+            audioObject.addEventListener('ended', toggleAudio);
+            audioObject.addEventListener('loadstart', audioLoadStart);
+            audioObject.addEventListener('canplay', audioLoaded);
+            audioObject.play();
+            audioObject.volume = masterVolume;
+            projectAudio.classList.add('audio-playing');
+            audioIsPlaying = true;
+            setTimeout(function() {
+                fadeOutAudio(audioObject);
+            },200);
+        }
     }
 }
 
-function fadeOutAudio(obj) {
+function audioLoadStart() {
+    //console.log('loadStart');
+    projectAudio.classList.remove('audio-playing');
+    projectAudio.classList.add('audio-buffering');
+    audioObject.removeEventListener('loadstart', audioLoadStart);
+}
+
+function audioLoaded() {
+    //console.log('canPlay');
+    projectAudio.classList.remove('audio-buffering');
+    projectAudio.classList.add('audio-playing');
+    audioObject.removeEventListener('canplay', audioLoaded);
+}
+
+function fadeOutAudio(obj, immediate) {
 
     // Set the point in playback that fadeout begins. This is for a 2 second fade out.
     var sound = obj;
     var fadePoint = sound.duration - 2;
+    var timer = 200;
+    if (immediate) {
+        fadePoint = sound.currentTime - 1;
+        timer = 100;
+    }
 
     var fadeAudio = setInterval(function () {
 
@@ -468,9 +508,36 @@ function fadeOutAudio(obj) {
         if (sound.volume <= 0.0 || sound.currentTime === 0) {
             clearInterval(fadeAudio);
         }
-    }, 200);
+    }, timer);
 }
 
+
 function toggleMute() {
-    
+    if (masterVolume===1) {
+        masterVolume = 0;
+        muteButton.classList.add('muted');
+    } else {
+        masterVolume = 1;
+        muteButton.classList.remove('muted');
+    }
+    if (audioObject) audioObject.volume = masterVolume;
+}
+
+function detectAutoplay() {
+    var mp3 = 'data:audio/mpeg;base64,/+MYxAAAAANIAUAAAASEEB/jwOFM/0MM/90b/+RhST//w4NFwOjf///PZu////9lns5GFDv//l9GlUIEEIAAAgIg8Ir/JGq3/+MYxDsLIj5QMYcoAP0dv9HIjUcH//yYSg+CIbkGP//8w0bLVjUP///3Z0x5QCAv/yLjwtGKTEFNRTMuOTeqqqqqqqqqqqqq/+MYxEkNmdJkUYc4AKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq';
+
+    try {
+        var audio = new Audio(mp3); // Construct new Audio object
+        audio.autoplay = true; // Set autoplay to true
+
+        // This event will only be triggered if setting the autoplay attribute to true works.
+        $(audio).on('play', function() {
+            AUTOPLAY = true; // Set the global flag to true, indicating we have support.
+        });
+
+        audio.src = mp3; // Set the audio objects src to the value of the src variable.
+    } catch(e) {
+        console.log('[AUTOPLAY-ERROR]', e);
+        // This means we were unsuccessful - this browser doesn't support the autoplay attribute.
+    }
 }

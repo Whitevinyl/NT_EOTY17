@@ -34,7 +34,7 @@ var data = {
                     href: 'http://found.ee/thundercat-tw'
                 },
                 {
-                    name: 'Brainfeeder.net/thundercat',
+                    name: 'brainfeeder.net',
                     href: 'http://brainfeeder.net/thundercat'
                 }
             ]
@@ -119,6 +119,10 @@ var data = {
                 {
                     name: 'Twitter',
                     href: 'http://found.ee/actress-tw'
+                },
+                {
+                    name: 'whoisactress.com',
+                    href: 'http://whoisactress.com'
                 }
 
             ]
@@ -163,6 +167,10 @@ var data = {
                 {
                     name: 'Twitter',
                     href: 'http://www.found.ee/forest-tw'
+                },
+                {
+                    name: 'forestswords.co.uk',
+                    href: 'http://www.forestswords.co.uk/'
                 }
 
             ]
@@ -1287,7 +1295,7 @@ function loadProjectContent(n, callback) {
     ti = splitTitle(document.getElementById('project-title'), p.release, ti);
     ti = splitTitle(document.getElementById('project-date'), p.date, ti, true);
     document.getElementById('project-headlines').classList.remove('line-up');
-    if ((p.artist.length + p.release.length) > 20) {
+    if ((p.artist.length + p.release.length) > 30) {
         document.getElementById('project-headlines').classList.add('line-up');
     }
 
@@ -1455,7 +1463,9 @@ function loadProject(n) {
         loadProjectContent(n, function() {
             shroud.classList.add('out');
             projectHeadlines.classList.remove('out');
-            toggleAudio();
+            if (AUTOPLAY) {
+                toggleAudio();
+            }
         });
     },1000);
 }
@@ -1493,13 +1503,17 @@ function loadAudio(src) {
         toggleAudio();
     }
     if (src !== '') {
-        audioObject = new Audio(src);
-        audioObject.addEventListener('ended', toggleAudio);
+        audioSrc = src;
+        if (AUTOPLAY) {
+            audioObject = new Audio(src);
+            audioObject.addEventListener('ended', toggleAudio);
+        }
     }
     else {
         // HIDE AUDIO PLAYER //
     }
 }
+
 
 // STRING INCLUDE POLYFILL //
 if (!String.prototype.includes) {

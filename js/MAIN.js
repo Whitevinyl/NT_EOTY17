@@ -26,12 +26,15 @@ var introScroll = txtScroll = 600;
 
 
 // INTERACTION //
+var AUTOPLAY = false;
 var mouseX = 0;
 var mouseY = 0;
 var mouseIsDown = false;
 var projectOpen = false;
 var landingScreen = true;
 var touchTakeover = false;
+var audioSrc = '';
+var masterVolume = 1;
 
 
 var glitch;
@@ -80,7 +83,7 @@ var ninja;
 var projectAudio;
 var projectAudioLabel;
 var titleHitbox;
-
+var muteButton;
 
 var currentProject = 0;
 var currentProjectArtwork = 'img/packshots/compassion800.jpg';
@@ -122,6 +125,7 @@ function init() {
 
     populateIndex();
     calculateScrollSpace();
+    detectAutoplay();
 }
 
 function getElements() {
@@ -154,6 +158,7 @@ function getElements() {
     black = document.getElementById('black');
     titleUnderline = document.getElementById('title-underline-wrap');
     titleHitbox = document.getElementById('title-hitbox');
+    muteButton = document.getElementById('mute-button');
 }
 
 

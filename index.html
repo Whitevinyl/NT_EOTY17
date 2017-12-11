@@ -6,7 +6,6 @@
 
         <title>NINJA TUNE 2017</title>
 
-        <meta name="description" content="..." />
 
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/lib/stats.min.js"></script>
@@ -14,7 +13,6 @@
         <script type="text/javascript" src="js/lib/colorflex.js"></script>
         <script type="text/javascript" src="js/lib/canvas-noise.js"></script>
         <script type="text/javascript" src="js/lib/perlin-simplex.js"></script>
-        <script type="text/javascript" src="js/lib/draw-grid.js"></script>
         <script type="text/javascript" src="js/lib/smoothscroll.js"></script>
 
         <script type="text/javascript" src="js/UTILS.js"></script>
@@ -33,19 +31,46 @@
         <link href="css/packshot.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <link href="css/draw-grid.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,600,700,800" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i" rel="stylesheet">
 
 
-        <!--<link rel="shortcut icon" href="favicon.ico"/>-->
-        <link rel="image_src" type="image/png" href="thumb.jpg">
+
+        <meta name="description" content="NINJA TUNE End of the Year 2017">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="NINJA TUNE">
+        <!-- Open Graph -->
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="NINJA TUNE - 2017">
+        <meta property="og:site_name" content="NINJA TUNE - 2017">
+        <meta property="og:url" content="https://ninjatune.net/2017">
+        <meta property="og:image" content="https://ninjatune.net/2017/images/thumb.jpg">
+        <meta property="article:author" content="NINJA TUNE">
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="undefined">
+        <meta name="twitter:title" content="NINJA TUNE - 2017">
+        <meta name="twitter:description" content="NINJA TUNE - 2017">
+        <meta name="twitter:image" content="https://ninjatune.net/2017/images/thumb.jpg">
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="favicon.ico">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="theme-color" content="#000000">
+        <link rel="image_src" type="image/png" href="images/thumb.jpg">
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KM2V873');</script>
+
+
     </head>
 
 
     <body onload="init()" onresize="metrics()">
-        <!-- <draw-grid data-margin='40' data-gutter='20' data-columns='12' data-color='#ff0000'></draw-grid> -->
 
 
         <div id='index' class='mid'>
@@ -70,12 +95,13 @@
                 </div>
 
                 <div id='mute-button' class='mid'>
-                    <a class='c-roll-line'>
+                    <a id='mute-button-inner' class='c-roll-line'>
                         <div class='mute-line'></div>
                         <div class='mute-line ml2'></div>
                         <div class='mute-line ml3'></div>
                         <div class='mute-line ml4'></div>
                     </a>
+                    <!--<div id='mute-icon-cross'></div>-->
                 </div>
             </div>
 
@@ -172,6 +198,7 @@
                         <svg id='project-audio-play' viewBox='0 0 100 100' preserveAspectRatio='none'>
                             <path d='M37 33 L72 50 L37 66 z'  fill='currentColor' stroke='none' />
                         </svg>
+                        <div id='project-audio-buffer'></div>
                     </div>
                 </div>
             </div>
@@ -267,8 +294,12 @@
             <div class='shroud-bar'></div>
             <div class='shroud-bar'></div>
             <div class='shroud-bar'></div>
+            <div id='shroud-loader'></div>
         </div>
 
-
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KM2V873"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
     </body>
 </html>
