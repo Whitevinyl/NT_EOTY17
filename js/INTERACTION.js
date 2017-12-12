@@ -273,11 +273,13 @@ function resetScroll() {
         var dest = (txtScroll * currentScene) + (txtScroll / 2);
         if (currentScene < 1) dest = 0;
 
-        page.scroll({
+        /*page.scroll({
             top: dest,
             left: 0,
             behavior: 'smooth'
-        });
+        });*/
+        page.scrollTop = dest;
+        pageScroll();
 
         percentBarTopWrap.style.transitionDelay =  '0s';
         percentBarBottomWrap.style.transitionDelay =  '0s';

@@ -22,7 +22,7 @@ var scrollSpeed = 0;
 var pageHeight = 0;
 var viewHeight = 0;
 
-var introScroll = txtScroll = 600;
+var introScroll = txtScroll = 660;
 
 
 // INTERACTION //

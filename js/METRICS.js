@@ -51,8 +51,8 @@ function resizeScroll() {
             pageScroll();
         }
     } else {
-        if (txtScroll !== 600) {
-            introScroll = txtScroll = 600;
+        if (txtScroll !== 660) {
+            introScroll = txtScroll = 660;
             calculateScrollSpace();
             pageScroll();
         }

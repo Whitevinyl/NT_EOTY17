@@ -508,9 +508,9 @@ UI
     position: fixed;
     display: block;
     left: 25px;
-    bottom: 8px;
-    width: 1.6em;
-    height: 1.6em;
+    bottom: 20px;
+    width: 1.5em;
+    height: 1.5em;
     padding: 4px;
 
     border-radius: 50%;
@@ -543,14 +543,15 @@ UI
 }
 
 #playlist-icon::after {
-    content: 'Playlist \21D7';
+    content: attr(data-str);
     position: absolute;
-    top: 50%;
+    bottom: 0;
     left: 100%;
+    width: 18em;
     display: block;
-    padding: 4px 0 4px 8px;
+    padding: 4px 0 4px 15px;
 
-    white-space: nowrap;
+    text-indent: 0;
     font-size: 0.75em;
     line-height: 1em;
     letter-spacing: 0.2em;
@@ -558,8 +559,8 @@ UI
     visibility: hidden;
     opacity: 0;
 
-    -webkit-transform: translateY(0.4em);
-    transform: translateY(0.4em);
+    -webkit-transform: translateY(1.4em);
+    transform: translateY(1.4em);
 
     -webkit-transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
     transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
@@ -572,8 +573,8 @@ UI
     visibility: visible;
     opacity: 1;
 
-    -webkit-transform: translateY(-55%);
-    transform: translateY(-55%);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
 }
 
 
@@ -2651,6 +2652,9 @@ background-color: #e81139;*/
     }
     #project-audio-wrap {
         top: 5%;
+    }
+    #project-packshot {
+        height: 60vh;
     }
 }
 
