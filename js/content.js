@@ -1500,7 +1500,7 @@ function populateIndex() {
     });
 
     var container = document.getElementById('index-inner');
-    container.innerHTML = '';
+    //container.innerHTML = '';
     artistList.forEach(function(item) {
         var link = document.createElement('a');
         link.setAttribute('data-index',item.index);

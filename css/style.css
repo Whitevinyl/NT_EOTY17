@@ -215,8 +215,8 @@ INDEX OVERLAY
     -webkit-transform: translateX(0);
     transform: translateX(0);
 
-    -webkit-transition: transform 0.9s, visibility 0s;
-    transition: transform 0.9s, visibility 0s;
+    /*-webkit-transition: transform 0.9s, visibility 0.9s;
+    transition: transform 0.9s, visibility 0.9s;*/
 }
 
 #index-close {
@@ -308,7 +308,10 @@ INDEX OVERLAY
 
 
 #index-inner {
+    /*position: relative;*/
     padding: 30px 40px;
+    /*min-height: 100%;*/
+
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
@@ -323,7 +326,6 @@ INDEX OVERLAY
 
     letter-spacing: 0.2em;
 
-    counter-reset: subsection;
 }
 
 #index a {
@@ -332,9 +334,6 @@ INDEX OVERLAY
     display: block;
     line-height: 2.5em;
     max-width: 350px;
-    /*overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;*/
     margin-bottom: 0.5em;
 
     float: left;
@@ -343,22 +342,28 @@ INDEX OVERLAY
 
 #index-copy {
     position: absolute !important;
-    bottom: 30px;
-    right: 30px;
+    bottom: 23px;
+    right: 23px;
     text-align: right;
     display: block;
     float: none !important;
+    margin: 0 !important;
+    max-width: none !important;
 
-    writing-mode: vertical-rl;
+    /*writing-mode: vertical-rl;
     -webkit-writing-mode: vertical-rl;
-    -ms-writing-mode: vertical-rl;
+    -ms-writing-mode: vertical-rl;*/
 
     font-size: 0.7em;
-    height: 20em;
+    height: auto;
+    width: 18em;
     text-indent: 0;
+    letter-spacing: 0.12em !important;
     line-height: 1.4em !important;
 }
-
+#index-copy:hover::after {
+    height: 100% !important;
+}
 
 
 /*
@@ -2677,6 +2682,14 @@ background-color: #e81139;*/
     #project-headlines {
         margin-left: 0;
     }
+    #index-copy {
+        height: 18em;
+        width: auto;
+
+        writing-mode: vertical-rl;
+        -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: vertical-rl;
+    }
 }
 
 @media (max-width:500px) {
@@ -2735,7 +2748,18 @@ background-color: #e81139;*/
         top: 5%;
     }
     #project-packshot {
-        height: 60vh;
+        height: 50vh;
+    }
+    #explore-group {
+        height: 17%;
+        min-height: 125px;
+    }
+    .large-mid {
+        font-size: 0.95rem;
+    }
+    #playlist-icon {
+        width: 1.1rem;
+        height: 1.1rem;
     }
 }
 
