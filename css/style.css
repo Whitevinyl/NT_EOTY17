@@ -954,11 +954,6 @@ UI
     transition-delay: 0s;
 }
 
-#artists-prev:hover, #artists-next:hover {
-    -webkit-transform: scale(1.2, 1.2);
-    transform: scale(1.2, 1.2);
-}
-
 .pagination {
     width: 1.3rem;
     height: 1.3rem;
@@ -967,10 +962,17 @@ UI
     border: 2px solid;
 }
 
+#artists-prev:hover, #artists-next:hover {
+    -webkit-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
 .titles #artists-prev, .titles #artists-next {
     opacity: 1;
     visibility: visible;
+}
 
+.delayed #artists-prev, .delayed #artists-next {
     -webkit-transition-delay: 1s;
     transition-delay: 1s;
 }

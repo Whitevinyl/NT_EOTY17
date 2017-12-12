@@ -265,6 +265,10 @@ function calculateScene() {
                 hideScrollBars();
                 setTimeout(function(){
                     introBlock.classList.add('titles');
+                    introBlock.classList.add('delayed');
+                    setTimeout(function(){
+                        introBlock.classList.remove('delayed');
+                    },1200);
                     if (AUTOPLAY) {
                         muteButton.classList.add('titles');
                     }
