@@ -31,6 +31,14 @@ function setupInteraction() {
     window.addEventListener("mouseup", mouseRelease, false);
     window.addEventListener("mousemove", mouseMove, false);
 
+    /*page.addEventListener("mousedown", mousePress, false);
+    page.addEventListener("mouseup", mouseRelease, false);
+    page.addEventListener("mousemove", mouseMove, false);
+
+    packshotWrap.addEventListener("mousedown", mousePress, false);
+    packshotWrap.addEventListener("mouseup", mouseRelease, false);
+    packshotWrap.addEventListener("mousemove", mouseMove, false);*/
+
     // TOUCH //
     document.getElementById('intro-scroll-space').addEventListener('touchstart', function(event) {
         var touch = event.changedTouches[0];
@@ -419,19 +427,19 @@ function projectAnim(pos) {
 }
 
 function backToLaunch() {
-    if (!landingScreen) {
-        if (projectOpen) {
-            page.scrollTop = 0;
-            pageScroll();
-            toggleProject();
-        } else {
+
+    if (projectOpen) {
+        page.scrollTop = 0;
+        pageScroll();
+        toggleProject();
+    } else {
+        if (!landingScreen) {
             page.scroll({
                 top: 0,
                 left: 0,
                 behavior: 'smooth'
             });
         }
-
     }
 }
 

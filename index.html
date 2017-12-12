@@ -72,13 +72,6 @@
     <body onload="init()" onresize="metrics()">
 
 
-        <div id='index' class='mid'>
-            <div id='index-close' class='panel-close c-roll-bg-vertical'>&times;</div>
-            <div id='index-inner'>-</div>
-            <div id='index-az'>A-Z</div>
-            <div id='index-year'>2017</div>
-        </div>
-
         <div id='page'>
 
 
@@ -115,8 +108,10 @@
                 View Project +
             </div>
 
+            <div id='ninja-logo-wrap' class='ui'>
+                <img id='ninja-logo' src='img/TT_white_small.png' alt='Ninja Tune' />
+            </div>
 
-            <img id='ninja-logo' class='ui' src='img/TT_white_small.png' alt='Ninja Tune' />
 
 
             <!-- INTRO -->
@@ -130,6 +125,9 @@
                         <a id='explore' class='t-down-top-center'>Explore 	&rarr;</a>
                     </div>
                 </div>
+                <a id='playlist-icon' class='mid' href='https://ninjatune.lnk.to/or' target='_blank'>
+                    <img src='img/spotify.png' alt='spotify-logo'/>
+                </a>
                 <div id='intro-scroll' class='col-1 left-1'></div>
                 <div id='title-number' class='col-8 left-1' style="pointer-events: none;">
                     <div id='title-number-index-wrap'>
@@ -158,7 +156,7 @@
                     </svg>
                 </div>
                 <div id='project-number-line'></div>
-                <div id='project-number-wrap'>
+                <div id='project-number-wrap' class='group'>
                     <div id='project-number'>-</div>
                 </div>
             </div>
@@ -227,7 +225,7 @@
                         </div>
                     </div>
                     <div class='row group'>
-                        <div id='project-quotes' class='col-6 left-2 flush project-quotes stretch'>
+                        <div id='project-quotes' class='col-4 left-2 flush project-quotes stretch'>
                             <blockquote class='c-reveal-child'>-</blockquote>
                             <div class='quote-ref mid c-reveal-child'>-</div>
                         </div>
@@ -251,7 +249,7 @@
                         </div>
                     </div>
                     <div class='row group'>
-                        <div id='project-social' class='col-7 left-2 flush stretch c-reveal-child'>-</div>
+                        <div id='project-social' class='col-6 left-2 flush stretch c-reveal-child'>-</div>
                     </div>
                 </div>
 
@@ -283,6 +281,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id='index' class='mid'>
+            <div id='index-close' class='panel-close c-roll-bg-vertical'>&times;</div>
+            <div id='index-inner'>-</div>
+            <div id='index-az'>A-Z</div>
+            <div id='index-year'>2017</div>
         </div>
 
         <div id='black' class='out'></div>

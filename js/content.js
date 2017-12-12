@@ -588,7 +588,7 @@ var data = {
                 main: ""
             },
             quote: {
-                quote: "Touching on hop-hop, industrial, Jazz, dub, punk, rock, new wave, psychedelia and bass-driven electronic music, McNulty manages to sew disparate styles into a coherent and fascinating tapestry of exciting sounds.",
+                quote: "Touching on hip-hop, industrial, Jazz, dub, punk, rock, new wave, psychedelia and bass-driven electronic music, McNulty manages to sew disparate styles into a coherent and fascinating tapestry of exciting sounds.",
                 ref: 'Future Music',
                 sub: '9/10'
             }
@@ -1417,8 +1417,14 @@ function loadProjectContent(n, callback) {
 
     projectHeadlines.classList.add('no-transition');
     projectHeadlines.classList.add('out');
-    packshotWrap.offsetHeight;
+    projectHeadlines.offsetHeight;
     projectHeadlines.classList.remove('no-transition');
+
+    closeBlock.classList.add('no-transition');
+    closeBlock.classList.add('out');
+    closeBlock.classList.add('delayed');
+    closeBlock.offsetHeight;
+    closeBlock.classList.remove('no-transition');
 }
 
 
@@ -1469,6 +1475,10 @@ function loadProject(n) {
         loadProjectContent(n, function() {
             shroud.classList.add('out');
             projectHeadlines.classList.remove('out');
+            closeBlock.classList.remove('out');
+            setTimeout(function(){
+                closeBlock.classList.remove('delayed');
+            }, 1500);
             if (AUTOPLAY) {
                 toggleAudio();
             }

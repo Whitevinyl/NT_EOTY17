@@ -131,7 +131,7 @@ function init() {
 function getElements() {
     page = document.getElementById('page');
     project = document.getElementById('project');
-    ninja = document.getElementById('ninja-logo');
+    ninja = document.getElementById('ninja-logo-wrap');
     uiBlock = document.getElementById('ui-block');
     introBlock = document.getElementById('intro-block');
     year = document.getElementById('year');
