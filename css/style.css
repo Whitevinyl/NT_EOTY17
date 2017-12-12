@@ -562,7 +562,7 @@ UI
 }
 
 #playlist-icon::after {
-    content: attr(data-str);
+    content: 'Playlist \21D7';
     position: absolute;
     bottom: 0;
     left: 100%;
@@ -935,7 +935,7 @@ UI
     right: 33%;
     padding: 5px;
 
-
+    z-index: 40;
     opacity: 0;
     visibility: hidden;
 

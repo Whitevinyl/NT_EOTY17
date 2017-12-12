@@ -129,7 +129,7 @@ var data = {
                 src: 'tracks/04_Nathan_Fake_DEGREELESSNESS_feat__Prurient.mp3'
             },
             copy: {
-                intro: "Crafted in the wake of a crippling two year spell of writer&rsquo;s block during which he was unable to compose any music at all, &ldquo;Providence&rdquo; sees the high respected British producer collaborate with vocalists for the first time, joining forces with Prurient (aka Vatican Shadow / founder of Hospital Productions) who contributed the heavily distorted vocal to &rsquo;DEGREELESSNESS&rsquo; and Raphaelle Standell-Preston from Braids, who lends her voice to &lsquo;RVK&rsquo;.",
+                intro: "Crafted in the wake of a crippling two year spell of writer&rsquo;s block during which he was unable to compose any music at all, &ldquo;Providence&rdquo; sees the high respected British producer collaborate with vocalists for the first time, joining forces with Prurient (aka Vatican Shadow / founder of Hospital Productions) who contributed the heavily distorted vocal to &rsquo;DEGREELE&shy;SSNESS&rsquo; and Raphaelle Standell-Preston from Braids, who lends her voice to &lsquo;RVK&rsquo;.",
                 main: ""
             },
             quote: {
