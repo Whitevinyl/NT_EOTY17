@@ -14,6 +14,7 @@ var currentScene = 0;
 var lastScene = 0;
 var sceneTop = 0;
 var sceneTransition = true;
+var totalScenes = 0;
 
 var reveal = [];
 var projectRevealElements = [];
@@ -70,6 +71,8 @@ function setupInteraction() {
     $(muteButton).click(toggleMute);
     $(titleUnderline).click(viewProject);
     $(ninja).click(backToLaunch);
+    $(artistPrev).click(previousArtist);
+    $(artistNext).click(nextArtist);
 
     $('#explore').hover(function() {
         $(this).parent().addClass('hover');
@@ -85,6 +88,8 @@ function setupInteraction() {
     }
 
     pageScroll();
+
+    totalScenes = data.projects.length;
 }
 
 
@@ -162,6 +167,42 @@ function rolloverCheck() {
     var test = hitBox(0, 0, width, height);
 }
 
+
+function previousArtist() {
+    if (sceneTransition) {
+        var dest;
+        if (currentScene > 1) {
+            dest = txtScroll * (currentScene - 1) + (txtScroll / 2);
+            page.scroll({
+                top: dest,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            dest = txtScroll * (totalScenes) + (txtScroll / 2);
+            page.scrollTop = dest;
+            pageScroll();
+        }
+    }
+}
+
+function nextArtist() {
+    if (sceneTransition) {
+        var dest;
+        if (currentScene < totalScenes) {
+            dest = txtScroll * (currentScene + 1) + (txtScroll / 2);
+            page.scroll({
+                top: dest,
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            dest = txtScroll * 1.5;
+            page.scrollTop = dest;
+            pageScroll();
+        }
+    }
+}
 
 
 

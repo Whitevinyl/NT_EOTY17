@@ -84,6 +84,8 @@ var projectAudio;
 var projectAudioLabel;
 var titleHitbox;
 var muteButton;
+var artistPrev;
+var artistNext;
 
 var currentProject = 0;
 var currentProjectArtwork = 'img/packshots/compassion800.jpg';
@@ -159,6 +161,8 @@ function getElements() {
     titleUnderline = document.getElementById('title-underline-wrap');
     titleHitbox = document.getElementById('title-hitbox');
     muteButton = document.getElementById('mute-button');
+    artistPrev = document.getElementById('artists-prev');
+    artistNext = document.getElementById('artists-next');
 }
 
 
