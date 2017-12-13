@@ -11,7 +11,7 @@ var data = {
                 src: 'tracks/01_Bonobo_Kerala.mp3'
             },
             copy: {
-                intro: "Simon Green has come from humble beginnings as an eclectic DJ in Brighton, on the English south coast, to being one of the world's biggest electronic acts. On the Grammy nominated &ldquo;Migration&rdquo; he flies the flag for modernist music that can be both widely accessible and exploratory, that can reach arena-sized audiences yet still touch individuals deeply and specifically on emotional and intellectual levels.",
+                intro: "Simon Green has come from humble beginnings as an eclectic DJ in Brighton, on the English south coast, to being one of the world's biggest electronic acts. On the Grammy nominated <em>Migration</em> he flies the flag for modernist music that can be both widely accessible and exploratory, that can reach arena-sized audiences yet still touch individuals deeply and specifically on emotional and intellectual levels.",
                 main: "Amid the turmoil, he has provided a timely reminder that artistry, introspection and a gentle, personal touch still have value and power in a difficult world."
             },
             quote: {
@@ -59,7 +59,7 @@ var data = {
                 src: 'tracks/09_Thundercat_Show_You_The_Way__feat__Michael_McDonald___Kenny_Loggins_.mp3'
             },
             copy: {
-                intro: "&ldquo;Drunk&rdquo;, released on Brainfeeder, is a 23-track epic journey into the often hilarious, sometimes dark mind of the Grammy-winning singer/bassist and finds a few of his friends joining him along the way including: Kendrick Lamar, Pharrell, Michael McDonald, Kenny Loggins, Wiz Khalifa, Kamasi Washington and Brainfeeder mastermind Flying Lotus.",
+                intro: "<em>Drunk</em>, released on Brainfeeder, is a 23-track epic journey into the often hilarious, sometimes dark mind of the Grammy-winning singer/bassist and finds a few of his friends joining him along the way including: Kendrick Lamar, Pharrell, Michael McDonald, Kenny Loggins, Wiz Khalifa, Kamasi Washington and Brainfeeder mastermind Flying Lotus.",
                 main: ""
             },
             quote: {
@@ -129,7 +129,7 @@ var data = {
                 src: 'tracks/04_Nathan_Fake_DEGREELESSNESS_feat__Prurient.mp3'
             },
             copy: {
-                intro: "Crafted in the wake of a crippling two year spell of writer&rsquo;s block during which he was unable to compose any music at all, &ldquo;Providence&rdquo; sees the high respected British producer collaborate with vocalists for the first time, joining forces with Prurient (aka Vatican Shadow / founder of Hospital Productions) who contributed the heavily distorted vocal to &rsquo;DEGREELE&shy;SSNESS&rsquo; and Raphaelle Standell-Preston from Braids, who lends her voice to &lsquo;RVK&rsquo;.",
+                intro: "Crafted in the wake of a crippling two year spell of writer&rsquo;s block during which he was unable to compose any music at all, <em>Providence</em> sees the high respected British producer collaborate with vocalists for the first time, joining forces with Prurient (aka Vatican Shadow / founder of Hospital Productions) who contributed the heavily distorted vocal to &lsquo;DEGREELE&shy;SSNESS&rsquo; and Raphaelle Standell-Preston from Braids, who lends her voice to &lsquo;RVK&rsquo;.",
                 main: ""
             },
             quote: {
@@ -172,7 +172,7 @@ var data = {
                 main: "In making it, Martin decided to break from The Bug&rsquo;s obsessive study of groove, tone and texture, and think more cinematically."
             },
             quote: {
-                quote: "Two of the heaviest c*nts on the planet pit their wits on Concrete Desert, with Kevin Martin a.k.a. The Bug framing Dylan Carlson of Earth&rsquo;s deathly axe chops in a deeply strung out and apocalypse baiting clash of the titans. You can simply take it on trust that the whole thing is as heavy as your life.",
+                quote: "Two of the heaviest c*nts on the planet pit their wits on <i>Concrete Desert</i>, with Kevin Martin a.k.a. The Bug framing Dylan Carlson of Earth&rsquo;s deathly axe chops in a deeply strung out and apocalypse baiting clash of the titans. You can simply take it on trust that the whole thing is as heavy as your life.",
                 ref: 'Boomkat'
             }
         },
@@ -187,8 +187,8 @@ var data = {
                 src: 'tracks/06-Actress-X22RME-GBCFB1605606.mp3'
             },
             copy: {
-                intro: "2017 saw Actress return with a new music system called &ldquo;AZD&rdquo; (pronounced &ldquo;Azid&rdquo;) on Ninja Tune. The unique creation of a unique mind, the album is a chrome aspect journey into a parallel world.",
-                main: "He is an artist who has always preferred to make music rather than to talk about it and in &ldquo;AZD&rdquo; he has achieved another remarkable landmark, one that is as resistant to interpretation as it is demanding of it."
+                intro: "2017 saw Actress return with a new music system called <em>AZD</em> (pronounced &ldquo;Azid&rdquo;) on Ninja Tune. The unique creation of a unique mind, the album is a chrome aspect journey into a parallel world.",
+                main: "He is an artist who has always preferred to make music rather than to talk about it and in <i>AZD</i> he has achieved another remarkable landmark, one that is as resistant to interpretation as it is demanding of it."
             },
             quote: {
                 quote: "A brilliantly twisted, introverted take on dance music.",
@@ -227,11 +227,11 @@ var data = {
                 src: 'tracks/02_Forest_Swords_The_Highest_Flood.mp3'
             },
             copy: {
-                intro: "&ldquo;Compassion&rdquo; engages with an uncertain world we&rsquo;re experiencing, distilling it into a unique sound territory: Barnes' exploration of the mid-point between ecstasy and frustration, artificial and human feels timely and affecting.",
+                intro: "<em>Compassion</em> engages with an uncertain world we&rsquo;re experiencing, distilling it into a unique sound territory: Barnes' exploration of the mid-point between ecstasy and frustration, artificial and human feels timely and affecting.",
                 main: "The result is an assured, compelling body of work, tying together the ancient and future: weaving swathes of buzzing digital textures, field recordings, clattering beats and distorted jazz sax with fizzing orchestral arrangements."
             },
             quote: {
-                quote: "Compassion doesn't merely reflect the weeping and gnashing of teeth of our time - it does what it can to soothe and heal. The results are both sincere and sublime",
+                quote: "<i>Compassion</i> doesn't merely reflect the weeping and gnashing of teeth of our time - it does what it can to soothe and heal. The results are both sincere and sublime",
                 ref: 'Resident Advisor',
                 sub: '4.5/5'
             },
@@ -338,11 +338,11 @@ var data = {
                 src: 'tracks/01_Dauwd_Leitmotiv.mp3'
             },
             copy: {
-                intro: "An integral member of the Berlin collective, club night and radio show, African Acid Is The Future, Dauwd Al Hilali has spent the last few years out of the limelight and in his Berlin studio, pulling inspiration from electronic music legends like Terry Riley, Raymond Scott, and the seminal Radiophonic Workshop period in the late 50&rsquo;s and 60&rsquo;s to create his triumphant debut album &ldquo;Theory of Colours&rdquo;.",
+                intro: "An integral member of the Berlin collective, club night and radio show, African Acid Is The Future, Dauwd Al Hilali has spent the last few years out of the limelight and in his Berlin studio, pulling inspiration from electronic music legends like Terry Riley, Raymond Scott, and the seminal Radiophonic Workshop period in the late 50&rsquo;s and 60&rsquo;s to create his triumphant debut album <em>Theory</em> <em>of</em> <em>Colours</em>.",
                 main: ""
             },
             quote: {
-                quote: "Theory Of Colours&rsquo; is all about detailed, expertly produced and seriously understated grooves, with layers of electronica, ambient and jazz-flecked house peeling off after each track",
+                quote: "<i>Theory Of Colours</i> is all about detailed, expertly produced and seriously understated grooves, with layers of electronica, ambient and jazz-flecked house peeling off after each track",
                 ref: 'DJ MAG'
             }
         },
@@ -418,8 +418,8 @@ var data = {
                 src: 'tracks/09_Lapalux_Flickering_feat_JFDR.mp3'
             },
             copy: {
-                intro: "Lapalux released his third album &ldquo;Ruinism&rdquo; - a journey of bleak primitivism and reclaimed beauty - via Brainfeeder in June 2017.",
-                main: "&ldquo;&lsquo;Ruinism&rsquo; is a made-up term I use to describe the way in which blended sound palettes and inspirations interact with one another to form this album,&rdquo; he explains. &ldquo;I would record synths and drum hits and re-sample, re-pitch, twist and blend the sound until it was &lsquo;ruined&rsquo; and then salvage it again in an attempt to make something coherent.&rdquo;"
+                intro: "Lapalux released his third album <em>Ruinism</em> - a journey of bleak primitivism and reclaimed beauty - via Brainfeeder in June 2017.",
+                main: "&ldquo;<i>Ruinism</i> is a made-up term I use to describe the way in which blended sound palettes and inspirations interact with one another to form this album,&rdquo; he explains. &ldquo;I would record synths and drum hits and re-sample, re-pitch, twist and blend the sound until it was &lsquo;ruined&rsquo; and then salvage it again in an attempt to make something coherent.&rdquo;"
             },
             quote: {
                 quote: "The most gorgeous instalment in Howard&rsquo;s gorgeous back catalogue&hellip; sampling and re-sampling his recordings, shifting their pitch and contorting them, he&rsquo;s fashioned a collection that is at turns brutal and reassuring, discordant and harmonious.",
@@ -465,8 +465,8 @@ var data = {
                 src: 'tracks/01_Jameszoo_Flake.mp3'
             },
             copy: {
-                intro: "As his debut album for Brainfeeder - &ldquo;Fool&rdquo; - reached fruition, Mitchel van Dinther and his friend Niels Broos set up a little studio crammed with dirty dishes in the Dutch town Sint-Michielsgestel to finish &ldquo;Fool&rdquo; material.",
-                main: "They also found time to goof around - planting the seeds for the &ldquo;Flake EP&rdquo;. &ldquo;I&rsquo;m not sure if Comedy Funk will ever become a &lsquo;thing&rsquo;,&rdquo; laughs Mitchel. &ldquo;But anyhow here is new material and two remixes by Jameszoo Quartet members Niels Broos and Frans Petter.&rdquo;"
+                intro: "As his debut album for Brainfeeder - <em>Fool</em> - reached fruition, Mitchel van Dinther and his friend Niels Broos set up a little studio crammed with dirty dishes in the Dutch town Sint-Michielsgestel to finish <em>Fool</em> material.",
+                main: "They also found time to goof around - planting the seeds for the <i>Flake EP</i>. &ldquo;I&rsquo;m not sure if Comedy Funk will ever become a &lsquo;thing&rsquo;,&rdquo; laughs Mitchel. &ldquo;But anyhow here is new material and two remixes by Jameszoo Quartet members Niels Broos and Frans Petter.&rdquo;"
             },
             quote: {
                 quote: "Meshing together those synthetic free-jazz associations with big swaggerous drums ensures that the lad still sounds like no one else going",
@@ -504,7 +504,7 @@ var data = {
                 src: 'tracks/03_WEN_BLIPS.mp3'
             },
             copy: {
-                intro: "WEN (Tectonic, Keysound, Soundman Chronicles) made his debut on Big Dada with his EP &quot;CARVE + GAZE&quot;, a seamless, detailed masterwork that listens like an allegory, each track a symbol and component hinting at something larger, albeit hidden, for listeners to uncover on their own.",
+                intro: "WEN (Tectonic, Keysound, Soundman Chronicles) made his debut on Big Dada with his EP <em>CARVE</em> <em>+</em> <em>GAZE</em>, a seamless, detailed masterwork that listens like an allegory, each track a symbol and component hinting at something larger, albeit hidden, for listeners to uncover on their own.",
                 main: ""
             },
             quote: {
@@ -543,7 +543,7 @@ var data = {
             },
             copy: {
                 intro: "Last year, Hieroglyphic Being (producer of astral electronic explorations touching house, techno, industrial, avant-jazz and noise); percussionist and producer Sarathy Korwar (who fused traditional folk music of the Sidi community in India with jazz and electronics on his debut album &ldquo;Day To Day&rdquo;); and Shabaka Hutchings (the highly respected British saxophonist and co-founder of Sons Of Kemet, The Comet Is Coming and Shabaka &amp; The Ancestors) - recorded a 100% live improvised session at the iconic Lightship95 studio moored at Trinity Buoy Wharf, London.",
-                main: "The EP, titled &quot;A.R.E. Project&rdquo; (abbreviated from &quot;Association For Research &amp; Enlightenment Project&rdquo;) comprises 4 edits from the session. "
+                main: "The EP, titled <i>A.R.E. Project</i> (abbreviated from &quot;Association For Research &amp; Enlightenment Project&rdquo;) comprises 4 edits from the session. "
             },
             quote: {
                 quote: "The three musicians integrate elements of spiritual jazz, indian classical and acid into a blissed out cosmic flow.",
@@ -619,7 +619,7 @@ var data = {
                 main: "They are both no longer involved, and any Hype Williams releases you&rsquo;ve since heard are FAKE. Bare Paigons. Like Cappadonna making his own Wu."
             },
             quote: {
-                quote: "Rainbow Edition glimmers with all the uneasy, floating ambience of their earlier work, cut with spoken word and a surreal interpolation of Scotland the Brave&hellip; With celestial choral waves, glitchy hip-hop confidence and prismatic swaths of synth.",
+                quote: "<i>Rainbow Edition</i> glimmers with all the uneasy, floating ambience of their earlier work, cut with spoken word and a surreal interpolation of Scotland the Brave&hellip; With celestial choral waves, glitchy hip-hop confidence and prismatic swaths of synth.",
                 ref: 'The Observer'
             }
         },
@@ -673,7 +673,7 @@ var data = {
             },
             copy: {
                 intro: "The Belfast-born, London-based duo of Matt McBriar and Andy Ferguson aka Bicep released their self-titled debut album on Ninja Tune - a record that truly encapsulates their history and the distillation of their passion for music and club culture since their first release in 2010.",
-                main: "The duo have pulled off the rarest of feats, to make a singularly unique electronic record founded on the blueprint of classic house, techno, electro and Italo disco, but flipped and morphed into a fresh design bearing the unique Bicep sonic signature. "
+                main: "The duo have pulled off the rarest of feats, to make a singularly unique electronic record founded on the blueprint of classic house, techno, electro and Italo disco, but flipped and morphed into a fresh design bearing the unique Bicep sonic signature."
             },
             quote: {
                 quote: "Known for exquisite live sets that revive forgotten strains of house, garage, ambient and disco without an ounce of predictability, they're leading a new wave of eclectic electronic music that prizes curatorial taste above all else.",
@@ -751,7 +751,7 @@ var data = {
             },
             copy: {
                 intro: "ODESZA (Harrison Mills &amp; Clayton Knight) are one of the most celebrated groups in electronic music, winning over fans online and at their consistently sold-out live shows.",
-                main: "The Grammy nominated &quot;A Moment Apart&quot; represents ODESZA&rsquo;s growth, delivering a more mature sound through weighted atmospheres, shimmering synth lines and familiar feelings of nostalgia, optimism and hope. The album's featured guests include Leon Bridges, Regina Spektor, and RY X, creating an eclectic mix that showcases ODESZA's dynamic range."
+                main: "The Grammy nominated <i>A Moment Apart</i> represents ODESZA&rsquo;s growth, delivering a more mature sound through weighted atmospheres, shimmering synth lines and familiar feelings of nostalgia, optimism and hope. The album's featured guests include Leon Bridges, Regina Spektor, and RY X, creating an eclectic mix that showcases ODESZA's dynamic range."
             },
             quote: {
                 quote: "An emotional journey of epic proportions exploring humanity's intimate moments expressed through glorious chords and layers of textured beats.",
@@ -788,7 +788,7 @@ var data = {
                 src: 'tracks/01_Zomby_GASP_.mp3'
             },
             copy: {
-                intro: "ZOMBY&rsquo;s ability to effortlessly shift aesthetics across his career has firmly stationed him as a producer that can&rsquo;t be boxed, and &ldquo;GASP!&quot; sees him altering his often jungle-driven sound yet again, furthering him as a sonic chameleon among an ever-increasing landscape of musical similitude.",
+                intro: "ZOMBY&rsquo;s ability to effortlessly shift aesthetics across his career has firmly stationed him as a producer that can&rsquo;t be boxed, and <em>GASP!</em> sees him altering his often jungle-driven sound yet again, furthering him as a sonic chameleon among an ever-increasing landscape of musical similitude.",
                 main: "The compact, 3-track EP is a relentless, hardware-driven behemoth of beats and breaks that fit somewhere between a chugging steel factory and a darkened dancefloor."
             },
             quote: {
@@ -807,8 +807,8 @@ var data = {
                 src: 'tracks/10_Jordan_Rakei_Hiding_Place-2.mp3'
             },
             copy: {
-                intro: "&ldquo;Wallflower&rdquo; sees Jordan edging beyond the peripheries of the genial, often sun-flecked sound his fans have come to know him for.",
-                main: "On &ldquo;Wallflower&rdquo; the tools and the process have evolved - the focus is on live instrumentation - but the groove and the cadence are unmistakable, framing soul and jazz in a truly vibrant oeuvre that simultaneously recalls his predecessors The Roots and peers The Internet, Nick Hakim and Hiatus Kaiyote."
+                intro: "<em>Wallflower</em> sees Jordan edging beyond the peripheries of the genial, often sun-flecked sound his fans have come to know him for.",
+                main: "On <i>Wallflower</i> the tools and the process have evolved - the focus is on live instrumentation - but the groove and the cadence are unmistakable, framing soul and jazz in a truly vibrant oeuvre that simultaneously recalls his predecessors The Roots and peers The Internet, Nick Hakim and Hiatus Kaiyote."
             },
             quote: {
                 quote: "A genre mashing mix of electronic wizardry and jazzy time signatures lent weight by Rakei&rsquo;s reflective lyrics and enigmatic croon.",
@@ -878,7 +878,7 @@ var data = {
                 src: 'tracks/03_Iglooghost_Bug_Thief.mp3'
             },
             copy: {
-                intro: "Brainfeeder&rsquo;s boy genius released his debut album in September 2017. &ldquo;Neo Wax Bloom&rdquo; follows the events surrounding two giant eyeballs crashing into the mysterious world of Mamu.",
+                intro: "Brainfeeder&rsquo;s boy genius released his debut album in September 2017. <em class='kern'>Neo</em> <em>Wax</em> <em>Bloom</em> follows the events surrounding two giant eyeballs crashing into the mysterious world of Mamu.",
                 main: "Across its 11 tracks, Iglooghost builds a typically intense, hysterical, borderline batshit crazy soundtrack, introducing new characters to his fantastical world and inviting back old friends Mr. Yote and Cuushe for the ride."
             },
             quote: {
@@ -897,7 +897,7 @@ var data = {
                 src: 'tracks/02_ABRA_Roses.mp3'
             },
             copy: {
-                intro: "Initially released digitally via Awful Records in June 2015, Ninja Tune saw fit to release a limited edition vinyl LP of &ldquo;Rose&rdquo; - the devastating and infectious alt R&amp;B album by Atlanta based singer, songwriter and producer ABRA - in October 2017.",
+                intro: "Initially released digitally via Awful Records in June 2015, Ninja Tune saw fit to release a limited edition vinyl LP of <em>Rose</em> - the devastating and infectious alt R&amp;B album by Atlanta based singer, songwriter and producer ABRA - in October 2017.",
                 main: ""
             },
             quote: {
@@ -962,8 +962,8 @@ var data = {
                 src: 'tracks/05_Visionist_Your_Approval_ft__Rolynne.mp3'
             },
             copy: {
-                intro: "Visionist&rsquo;s debut album &ldquo;Safe&rdquo; detailed visceral soundscapes to encapsulate the experiential onslaught of an anxiety attack, and the artist&rsquo;s desire to simultaneously construct and defeat notions of safety.",
-                main: "&ldquo;Value&rdquo; follows this trajectory of strength and vulnerability by examining broader themes of machismo and effeminacy, self-deprecation and self-love, and self-preservation and validation."
+                intro: "Visionist&rsquo;s debut album <em>Safe</em> detailed visceral soundscapes to encapsulate the experiential onslaught of an anxiety attack, and the artist&rsquo;s desire to simultaneously construct and defeat notions of safety.",
+                main: "<i>Value</i> follows this trajectory of strength and vulnerability by examining broader themes of machismo and effeminacy, self-deprecation and self-love, and self-preservation and validation."
             },
             quote: {
                 quote: "Heart-pounding chaos to a different type of palette&hellip; mutating noise sounds like it's holding space in a room, synths and vocal noises create synthetic tapestries.",
@@ -1024,7 +1024,7 @@ var data = {
                 src: 'tracks/04_Helena_Hauff_Gift.mp3'
             },
             copy: {
-                intro: "&ldquo;Have You Been There, Have You Seen It&rdquo; - on Ninja Tune - finds Helena in breathtaking form, lining up four lithe, muscular and overtly shadowy analogue excursions improvised and recorded in her studio in Hamburg.",
+                intro: "<em>Have</em> <em>You</em> <em>Been</em> <em>There,</em> <em>Have</em> <em>You</em> <em>Seen</em> <em>It</em> - on Ninja Tune - finds Helena in breathtaking form, lining up four lithe, muscular and overtly shadowy analogue excursions improvised and recorded in her studio in Hamburg.",
                 main: ""
             },
             quote: {
@@ -1055,7 +1055,7 @@ var data = {
                 src: 'tracks/05_Lord_4424.mp3'
             },
             copy: {
-                intro: "Taken from their forthcoming 2018 album, Young Fathers shared new single &ldquo;Lord&rdquo; this October. Earlier this year Young Fathers released a re-issue of debut &lsquo;mixtapes&rsquo; &quot;TAPE ONE&quot; and sequel &quot;TAPE TWO&quot; giving us a chance to reappraise two albums that sat firmly outside the mainstream in 2011/12.",
+                intro: "Taken from their forthcoming 2018 album, Young Fathers shared new single &lsquo;Lord&rsquo; this October. Earlier this year Young Fathers released a re-issue of debut &lsquo;mixtapes&rsquo; <em>TAPE</em> <em>ONE</em> and sequel <em>TAPE</em> <em>TWO</em> giving us a chance to reappraise two albums that sat firmly outside the mainstream in 2011/12.",
                 main: "They also shared single &lsquo;Only God knows&rsquo; in Jan which featured the Leith Congregational Choir which had a total of 6 tracks featured in the official T2 Trainspotting Soundtrack."
             },
             quote: {
@@ -1130,7 +1130,7 @@ var data = {
                 src: 'tracks/04_EERA_I_Wanna_Dance.mp3'
             },
             copy: {
-                intro: "EERA is the moniker of the Norwegian-born, London-based musician Anna Lena Bruland. &quot;Reflection Of Youth&quot; is an album of visceral beauty and blistering honesty. It is a brave, candid and uncompromising record about finding purpose from confusion and strength in your weaknesses.",
+                intro: "EERA is the moniker of the Norwegian-born, London-based musician Anna Lena Bruland. <em>Reflection</em> <em>Of</em> <em>Youth</em> is an album of visceral beauty and blistering honesty. It is a brave, candid and uncompromising record about finding purpose from confusion and strength in your weaknesses.",
                 main: "It&rsquo;s about learning how to work through your problems and take charge of your own life, instead of relying on others to do it for you. Its ten songs were largely composed in the small hours of the night and are arguably best experienced in that context, when soul-searching and introspection come naturally."
             },
             quote: {
@@ -1172,7 +1172,7 @@ var data = {
                 src: 'tracks/04_Romare_Come_Close_To_Me__Live_Session_2_.mp3'
             },
             copy: {
-                intro: "Stripping back and re-imagining tracks from his album &ldquo;Love Songs: Part 2&quot;, Romare showcases a suite of brand new versions mixed live and recorded in one take using only instruments from his live set-up, samples from the original recordings and occasionally with live bass guitar from his brother.",
+                intro: "Stripping back and re-imagining tracks from his album <em>Love</em> <em>Songs:</em> <em>Part</em> <em>2</em>, Romare showcases a suite of brand new versions mixed live and recorded in one take using only instruments from his live set-up, samples from the original recordings and occasionally with live bass guitar from his brother.",
                 main: ""
             },
             quote: {
@@ -1219,7 +1219,7 @@ var data = {
                 src: 'tracks/02_Nabihah_Iqbal_Something_More.mp3'
             },
             copy: {
-                intro: "Formerly known as Throwing Shade, &lsquo;Weighing of the Heart&rsquo; is a big statement in two ways: first, because Nabihah is taking her real name to stand proudly as a female British Asian artist making music and, secondly, because she has moved her music in a bolder, more expansive direction.",
+                intro: "Formerly known as Throwing Shade, <em>Weighing</em> <em>of</em> <em>the</em> <em>Heart</em> is a big statement in two ways: first, because Nabihah is taking her real name to stand proudly as a female British Asian artist making music and, secondly, because she has moved her music in a bolder, more expansive direction.",
                 main: "The title alludes to ancient Egyptian beliefs about the judgment of someone who has passed away &ndash; upon death, one's heart would be weighed against a feather to determine whether it was in balance with the universe, and only then could a person proceed into the afterlife."
             },
             quote: {
@@ -1261,13 +1261,13 @@ var data = {
                 src: 'tracks/01_Machinedrum_U_Betta.mp3'
             },
             copy: {
-                intro: "In the wake of his landmark album &ldquo;Human Energy&rdquo; (2016), Travis Stewart aka Machinedrum hasn&rsquo;t let up the pace in 2017, releasing a string of singles featuring Rosie Lowe on 'What Is This' and Roses Gabor on '1 2 B Needed'.",
+                intro: "In the wake of his landmark album <em>Human</em> <em>Energy</em> (2016), Travis Stewart aka Machinedrum hasn&rsquo;t let up the pace in 2017, releasing a string of singles featuring Rosie Lowe on &lsquo;What Is This&rsquo; and Roses Gabor on &lsquo;1 2 B Needed&rsquo;.",
                 main: ""
             },
             quote: {
                 quote: "Continuing his reign as the underground&rsquo;s most consistent and chameleonic music maker.",
                 ref: 'XLR8R',
-                sub: "On 'What Is This'"
+                sub: "On &lsquo;What Is This&rsquo;"
             }
         }
     ]

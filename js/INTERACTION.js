@@ -444,6 +444,7 @@ function projectScroll() {
 function projectAnim(pos) {
 
     var pastHeader = pos > 200;
+    if (device==='mobile') pastHeader = pos > 100;
     var pastIntro = projectCopy.getBoundingClientRect().top <= (window.innerHeight * 0.65);
 
     if (pastHeader) {

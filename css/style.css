@@ -182,6 +182,20 @@ h3 {
     height: 50%;
 }
 
+em {
+    /*font-style: oblique;*/
+    font-style: inherit;
+    display: inline-block;
+    transform-origin: 0 100%;
+    -ms-transform: skewX(-8deg) translateX(-0.07em);
+    -webkit-transform: skewX(-8deg) translateX(-0.07em);
+    transform: skewX(-8deg) translateX(-0.07em);
+    /*padding-right: 0.03em;*/
+}
+
+.kern {
+    margin-right: -0.1em;
+}
 
 /*
 ------------------------------------------
@@ -2750,7 +2764,7 @@ background-color: #e81139;*/
         top: 5%;
     }
     #project-packshot {
-        height: 50vh;
+        height: 35vh;
     }
     #explore-group {
         height: 17%;
